@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jQuery on twoheart&#39;s blog</title>
+    <link>twoheartliu.github.io/tags/jquery/</link>
+    <description>Recent content in jQuery on twoheart&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Thu, 16 Jan 2020 15:29:27 +0000</lastBuildDate>
+    
+	<atom:link href="twoheartliu.github.io/tags/jquery/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>jQuery 设计思想与功能</title>
+      <link>twoheartliu.github.io/posts/2020-01-16-jquery-%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>Thu, 16 Jan 2020 15:29:27 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2020-01-16-jquery-%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E5%8A%9F%E8%83%BD/</guid>
+      <description>到目前为止 jQuery 依然是全球范围内最长寿使用最广泛的 JavaScript 库，学习 React 、Vue 之前仍必须学习 jQuery，通过 jQuery 可以学习它的设计模式，封装技巧。
+设计思路 jQuery 的主要设计思路就是选择网页元素并进行某种操作。
+选择网页元素 使用 jQuery 的第一步就是将选择表达式放入jQuery() 或 $()中，获取到对应的 DOM 元素。选择表达式可以是 CSS 选择器也可以是 jQuery 特有的表达式。
+jQuery(&amp;#39;body&amp;#39;) $(&amp;#39;#test&amp;#39;) $(&amp;#39;.red&amp;#39;) 筛选网页元素（改变结果集） jQuery 提供强大的过滤器，筛选出想要的结果。
+$(&amp;#39;div&amp;#39;).next(&amp;#39;p&amp;#39;); //选择div元素后面的第一个p元素 $(&amp;#39;div&amp;#39;).parent(); //选择div元素的父元素 $(&amp;#39;div&amp;#39;).closest(&amp;#39;form&amp;#39;); //选择离div最近的那个form父元素 $(&amp;#39;div&amp;#39;).children(); //选择div的所有子元素 $(&amp;#39;div&amp;#39;).siblings(); //选择div的同级元素 链式操作 jQuery 选中元素之后可以进行一系列操作，操作可以像链条一样链接在一起，这也是 jQuery 最令人称道最方便的设计思想。 $(&#39;div&#39;).find(&#39;h3&#39;).eq(2).html(&#39;Hello&#39;); 可以分解为：
+$(&amp;#39;div&amp;#39;) //找到div元素 .find(&amp;#39;h3&amp;#39;) //选择其中的h3元素 .eq(2) //选择第3个h3元素 .html(&amp;#39;Hello&amp;#39;); //将它的内容改为Hello 原因在于，jQuery 的每一步操作都将返回 一个 jQuery 对象。
+另外 jQuery 还提供 end() 方法，可以使结果集操作后退一步。
+$(&amp;#39;div&amp;#39;) .find(&amp;#39;h3&amp;#39;) .eq(2) .</description>
+    </item>
+    
+  </channel>
+</rss>

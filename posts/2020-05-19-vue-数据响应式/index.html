@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+
+    <meta name="author" content="twoheart liu">
+    <meta name="description" content="在学习 Vue options 的进阶属性之前，我们需要深入学习 options 的 data 属性 主要原理在 Vue 文档的「深入响应式原理」一节
+Vue 对 data 做了什么操作 示例代码 在 Vue 对 data 进行操作前，data 是普通的 obj，而在操作后 obj 是形如 {ob: Observer} 的东西，而且 n: (&hellip;) 同时数据显示正常。要理解这一操作，我们需要如下前置知识。
+前置知识一：getter/setter ES 6 新特性列表 get 语法将对象属性绑定到查询该属性时将被调用的函数。 简单地说，当 obj 中的函数属性前带有 get 时，可以像调用方法一样调用函数，不用加括号就能进行调用。
+let obj0 = { firstName: &#39;twoheart&#39;, lastName: &#39;liu&#39;, name() { return this.firstName &#43; this.lastName }, age: 18 } console.log(`my name is ${obj0.name()}`) let obj1 = { firstName: &#39;twoheart&#39;, lastName: &#39;liu&#39;, get name() { return this.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue 数据响应式"/>
+<meta name="twitter:description" content="在学习 Vue options 的进阶属性之前，我们需要深入学习 options 的 data 属性 主要原理在 Vue 文档的「深入响应式原理」一节
+Vue 对 data 做了什么操作 示例代码 在 Vue 对 data 进行操作前，data 是普通的 obj，而在操作后 obj 是形如 {ob: Observer} 的东西，而且 n: (&hellip;) 同时数据显示正常。要理解这一操作，我们需要如下前置知识。
+前置知识一：getter/setter ES 6 新特性列表 get 语法将对象属性绑定到查询该属性时将被调用的函数。 简单地说，当 obj 中的函数属性前带有 get 时，可以像调用方法一样调用函数，不用加括号就能进行调用。
+let obj0 = { firstName: &#39;twoheart&#39;, lastName: &#39;liu&#39;, name() { return this.firstName &#43; this.lastName }, age: 18 } console.log(`my name is ${obj0.name()}`) let obj1 = { firstName: &#39;twoheart&#39;, lastName: &#39;liu&#39;, get name() { return this."/>
+
+    <meta property="og:title" content="Vue 数据响应式" />
+<meta property="og:description" content="在学习 Vue options 的进阶属性之前，我们需要深入学习 options 的 data 属性 主要原理在 Vue 文档的「深入响应式原理」一节
+Vue 对 data 做了什么操作 示例代码 在 Vue 对 data 进行操作前，data 是普通的 obj，而在操作后 obj 是形如 {ob: Observer} 的东西，而且 n: (&hellip;) 同时数据显示正常。要理解这一操作，我们需要如下前置知识。
+前置知识一：getter/setter ES 6 新特性列表 get 语法将对象属性绑定到查询该属性时将被调用的函数。 简单地说，当 obj 中的函数属性前带有 get 时，可以像调用方法一样调用函数，不用加括号就能进行调用。
+let obj0 = { firstName: &#39;twoheart&#39;, lastName: &#39;liu&#39;, name() { return this.firstName &#43; this.lastName }, age: 18 } console.log(`my name is ${obj0.name()}`) let obj1 = { firstName: &#39;twoheart&#39;, lastName: &#39;liu&#39;, get name() { return this." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="twoheartliu.github.io/posts/2020-05-19-vue-%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" />
+<meta property="article:published_time" content="2020-05-19T11:26:33+00:00" />
+<meta property="article:modified_time" content="2020-05-19T11:26:33+00:00" />
+
+
+    
+      <base href="twoheartliu.github.io/posts/2020-05-19-vue-%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/">
+    
+    <title>
+  Vue 数据响应式 · twoheart&#39;s blog
+</title>
+
+    
+      <link rel="canonical" href="twoheartliu.github.io/posts/2020-05-19-vue-%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="twoheartliu.github.io/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.71.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="twoheartliu.github.io/">
+      twoheart&#39;s blog
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Vue 数据响应式</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-05-19T11:26:33Z'>
+                May 19, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              4 分钟阅读时间
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <p><img src="https://i.loli.net/2020/05/19/7xQwmlKTUvtG84d.png" alt="Vue 内存图">
+在学习 Vue options 的进阶属性之前，我们需要深入学习 options 的 data 属性
+主要原理在 Vue 文档的「<a href="https://cn.vuejs.org/v2/guide/reactivity.html#ad">深入响应式原理</a>」一节</p>
+<!-- raw HTML omitted -->
+<h3 id="vue-对-data-做了什么操作">Vue 对 data 做了什么操作</h3>
+<p><a href="https://codesandbox.io/s/cranky-wind-h8bi0?file=/src/main.js">示例代码</a>
+在 Vue 对 data 进行操作前，data 是普通的 obj，而在操作后 obj 是形如 {<strong>ob</strong>: Observer} 的东西，而且 n: (&hellip;) 同时数据显示正常。要理解这一操作，我们需要如下前置知识。</p>
+<h3 id="前置知识一gettersetter">前置知识一：getter/setter</h3>
+<p><a href="https://fangyinghang.com/es-6-tutorials/">ES 6 新特性列表</a>
+get 语法将对象属性绑定到查询该属性时将被调用的函数。
+简单地说，当 obj 中的函数属性前带有 get 时，可以像调用方法一样调用函数，不用加括号就能进行调用。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">let obj0 = {
+  firstName: &#39;twoheart&#39;,
+  lastName: &#39;liu&#39;,
+  name() {
+    return this.firstName + this.lastName
+  },
+  age: 18
+}
+console.log(`my name is ${obj0.name()}`)
+
+let obj1 = {
+  firstName: &#39;twoheart&#39;,
+  lastName: &#39;liu&#39;,
+  get name() {
+    return this.firstName + this.lastName
+  },
+  age: 18
+}
+console.log(`my name is ${obj1.name}`)
+</code></pre></div><p>当使用 get 关键字时，属性将被定义在实例的原型上，当使用 Object.defineProperty()时，属性将被定义在实例自身上。</p>
+<p>当尝试设置属性时，set 语法将对象属性绑定到要调用的函数。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">let obj2 = {
+  firstName: &#39;twoheart&#39;,
+  lastName: &#39;liu&#39;,
+  get name() {
+    return this.firstName + this.lastName;
+  },
+  set name(str) {
+    this.firstName = str.firstName;
+    this.lastName = str.lastName;
+  },
+  age: 18,
+};
+
+obj2.name = {
+  firstName: &#39;德华&#39;,
+  lastName: &#39;刘&#39;,
+};
+console.log(`my name is ${obj2.name}`);
+console.log(obj2);
+</code></pre></div><p>使用 = 触发 set，对原函数进行操作
+<img src="https://i.loli.net/2020/05/19/lGgqVfnwpI4yY7M.png" alt="WX20200519-175654">
+我们打印出通过 setter 操作过后的 obj2 是形如上图的内容。浏览器用这种方式模拟了一个 name，并通过 getter 和 setter 进行操作。
+与 Vue 中处理后的 data 格式很类似，说明 Vue 也是用了 getter setter 方法进行操作的。</p>
+<h3 id="前置知识二objectdefineproperty">前置知识二：Object.defineProperty()</h3>
+<p>在使用 getter setter 时，会注意到我们似乎只能在 obj 定义时规定好 getter 和 setter，如果想要在 obj 创建好之后再进行类似的 getter setter 操作呢，那就需要使用 Object.defineProperty() 方法了。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">let obj3 = {
+  firstName: &#39;twoheart&#39;,
+  lastName: &#39;liu&#39;,
+  get name() {
+    return this.firstName + this.lastName;
+  },
+  set name(str) {
+    this.firstName = str.firstName;
+    this.lastName = str.lastName;
+  },
+  age: 18,
+};
+
+obj3.name = {
+  firstName: &#39;德华&#39;,
+  lastName: &#39;刘&#39;,
+};
+
+var __xxx = 0;
+Object.defineProperty(obj3, &#39;xxx&#39;, {
+  get() {
+    return _xxx;
+  },
+  set(value) {
+    __xxx = value;
+  },
+});
+
+console.log(obj3);
+</code></pre></div><p><img src="https://i.loli.net/2020/05/19/GXoLfR7hrjwUiVT.png" alt="WX20200519-184615"></p>
+<h3 id="前置知识三proxy">前置知识三：Proxy</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// 需求1：用 Object.defineProperty 定义 n
+
+let data1 = {};
+Object.defineProperty(data1, &#39;n&#39;, {
+  value: 0
+})
+console.log(`需求1：${data1.n}`);
+//需求1：0
+
+// 需求2：n 不能小于 0
+// 如果 data2.n = -1 则无效，data2.n = 1 有效
+let data2 = {};
+data2._n = 0;
+Object.defineProperty(data2, &#39;n&#39;, {
+  get() {
+    return this._n;
+  },
+  set(value) {
+    if (value &lt; 0) return;
+    this._n = value;
+  },
+});
+
+console.log(`默认 n 为 ${data2.n}`);
+data2.n = -1;
+console.log(`当设置 n 为 -1 时， n 为 ${data2.n}`);
+data2.n = 1;
+console.log(`当设置 n 为 1 时， n 为 ${data2.n}`);
+/*
+默认 n 为 0
+当设置 n 为 -1 时， n 为 0
+当设置 n 为 1 时， n 为 1
+*/
+
+</code></pre></div><p>暂时的结论：Object.defineProperty 不仅可以在 obj 定义后设置 property，而且可以设置筛选条件。</p>
+<p>缺点：如果有人使用中间值 _n 进行操作，则无法进行判断。
+那么我们使用 Proxy。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">//需求三：使用代理
+let data3 = proxy({ data: { n: 0 } });
+
+function proxy({ data }) {
+  const obj = {};
+  // 应该遍历 data，对每一个 key 做 Object.defineProperty
+  // 这里做了简化
+  Object.defineProperty(obj, &#39;n&#39;, {
+    get() {
+      return data.n;
+    },
+    set(value) {
+      if (value &lt; 0) return;
+      data.n = value;
+    },
+  });
+  return obj;
+}
+
+console.log(`data3 的 n 默认值为 ${data3.n}`);
+data3.n = -1;
+console.log(`当 data3.n 设置为 -1, 值为 ${data3.n}`);
+data3.n = 1;
+console.log(`当 data3.n 设置为 1, 值为 ${data3.n}`);
+</code></pre></div><p>依然有漏洞：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">let myData = {n: 0};
+let data4 = proxy({data: myData});
+
+console.log(`data4 的 n 默认值为 ${data4.n}`);
+// 绕过代理，直接设置 myData
+myData.n = -1;
+console.log(`当使用 myData.n 设置为 -1, 值为 ${data4.n}`);
+
+/*
+data4 的 n 默认值为 0
+当使用 myData.n 设置为 -1, 值为 -1
+*/
+</code></pre></div><p>我们需要当用户即使绕过 proxy 依然可以监听到:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">let myData5 = { n: 0 };
+let data5 = proxy2({ data: myData5 });
+
+function proxy2({ data }) {
+  let value = data.n;
+  Object.defineProperty(data, &#39;n&#39;, {
+    get() {
+      return value;
+    },
+    set(newValue) {
+      if (newValue &lt; 0) return;
+      value = newValue;
+    },
+  });
+
+  const obj = {};
+  Object.defineProperty(obj, &#39;n&#39;, {
+    get() {
+      return data.n;
+    },
+    set(value) {
+      data.n = value;
+    },
+  });
+  return obj;
+}
+
+console.log(`需求五：${data5.n}`);
+myData5.n = -1;
+console.log(`需求五：${data5.n}，设置为 -1 失败了`);
+myData5.n = 1;
+console.log(`需求五：${data5.n}，设置为 1 成功了`);
+
+</code></pre></div><p>这代码看着眼熟吗？</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">let data5 = proxy2({ data:myData5 })
+let vm = new Vue({data: myData})
+</code></pre></div><h3 id="小结">小结</h3>
+<ul>
+<li>
+<p>Object.defineProperty</p>
+<ul>
+<li>可以给对象添加属性 value</li>
+<li>可以给对象添加 getter / setter</li>
+<li>getter / setter 可用于对属性的读写进行监控</li>
+</ul>
+</li>
+<li>
+<p>什么是代理（设计模式）</p>
+<ul>
+<li>对 myData 对象的属性读写，全权由另一个对象 vm 负责</li>
+<li>那么 vm 就是 myData 的代理</li>
+<li>比如不使用 myData.n 而是使用 vm.n 来操作 myData.n</li>
+</ul>
+</li>
+<li>
+<p>vm = new Vue({data: myData})</p>
+<ul>
+<li>会让 vm 成为 myData 的代理（proxy）</li>
+<li>会对 myData 的所有属性进行监控</li>
+<li>为了防止 myData 的值发生变化之后 vm 不知情</li>
+<li>vm 知道之后通过重新调用 render 使页面发生变化，保持数据一致。</li>
+<li>UI = render(data)</li>
+</ul>
+</li>
+</ul>
+<p>示意图：<br>
+<img src="https://i.loli.net/2020/05/20/ZcOgwAHKYN5e61v.png" alt="WX20200520-153801"></p>
+<h3 id="使用-objectdefineproperty-的-bug">使用 Object.defineProperty 的 bug</h3>
+<p>使用 Object.defineProperty(obj, &lsquo;n&rsquo;, {&hellip;} ) 意味着必须有一个 n，才能被监听或代理。如果事实上没有 n 呢。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">new Vue({
+  data: {},
+  template: `
+    &lt;div&gt;{{n}}&lt;/div&gt;
+  `
+}).$mount(&#34;#app&#34;);
+
+/*
+Vue 会报错：
+Property or method &#34;n&#34; is not defined on the instance but referenced during render.
+*/
+</code></pre></div><p>但是 Vue 只会检查第一层：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">new Vue({
+  data: {
+    obj: {
+      a: 0 // obj.a 会被 Vue 监听 &amp; 代理
+    }
+  },
+  template: `
+    &lt;div&gt;
+      {{obj.b}}
+      &lt;button @click=&#34;setB&#34;&gt;set b&lt;/button&gt;
+    &lt;/div&gt;
+  `,
+  methods: {
+    setB() {
+      this.obj.b = 1; //请问，页面中会显示 1 吗？
+    }
+  }
+}).$mount(&#34;#app&#34;);
+// 此时页面既不会报错，也不会显示 1；
+// 为什么不显示？因为 Vue 无法监听一开始不存在的属性 obj.b
+</code></pre></div><h3 id="vueset-和-thisset">Vue.set 和 this.$set</h3>
+<p>Vue.set 和 this.$set 正是为了解决 Object.defineProperty 出现的这个问题而生的。</p>
+<p>作用包括：</p>
+<ul>
+<li>新增 key</li>
+<li>自动创建代理和监听（如果之前没被创建过）</li>
+<li>触发 UI 更新（并不是立刻更新）</li>
+</ul>
+<p>举例：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">new Vue({
+  data: {
+    obj: {
+      a: 0 // obj.a 会被 Vue 监听 &amp; 代理
+    }
+  },
+  template: `
+    &lt;div&gt;
+      {{obj.b}}
+      &lt;button @click=&#34;setB&#34;&gt;set b&lt;/button&gt;
+    &lt;/div&gt;
+  `,
+  methods: {
+    setB() {
+      this.$set(this.obj, &#34;b&#34;, 100);
+    }
+  }
+}).$mount(&#34;#app&#34;);
+
+</code></pre></div><p>如果是数组呢？
+我们没有办法提前知道数组的 key</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">new Vue({
+  data: {
+    array: [&#34;a&#34;, &#34;b&#34;, &#34;c&#34;]
+  },
+  template: `
+    &lt;div&gt;
+      {{array}}
+      &lt;button @click=&#34;setD&#34;&gt;set d&lt;/button&gt;
+    &lt;/div&gt;
+  `,
+  methods: {
+    setD() {
+      //这里并不会显示 d，问题同上。
+      // this.array[3] = &#34;d&#34;;
+
+      // 这里是可以显示 d, 但我们无法直接获取每次的 key
+      // this.$set(this.array, &#34;3&#34;, &#34;d&#34;);
+      // 等下，你为什么不用 this.array.push(&#39;d&#39;)
+      this.array.push(&#39;d&#39;)
+      // 此处的 push 方法非数组的 push，而是 Vue 自身的变异方法
+    }
+  }
+}).$mount(&#34;#app&#34;);
+</code></pre></div><p>正因为数组操作存在这样的问题，所以 Vue 发明了变异方法，使开发者操作更加简便。
+<a href="https://cn.vuejs.org/v2/guide/list.html#%E5%8F%98%E6%9B%B4%E6%96%B9%E6%B3%95">变异方法在文档中的解释</a>
+所以，数组操作应该尽量使用变异方法而非使用 $set。</p>
+<p>——————————————
+to be continue</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>让我们荡起双桨</p>
+      
+      
+        ©
+        
+        2020
+         twoheart liu 
+      
+      
+         · 
+        技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>

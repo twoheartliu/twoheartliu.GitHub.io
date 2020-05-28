@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+
+    <meta name="author" content="twoheart liu">
+    <meta name="description" content="你要记住，写程序也好，包括学说话也好，包括学任何一个技能，包括打篮球学英语都要经过大量的练习你去学英语，学一个单词一个句子的念法可能要重复几十次上百次比如说你去学唱一首歌，刚开始你可能连调都跟不上，后来你可能跟上调了但是你老忘词，你唱了几个星期或者连续几天，你会发现你会唱的比较顺畅，你能把它唱出来而且也能跟上调，写程序也是一样，任何的技能都应该用大量的时间去学习掌握当你不会唱这首歌的时候你会怎么办，你会去看一遍歌词，会听一遍然后继续唱歌写程序应该也是这样的  当你忘记 while 怎么写的时候，你应该去看下，或者直接复制下来照着抄很多人不是这样，上课的时候或者看书的时候，感觉好简单，他把这个书，合起来盖住，他要把它默写出来，默不出的时候就会很暴躁很急，那这种方式就错了学唱歌的时候会这样吗？你忘了歌词你能强行想起来吗，你听一遍歌就能唱出歌词吗，绝无可能那你学编程的时候为什么要这样做呢？这是因为编程是有特殊性的，特殊在你从小到大你并没接触这个东西你不知道该用怎么样的概念，怎么样一个格式去处理，然后你就懵了所以你就会去乱搞，那我现在教会你正确的模式你一定要按照我们教你的方式，这个学习过程就会变得很顺畅，这个方法是对的，你只要加强练习就可以掌握知识，编程不是一些魔法或者一些需要天赋，很多人说这个人编程天赋，我不适合编程这是无稽之谈，就像唱歌跳舞搬砖挖地，都是重复就能做好的事情开车那么难的一个事情，我不会开车，但是你可能会开车，你怎么学会的呢你可能去驾校学了几十个小时，练好就会了编程一个道理，有很多四十岁五十岁的大叔阿姨他都会去学开车并且能够学的会，所以不存在什么天赋问题 骑自行车也是，你去学了花了时间就能掌握，可能你花的时间比别人长一点，这是正常的，大家掌握技能需要不同的时间嘛这都是非常正常的，你又不是做爱因斯坦，你为什么期望自己一次搞定呢，为什么别人比你快你就不能接受呢？从小到大无数人都比你快啊各方面你都不是第一名，你照样活得好好的，为什么你在编程上面就要这么纠结呢，这是因为这是一个全新的概念你无所适从，你现在按照我的方式，就跟唱歌一样去学这个编程，照着他抄抄个五遍十遍就会了，你复制粘贴去改，改着改着就会了你不应该去钻牛角尖，摒弃你之前的想法还有不要说，你是不是没有天赋，我是不是不适合这样的想法搬砖这种事情，古代人都要做的，没有你不适合就不用搬砖这种说法，这个世界就是这样的你现在可以不学编程也能活得好好的，所以你会给自己找各种各样的借口，然后你觉得你不会编程你学不会编程还是照常活着，每天还是吃吃喝喝玩玩乐乐睡觉，没问题，但是你这个想法是错的，不要说没天赋学不会，都是假的方法不对而已——摘自萧大B 站前端试听课
+ 如果说有什么支持着我走下去，萧大的这段话算一个。
+贴到这里，希望看到这里的人，有所感触。">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何学编程的方法论"/>
+<meta name="twitter:description" content="你要记住，写程序也好，包括学说话也好，包括学任何一个技能，包括打篮球学英语都要经过大量的练习你去学英语，学一个单词一个句子的念法可能要重复几十次上百次比如说你去学唱一首歌，刚开始你可能连调都跟不上，后来你可能跟上调了但是你老忘词，你唱了几个星期或者连续几天，你会发现你会唱的比较顺畅，你能把它唱出来而且也能跟上调，写程序也是一样，任何的技能都应该用大量的时间去学习掌握当你不会唱这首歌的时候你会怎么办，你会去看一遍歌词，会听一遍然后继续唱歌写程序应该也是这样的  当你忘记 while 怎么写的时候，你应该去看下，或者直接复制下来照着抄很多人不是这样，上课的时候或者看书的时候，感觉好简单，他把这个书，合起来盖住，他要把它默写出来，默不出的时候就会很暴躁很急，那这种方式就错了学唱歌的时候会这样吗？你忘了歌词你能强行想起来吗，你听一遍歌就能唱出歌词吗，绝无可能那你学编程的时候为什么要这样做呢？这是因为编程是有特殊性的，特殊在你从小到大你并没接触这个东西你不知道该用怎么样的概念，怎么样一个格式去处理，然后你就懵了所以你就会去乱搞，那我现在教会你正确的模式你一定要按照我们教你的方式，这个学习过程就会变得很顺畅，这个方法是对的，你只要加强练习就可以掌握知识，编程不是一些魔法或者一些需要天赋，很多人说这个人编程天赋，我不适合编程这是无稽之谈，就像唱歌跳舞搬砖挖地，都是重复就能做好的事情开车那么难的一个事情，我不会开车，但是你可能会开车，你怎么学会的呢你可能去驾校学了几十个小时，练好就会了编程一个道理，有很多四十岁五十岁的大叔阿姨他都会去学开车并且能够学的会，所以不存在什么天赋问题 骑自行车也是，你去学了花了时间就能掌握，可能你花的时间比别人长一点，这是正常的，大家掌握技能需要不同的时间嘛这都是非常正常的，你又不是做爱因斯坦，你为什么期望自己一次搞定呢，为什么别人比你快你就不能接受呢？从小到大无数人都比你快啊各方面你都不是第一名，你照样活得好好的，为什么你在编程上面就要这么纠结呢，这是因为这是一个全新的概念你无所适从，你现在按照我的方式，就跟唱歌一样去学这个编程，照着他抄抄个五遍十遍就会了，你复制粘贴去改，改着改着就会了你不应该去钻牛角尖，摒弃你之前的想法还有不要说，你是不是没有天赋，我是不是不适合这样的想法搬砖这种事情，古代人都要做的，没有你不适合就不用搬砖这种说法，这个世界就是这样的你现在可以不学编程也能活得好好的，所以你会给自己找各种各样的借口，然后你觉得你不会编程你学不会编程还是照常活着，每天还是吃吃喝喝玩玩乐乐睡觉，没问题，但是你这个想法是错的，不要说没天赋学不会，都是假的方法不对而已——摘自萧大B 站前端试听课
+ 如果说有什么支持着我走下去，萧大的这段话算一个。
+贴到这里，希望看到这里的人，有所感触。"/>
+
+    <meta property="og:title" content="如何学编程的方法论" />
+<meta property="og:description" content="你要记住，写程序也好，包括学说话也好，包括学任何一个技能，包括打篮球学英语都要经过大量的练习你去学英语，学一个单词一个句子的念法可能要重复几十次上百次比如说你去学唱一首歌，刚开始你可能连调都跟不上，后来你可能跟上调了但是你老忘词，你唱了几个星期或者连续几天，你会发现你会唱的比较顺畅，你能把它唱出来而且也能跟上调，写程序也是一样，任何的技能都应该用大量的时间去学习掌握当你不会唱这首歌的时候你会怎么办，你会去看一遍歌词，会听一遍然后继续唱歌写程序应该也是这样的  当你忘记 while 怎么写的时候，你应该去看下，或者直接复制下来照着抄很多人不是这样，上课的时候或者看书的时候，感觉好简单，他把这个书，合起来盖住，他要把它默写出来，默不出的时候就会很暴躁很急，那这种方式就错了学唱歌的时候会这样吗？你忘了歌词你能强行想起来吗，你听一遍歌就能唱出歌词吗，绝无可能那你学编程的时候为什么要这样做呢？这是因为编程是有特殊性的，特殊在你从小到大你并没接触这个东西你不知道该用怎么样的概念，怎么样一个格式去处理，然后你就懵了所以你就会去乱搞，那我现在教会你正确的模式你一定要按照我们教你的方式，这个学习过程就会变得很顺畅，这个方法是对的，你只要加强练习就可以掌握知识，编程不是一些魔法或者一些需要天赋，很多人说这个人编程天赋，我不适合编程这是无稽之谈，就像唱歌跳舞搬砖挖地，都是重复就能做好的事情开车那么难的一个事情，我不会开车，但是你可能会开车，你怎么学会的呢你可能去驾校学了几十个小时，练好就会了编程一个道理，有很多四十岁五十岁的大叔阿姨他都会去学开车并且能够学的会，所以不存在什么天赋问题 骑自行车也是，你去学了花了时间就能掌握，可能你花的时间比别人长一点，这是正常的，大家掌握技能需要不同的时间嘛这都是非常正常的，你又不是做爱因斯坦，你为什么期望自己一次搞定呢，为什么别人比你快你就不能接受呢？从小到大无数人都比你快啊各方面你都不是第一名，你照样活得好好的，为什么你在编程上面就要这么纠结呢，这是因为这是一个全新的概念你无所适从，你现在按照我的方式，就跟唱歌一样去学这个编程，照着他抄抄个五遍十遍就会了，你复制粘贴去改，改着改着就会了你不应该去钻牛角尖，摒弃你之前的想法还有不要说，你是不是没有天赋，我是不是不适合这样的想法搬砖这种事情，古代人都要做的，没有你不适合就不用搬砖这种说法，这个世界就是这样的你现在可以不学编程也能活得好好的，所以你会给自己找各种各样的借口，然后你觉得你不会编程你学不会编程还是照常活着，每天还是吃吃喝喝玩玩乐乐睡觉，没问题，但是你这个想法是错的，不要说没天赋学不会，都是假的方法不对而已——摘自萧大B 站前端试听课
+ 如果说有什么支持着我走下去，萧大的这段话算一个。
+贴到这里，希望看到这里的人，有所感触。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="twoheartliu.github.io/posts/2018-10-26-how-to-learn-code/" />
+<meta property="article:published_time" content="2018-10-26T15:36:18+00:00" />
+<meta property="article:modified_time" content="2018-10-26T15:36:18+00:00" />
+
+
+    
+      <base href="twoheartliu.github.io/posts/2018-10-26-how-to-learn-code/">
+    
+    <title>
+  如何学编程的方法论 · twoheart&#39;s blog
+</title>
+
+    
+      <link rel="canonical" href="twoheartliu.github.io/posts/2018-10-26-how-to-learn-code/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="twoheartliu.github.io/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.71.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="twoheartliu.github.io/">
+      twoheart&#39;s blog
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">如何学编程的方法论</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2018-10-26T15:36:18Z'>
+                October 26, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              1 分钟阅读时间
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="twoheartliu.github.io/tags/coding/">Coding</a>
+      <span class="separator">•</span>
+    <a href="twoheartliu.github.io/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">方法论</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <blockquote>
+<p>你要记住，写程序也好，包括学说话也好，包括学任何一个技能，包括打篮球学英语都要经过大量的练习<!-- raw HTML omitted --></p>
+<p>你去学英语，学一个单词一个句子的念法可能要重复几十次上百次<!-- raw HTML omitted --></p>
+<p>比如说你去学唱一首歌，刚开始你可能连调都跟不上，后来你可能跟上调了<!-- raw HTML omitted --></p>
+<p>但是你老忘词，你唱了几个星期或者连续几天，你会发现你会唱的比较顺畅，你能把它唱出来<!-- raw HTML omitted --></p>
+<p>而且也能跟上调，写程序也是一样，任何的技能都应该用大量的时间去学习掌握<!-- raw HTML omitted --></p>
+<p>当你不会唱这首歌的时候你会怎么办，你会去看一遍歌词，会听一遍然后继续唱歌<!-- raw HTML omitted --></p>
+<p>写程序应该也是这样的<!-- raw HTML omitted --></p>
+</blockquote>
+<!-- raw HTML omitted -->
+<blockquote>
+<!-- raw HTML omitted -->
+<p>当你忘记 while 怎么写的时候，你应该去看下，或者直接复制下来照着抄<!-- raw HTML omitted --></p>
+<p>很多人不是这样，上课的时候或者看书的时候，感觉好简单，他把这个书，合起来盖住，<!-- raw HTML omitted --></p>
+<p>他要把它默写出来，默不出的时候就会很暴躁很急，那这种方式就错了<!-- raw HTML omitted --></p>
+<p>学唱歌的时候会这样吗？<!-- raw HTML omitted --></p>
+<p>你忘了歌词你能强行想起来吗，你听一遍歌就能唱出歌词吗，绝无可能<!-- raw HTML omitted --></p>
+<p>那你学编程的时候为什么要这样做呢？<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>这是因为编程是有特殊性的，特殊在你从小到大你并没接触这个东西<!-- raw HTML omitted --></p>
+<p>你不知道该用怎么样的概念，怎么样一个格式去处理，然后你就懵了<!-- raw HTML omitted --></p>
+<p>所以你就会去乱搞，那我现在教会你正确的模式<!-- raw HTML omitted --></p>
+<p>你一定要按照我们教你的方式，这个学习过程就会变得很顺畅，这个方法是对的，你只要加强练习<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>就可以掌握知识，编程不是一些魔法或者一些需要天赋，很多人说这个人编程天赋，我不适合编程<!-- raw HTML omitted --></p>
+<p>这是无稽之谈，就像唱歌跳舞搬砖挖地，都是重复就能做好的事情<!-- raw HTML omitted --></p>
+<p>开车那么难的一个事情，我不会开车，但是你可能会开车，你怎么学会的呢<!-- raw HTML omitted --></p>
+<p>你可能去驾校学了几十个小时，练好就会了<!-- raw HTML omitted --></p>
+<p>编程一个道理，有很多四十岁五十岁的大叔阿姨他都会去学开车并且能够学的会，所以不存在什么天赋问题 <!-- raw HTML omitted -->骑自行车也是，你去学了花了时间就能掌握，可能你花的时间比别人长一点，这是正常的，大家掌握技能需要不同的时间嘛<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>这都是非常正常的，你又不是做爱因斯坦，你为什么期望自己一次搞定呢，为什么别人比你快你就不能接受呢？<!-- raw HTML omitted -->
+从小到大无数人都比你快啊<!-- raw HTML omitted --></p>
+<p>各方面你都不是第一名，你照样活得好好的，为什么你在编程上面就要这么纠结呢，这是因为这是一个全新的概念<!-- raw HTML omitted --></p>
+<p>你无所适从，你现在按照我的方式，就跟唱歌一样去学这个编程，照着他抄<!-- raw HTML omitted --></p>
+<p>抄个五遍十遍就会了，你复制粘贴去改，改着改着就会了<!-- raw HTML omitted --></p>
+<p>你不应该去钻牛角尖，摒弃你之前的想法<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>还有不要说，你是不是没有天赋，我是不是不适合这样的想法<!-- raw HTML omitted --></p>
+<p>搬砖这种事情，古代人都要做的，没有你不适合就不用搬砖这种说法，这个世界就是这样的<!-- raw HTML omitted --></p>
+<p>你现在可以不学编程也能活得好好的，所以你会给自己找各种各样的借口，然后你觉得你不会编程你学不会编程还是照常活着，每天还是吃吃喝喝玩玩乐乐睡觉，没问题，但是你这个想法是错的，不要说没天赋学不会，都是假的<!-- raw HTML omitted --></p>
+<p>方法不对而已<!-- raw HTML omitted --></p>
+<p>——摘自萧大<a href="https://www.bilibili.com/video/av13605946">B 站前端试听课</a></p>
+</blockquote>
+<p>如果说有什么支持着我走下去，萧大的这段话算一个。</p>
+<p>贴到这里，希望看到这里的人，有所感触。</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>让我们荡起双桨</p>
+      
+      
+        ©
+        
+        2020
+         twoheart liu 
+      
+      
+         · 
+        技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on twoheart&#39;s blog</title>
+    <link>twoheartliu.github.io/tags/github/</link>
+    <description>Recent content in Github on twoheart&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 18 Aug 2019 10:54:45 +0000</lastBuildDate>
+    
+	<atom:link href="twoheartliu.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何使用 GitHub Pages 预览 HTML</title>
+      <link>twoheartliu.github.io/posts/2019-08-18-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-github-pages-%E9%A2%84%E8%A7%88-html/</link>
+      <pubDate>Sun, 18 Aug 2019 10:54:45 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-08-18-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-github-pages-%E9%A2%84%E8%A7%88-html/</guid>
+      <description>当你想要将自己写好的网页分享给其他人看到展示效果的时候，使用 Github Pages 是个快速高效的选择。
+ 如果你还不懂 Github 的注册登录以及基本使用，推荐阅读 知乎：如何使用 Github？
+创建新 repo 如果你阅读了上面的链接应该不用我过多介绍了，填写了 repo 名和必要的描述信息之后，点击 Create repository，就创建好了一个新 repo。
+上传代码 创建后的界面如图所示
+创建完成后你会看到这样一个界面。你可以通过 Git 命令（如果你没有使用过需要做一些配置 配置 github 配置 git 使用 git。
+当然你也可以点击 uploading an existing file 按钮，直接把 nHTML 文件直接通过文件上传的形式上传到 Github 仓库。
+预览 HTML 上传后的文件目录如图所示
+点击右上角的 Settings
+下拉到这个区域 将 None 改为 master branch 这时候上面会出现一个网址，这个网址http://twoheart.cn/html-view-demo/就是预览网址。
+你的看到的网址可能是xxx.github.io/html-view-doemo/，这是正常的。如果显示的是 404，你需要在网址最后加上 html 的路径，如果你的文件名是main.html,则路径为xxx.github.io/html-view-doemo/main.html，如果你的 html 主文件在文件夹内，如果文件名为build则改成xxx.github.io/html-view-doemo/build/main.html.
+ the end</description>
+    </item>
+    
+    <item>
+      <title>Github Page —— build warning 之坑</title>
+      <link>twoheartliu.github.io/posts/2019-05-17-github-page-error/</link>
+      <pubDate>Fri, 17 May 2019 00:57:08 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-05-17-github-page-error/</guid>
+      <description>自从恢复使用博客以来，每次向 Github push 代码总会如期而至的收到一封发自 Github 的题为 Page build warning 的来信。
+今天下班早，我决定试着解决一下这个问题。
+道路是曲折的，通过 Google ，我发现似乎是由于顶级域名和 DNS 配置过期的量子纠缠而引发的问题。
+似乎只有不多的几篇中文博客谈到了这个问题。
+在试着通过 这篇博客以及 另一篇博客的方法设置之后，依然没有解决。
+在群里问了大佬，大佬给出的建议是——将 @github 设置为垃圾邮件。
+这当然是一个简单粗暴又省时的好办法。
+但是作为一个江湖儿女，我决定再挣扎一番。
+在尝试了多个语句之后，终于在 reddit以及 stackoverflow找到了几乎正确的方法。
+在用顶级域名尝试了上面两个网站的设置之后，问题依旧。最后抱着死马当活马医的心情，设置了 www 域名前缀，问题终于算是解决了。
+在 Github Warning 解除之后，顺便升级了下 HTTPS 。
+今天的故事告诉我们：
+ 学好英文很重要 勇于尝试很重要 钻牛角尖很浪费时间  THE END</description>
+    </item>
+    
+  </channel>
+</rss>

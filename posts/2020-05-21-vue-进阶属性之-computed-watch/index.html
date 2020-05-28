@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+
+    <meta name="author" content="twoheart liu">
+    <meta name="description" content="首先复习一下响应式原理：
+ Vue 对传入的 data 进行监听 传入的 data 会被 Vue 代理 每次对 data 的读写都会通过代理处理 Vue 会在 data 变化时更新 UI  这里要讲 Vue 除了可以更新 UI 还可以做什么
+computed 计算属性 用途 示例代码 1
+ 当模版内需要使用复杂逻辑、表达式来展示时，使用 computed 是比较好的实践 同时当模版内有多处包含复杂逻辑时，可以用 computed 自定义计算属性可以是一个 function，也可以是一个包含 get、set 的对象。  示例代码 2
+ 使用 methods 属性 filter 筛选性别 使用 v-for 指令渲染数组  有没有更优雅的办法？使用 computed 属性 示例代码 3
+ computed 消除相同逻辑代码，避免重复（DRY：Don&rsquo;t repeat yourself） 逻辑清晰，方便增加功能 computed 有缓存，当数据没有发生变化，便不会重新渲染页面  watch 简单举例 watch 即当数据发生变化时，执行一个函数。 示例代码 1 ：用 watch 实现撤消 示例代码 2 ：用 watch 模拟 computed ) 由此可见，watch 更偏向于监听记录，而非进行计算，该根据需要选择适用的属性">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue 进阶属性之 computed/watch"/>
+<meta name="twitter:description" content="首先复习一下响应式原理：
+ Vue 对传入的 data 进行监听 传入的 data 会被 Vue 代理 每次对 data 的读写都会通过代理处理 Vue 会在 data 变化时更新 UI  这里要讲 Vue 除了可以更新 UI 还可以做什么
+computed 计算属性 用途 示例代码 1
+ 当模版内需要使用复杂逻辑、表达式来展示时，使用 computed 是比较好的实践 同时当模版内有多处包含复杂逻辑时，可以用 computed 自定义计算属性可以是一个 function，也可以是一个包含 get、set 的对象。  示例代码 2
+ 使用 methods 属性 filter 筛选性别 使用 v-for 指令渲染数组  有没有更优雅的办法？使用 computed 属性 示例代码 3
+ computed 消除相同逻辑代码，避免重复（DRY：Don&rsquo;t repeat yourself） 逻辑清晰，方便增加功能 computed 有缓存，当数据没有发生变化，便不会重新渲染页面  watch 简单举例 watch 即当数据发生变化时，执行一个函数。 示例代码 1 ：用 watch 实现撤消 示例代码 2 ：用 watch 模拟 computed ) 由此可见，watch 更偏向于监听记录，而非进行计算，该根据需要选择适用的属性"/>
+
+    <meta property="og:title" content="Vue 进阶属性之 computed/watch" />
+<meta property="og:description" content="首先复习一下响应式原理：
+ Vue 对传入的 data 进行监听 传入的 data 会被 Vue 代理 每次对 data 的读写都会通过代理处理 Vue 会在 data 变化时更新 UI  这里要讲 Vue 除了可以更新 UI 还可以做什么
+computed 计算属性 用途 示例代码 1
+ 当模版内需要使用复杂逻辑、表达式来展示时，使用 computed 是比较好的实践 同时当模版内有多处包含复杂逻辑时，可以用 computed 自定义计算属性可以是一个 function，也可以是一个包含 get、set 的对象。  示例代码 2
+ 使用 methods 属性 filter 筛选性别 使用 v-for 指令渲染数组  有没有更优雅的办法？使用 computed 属性 示例代码 3
+ computed 消除相同逻辑代码，避免重复（DRY：Don&rsquo;t repeat yourself） 逻辑清晰，方便增加功能 computed 有缓存，当数据没有发生变化，便不会重新渲染页面  watch 简单举例 watch 即当数据发生变化时，执行一个函数。 示例代码 1 ：用 watch 实现撤消 示例代码 2 ：用 watch 模拟 computed ) 由此可见，watch 更偏向于监听记录，而非进行计算，该根据需要选择适用的属性" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/" />
+<meta property="article:published_time" content="2020-05-21T10:38:11+00:00" />
+<meta property="article:modified_time" content="2020-05-21T10:38:11+00:00" />
+
+
+    
+      <base href="twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/">
+    
+    <title>
+  Vue 进阶属性之 computed/watch · twoheart&#39;s blog
+</title>
+
+    
+      <link rel="canonical" href="twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="twoheartliu.github.io/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.71.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="twoheartliu.github.io/">
+      twoheart&#39;s blog
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Vue 进阶属性之 computed/watch</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-05-21T10:38:11Z'>
+                May 21, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              2 分钟阅读时间
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="twoheartliu.github.io/categories/%E5%89%8D%E7%AB%AF/">前端</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="twoheartliu.github.io/tags/vue/">Vue</a>
+      <span class="separator">•</span>
+    <a href="twoheartliu.github.io/tags/javascript/">JavaScript</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>首先复习一下响应式原理：</p>
+<ul>
+<li>Vue 对传入的 data 进行监听</li>
+<li>传入的 data 会被 Vue 代理</li>
+<li>每次对 data 的读写都会通过代理处理</li>
+<li>Vue 会在 data 变化时更新 UI</li>
+</ul>
+<p>这里要讲 Vue 除了可以更新 UI 还可以做什么</p>
+<!-- raw HTML omitted -->
+<h2 id="computed-计算属性">computed 计算属性</h2>
+<h3 id="用途">用途</h3>
+<p><a href="https://codesandbox.io/s/wizardly-cookies-1d9h3?file=/src/main.js">示例代码 1</a></p>
+<ol>
+<li>当模版内需要使用复杂逻辑、表达式来展示时，使用 computed 是比较好的实践</li>
+<li>同时当模版内有多处包含复杂逻辑时，可以用 computed</li>
+<li>自定义计算属性可以是一个 function，也可以是一个包含 get、set 的对象。</li>
+</ol>
+<p><a href="https://codesandbox.io/s/stoic-jang-lc976?file=/src/main.js">示例代码 2</a></p>
+<ol>
+<li>使用 methods 属性 filter 筛选性别</li>
+<li>使用 v-for 指令渲染数组</li>
+</ol>
+<p>有没有更优雅的办法？使用 computed 属性
+<a href="https://codesandbox.io/s/new-dream-pigr8?file=/src/main.js">示例代码 3</a></p>
+<ol>
+<li>computed 消除相同逻辑代码，避免重复（DRY：Don&rsquo;t repeat yourself）</li>
+<li>逻辑清晰，方便增加功能</li>
+<li>computed 有缓存，当数据没有发生变化，便不会重新渲染页面</li>
+</ol>
+<h2 id="watch">watch</h2>
+<h3 id="简单举例">简单举例</h3>
+<p>watch 即当数据发生变化时，执行一个函数。
+<a href="https://codesandbox.io/s/lucid-shamir-cpcw3">示例代码 1 ：用 watch 实现撤消</a>
+<a href="https://codesandbox.io/s/lucid-shamir-cpcw3">示例代码 2 ：用 watch 模拟 computed </a>)
+由此可见，watch 更偏向于监听记录，而非进行计算，该根据需要选择适用的属性</p>
+<p><a href="https://codesandbox.io/s/priceless-rhodes-fzh3q?file=/src/main.js">示例代码 3：哪些数据变了</a></p>
+<ol>
+<li>当数据是简单类型时，数据变了就是变了</li>
+<li>当数据是 obj 时，对 obj.key 重新赋值不会导致 obj 变化</li>
+<li>当数据是 obj 时，对 obj 本身被重新赋值，则监听到整个对象发生了变化，根据 key/value 值的不同，判断 obj.key 是否变化</li>
+</ol>
+<p>即：简单类型看值，复杂类型看地址</p>
+<h3 id="deeptrue">deep:true</h3>
+<p>当我们需要让 watch 每当 obj.key 发生变化，就会执行 obj 变了，就需要设置 deep:true，反之不设置，或设置 deep:false</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">watch: {
+  obj: {
+    handler() {
+      console.log(&#39;obj 变了&#39;)
+    },
+    deep: true
+  }
+}
+</code></pre></div><h3 id="immediate">immediate</h3>
+<p>当设置 immediate:true 则将立即以表达式的当前值触发回调
+简单的说，就是页面初次渲染是否视为变化</p>
+<h3 id="watch-的完整语法">watch 的完整语法</h3>
+<h4 id="语法-1">语法 1</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">watch: {
+  // 注意：不能使用箭头函数，因为箭头函数会绑定父级作用域，this 将会指向 window/global
+  /* o1: () =&gt; {}, */
+  o2: (value, oldValue) {},
+  o3() {},
+  // 回调数组，他们将依次执行
+  o4: [f1, f2],
+  o5: &#39;methodsName&#39;,
+  o6: {
+  handler() {},
+  deep: true,
+  immediate: true
+  }
+}
+</code></pre></div><h4 id="语法-2">语法 2</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">// &#39;x&#39; 为监听的键路径
+vm.$watch(&#39;x&#39;, fn, {deep: ..., immediate: ...})
+
+// 表达式 `this.a + this.b` 每次得出一个不同的结果时
+// 处理函数都会被调用。
+// 这就像监听一个未被定义的计算属性
+vm.$watch(
+  function() {
+    return this.a  + this.b
+  },
+  function(value, newValue) {
+    console.log(&#39;do something&#39;)
+  }
+)
+// 取消观察函数,用来停止触发回调
+var unwatch = vm.$watch(&#39;a&#39;, cb);
+unwatch();
+</code></pre></div><h3 id="computed-和-watch-的区别">computed 和 watch 的区别</h3>
+<ol>
+<li>含义。computed 就是计算属性的意思，watch 就是监听属性的意思。</li>
+<li>描述。</li>
+<li>computed：
+<ol>
+<li>是用来计算出一个值的，本身的 value 是一个 obj，自定义的 computed 方法可以是一个函数也可以是一个 obj 包含了 getter 和 setter。</li>
+<li>computed 属性会进行缓存，如果数据没有发生改变则使用缓存，不会重新加载。</li>
+</ol>
+</li>
+<li>watch：
+<ol>
+<li>watch 是用来监听数据的。</li>
+<li>有两个选项：immediate 表示初次渲染是否执行，deep，表示 obj.key 里层的值发生变化要不要监听的问题。</li>
+<li>如果某个属性变化了，就会执行一个函数。</li>
+<li>watch 的外层 key 与数据名一致，表示要监听哪个数据。</li>
+</ol>
+</li>
+</ol>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>让我们荡起双桨</p>
+      
+      
+        ©
+        
+        2020
+         twoheart liu 
+      
+      
+         · 
+        技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>

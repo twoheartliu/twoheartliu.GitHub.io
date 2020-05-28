@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+
+    <meta name="author" content="twoheart liu">
+    <meta name="description" content="WWW 的发明 Tim Berners-Lee（下文中称为李爵士）在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。主要包含三个概念
+ URI，俗称网址 HTTP，两个电脑之间传输内容的协议 HTML，超级文本，主要用来做页面跳转 URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。 这是一个简单而完美的系统。李爵士除了发明了这些概念，还付诸了行动： 发明了第一个服务器 发明了第一个浏览器 写出了第一个网页  URI 是什么 Google URI 维基百科即可查看全称。 URI 分为 URL 和 URN，我们一般使用 URL 作为网址。
+URN Google URN 维基百科即可查看全称。 ISBN: 9787115275790 就是一个 URN，通过 URN 你可以确定一个「唯一的」资源，ISBN: 9787115275790 对应的资源的是《JavaScript 高级程序设计（第三版）》这本书。你去是介绍任何一个图书馆、书店，他们都知道是这本书。
+URL Google URL 维基百科即可查看全称。 https://www.baidu.com/s?wd=hello&amp;rsv_spt=1#5 就是一个 URL，通过 URL 你可以确定一个「唯一的」地址（网址）。
+HTTP 请求与响应 请求的格式 1 动词路径协议/版本 2 Key1: value1 2 Key2: value2 2 Key3: value3 2 Content-Type: application/x-www-form-urlencoded 2 Host: www.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTTP 基础"/>
+<meta name="twitter:description" content="WWW 的发明 Tim Berners-Lee（下文中称为李爵士）在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。主要包含三个概念
+ URI，俗称网址 HTTP，两个电脑之间传输内容的协议 HTML，超级文本，主要用来做页面跳转 URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。 这是一个简单而完美的系统。李爵士除了发明了这些概念，还付诸了行动： 发明了第一个服务器 发明了第一个浏览器 写出了第一个网页  URI 是什么 Google URI 维基百科即可查看全称。 URI 分为 URL 和 URN，我们一般使用 URL 作为网址。
+URN Google URN 维基百科即可查看全称。 ISBN: 9787115275790 就是一个 URN，通过 URN 你可以确定一个「唯一的」资源，ISBN: 9787115275790 对应的资源的是《JavaScript 高级程序设计（第三版）》这本书。你去是介绍任何一个图书馆、书店，他们都知道是这本书。
+URL Google URL 维基百科即可查看全称。 https://www.baidu.com/s?wd=hello&amp;rsv_spt=1#5 就是一个 URL，通过 URL 你可以确定一个「唯一的」地址（网址）。
+HTTP 请求与响应 请求的格式 1 动词路径协议/版本 2 Key1: value1 2 Key2: value2 2 Key3: value3 2 Content-Type: application/x-www-form-urlencoded 2 Host: www."/>
+
+    <meta property="og:title" content="HTTP 基础" />
+<meta property="og:description" content="WWW 的发明 Tim Berners-Lee（下文中称为李爵士）在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。主要包含三个概念
+ URI，俗称网址 HTTP，两个电脑之间传输内容的协议 HTML，超级文本，主要用来做页面跳转 URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。 这是一个简单而完美的系统。李爵士除了发明了这些概念，还付诸了行动： 发明了第一个服务器 发明了第一个浏览器 写出了第一个网页  URI 是什么 Google URI 维基百科即可查看全称。 URI 分为 URL 和 URN，我们一般使用 URL 作为网址。
+URN Google URN 维基百科即可查看全称。 ISBN: 9787115275790 就是一个 URN，通过 URN 你可以确定一个「唯一的」资源，ISBN: 9787115275790 对应的资源的是《JavaScript 高级程序设计（第三版）》这本书。你去是介绍任何一个图书馆、书店，他们都知道是这本书。
+URL Google URL 维基百科即可查看全称。 https://www.baidu.com/s?wd=hello&amp;rsv_spt=1#5 就是一个 URL，通过 URL 你可以确定一个「唯一的」地址（网址）。
+HTTP 请求与响应 请求的格式 1 动词路径协议/版本 2 Key1: value1 2 Key2: value2 2 Key3: value3 2 Content-Type: application/x-www-form-urlencoded 2 Host: www." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="twoheartliu.github.io/posts/2019-05-23-http-basic/" />
+<meta property="article:published_time" content="2019-05-23T01:06:01+00:00" />
+<meta property="article:modified_time" content="2019-05-23T01:06:01+00:00" />
+
+
+    
+      <base href="twoheartliu.github.io/posts/2019-05-23-http-basic/">
+    
+    <title>
+  HTTP 基础 · twoheart&#39;s blog
+</title>
+
+    
+      <link rel="canonical" href="twoheartliu.github.io/posts/2019-05-23-http-basic/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="twoheartliu.github.io/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.71.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="twoheartliu.github.io/">
+      twoheart&#39;s blog
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">HTTP 基础</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-05-23T01:06:01Z'>
+                May 23, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              1 分钟阅读时间
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="twoheartliu.github.io/tags/http/">HTTP</a>
+      <span class="separator">•</span>
+    <a href="twoheartliu.github.io/tags/%E5%89%8D%E7%AB%AF/">前端</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h1 id="www-的发明">WWW 的发明</h1>
+<p>Tim Berners-Lee（下文中称为李爵士）在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。主要包含三个概念</p>
+<ol>
+<li>URI，俗称网址</li>
+<li>HTTP，两个电脑之间传输内容的协议</li>
+<li>HTML，超级文本，主要用来做页面跳转
+URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。
+这是一个简单而完美的系统。李爵士除了发明了这些概念，还付诸了行动：</li>
+<li>发明了第一个服务器</li>
+<li>发明了第一个浏览器</li>
+<li>写出了第一个网页</li>
+</ol>
+<!-- raw HTML omitted -->
+<h1 id="uri-是什么">URI 是什么</h1>
+<p>Google URI 维基百科即可查看全称。
+URI 分为 URL 和 URN，我们一般使用 URL 作为网址。</p>
+<h2 id="urn">URN</h2>
+<p>Google URN 维基百科即可查看全称。
+ISBN: 9787115275790 就是一个 URN，通过 URN 你可以确定一个「唯一的」资源，ISBN: 9787115275790 对应的资源的是《JavaScript 高级程序设计（第三版）》这本书。你去是介绍任何一个图书馆、书店，他们都知道是这本书。</p>
+<h2 id="url">URL</h2>
+<p>Google URL 维基百科即可查看全称。
+<a href="https://www.baidu.com/s?wd=hello&amp;rsv_spt=1#5">https://www.baidu.com/s?wd=hello&amp;rsv_spt=1#5</a> 就是一个 URL，通过 URL 你可以确定一个「唯一的」地址（网址）。</p>
+<h1 id="http-请求与响应">HTTP 请求与响应</h1>
+<h2 id="请求的格式">请求的格式</h2>
+<p>1 动词路径协议/版本
+2 Key1: value1
+2 Key2: value2
+2 Key3: value3
+2 Content-Type: application/x-www-form-urlencoded
+2 Host: <a href="http://www.baidu.com">www.baidu.com</a>
+2 User-Agent: curl/7.54.0
+3
+4 要上传的数据
+请求最多包含四部分，最少包含三部分。（也就是说第四部分可以为空）
+第三部分永远都是一个回车（\n）
+动词有 GET POST PUT PATCH DELETE HEAD OPTIONS 等
+这里的路径包括「查询参数」，但不包括「锚点」
+如果你没有写路径，那么路径默认为 /
+第 2 部分中的 Content-Type 标注了第 4 部分的格式</p>
+<h2 id="响应的格式">响应的格式</h2>
+<p>1 协议/版本号状态码状态解释
+2 Key1: value1
+2 Key2: value2
+2 Content-Length: 17931
+2 Content-Type: text/html
+3
+4 要下载的内容</p>
+<h2 id="用-chrome-查看请求与响应">用 Chrome 查看请求与响应</h2>
+<h3 id="请求">请求</h3>
+<p>打开 Network
+地址栏输入网址
+在 Network 点击，查看 request，点击「view source」
+如果有请求的第四部分，那么在 FormData 或 Payload 里面可以看到</p>
+<h3 id="响应">响应</h3>
+<p>查看 Response Headers，点击「view source」，点击「view source」，点击「view source」
+你会看到<strong>响应</strong>的前两部分
+查看 Response 或者 Preview，你会看到<strong>响应</strong>的第 4 部分</p>
+<h2 id="curl">cURL</h2>
+<p>cURL 是一个利用 URL 语法在命令行下工作的文件传输工具，1997 年首次发行。
+它支持文件上传和下载，所以是综合传输工具，但按传统，习惯称 cURL 为下载工具。cURL 还包含了用于程序开发的 libcurl。
+命令行工具大部分集成了 curl。</p>
+<h3 id="查看网页源码">查看网页源码</h3>
+<p><code>$ curl www.sina.com</code></p>
+<h3 id="自动跳转">自动跳转</h3>
+<p><code>$ curl -L www.sina.com</code></p>
+<h3 id="显示头信息">显示头信息</h3>
+<p><code>$ curl -i www.sina.com</code></p>
+<h3 id="显示通信过程">显示通信过程</h3>
+<p><code>$ curl -v www.sina.com</code></p>
+<h3 id="http-动词">HTTP 动词</h3>
+<p><code>$ curl -X POST www.example.com</code>
+等等。</p>
+<p>THE END</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>让我们荡起双桨</p>
+      
+      
+        ©
+        
+        2020
+         twoheart liu 
+      
+      
+         · 
+        技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>

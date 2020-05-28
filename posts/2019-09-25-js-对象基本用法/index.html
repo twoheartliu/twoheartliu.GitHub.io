@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+
+    <meta name="author" content="twoheart liu">
+    <meta name="description" content="声明对象的两种语法  var obj = new Object({name: &#39;twoheart&#39;, gender: &#39;male&#39;}) var obj2 = {name: &#39;twoheart&#39;, gender: &#39;male&#39;}  注意：
+ key 是字符串，不是标识符 如果省略括号，则必须写标识符 就算省略了括号，依然是字符串形式  如何删除对象的属性 delete var obj = { name: &#39;twoheart&#39;, gender: &#39;male&#39; } delete obj.gender delete obj[&#39;gender&#39;] var hello = &#39;name&#39; delete obj[hello] // delete 语法的三种使用方式 判断 key 是否存在于 obj 中 &#39;gender&#39; in obj
+undefined 使 obj.name = undefined 并不能使属性被删除，也不能以此为依据判断 key 是否存在于 obj 中
+如何查看对象的属性 查看自身所有 key Object.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JS 对象基本用法"/>
+<meta name="twitter:description" content="声明对象的两种语法  var obj = new Object({name: &#39;twoheart&#39;, gender: &#39;male&#39;}) var obj2 = {name: &#39;twoheart&#39;, gender: &#39;male&#39;}  注意：
+ key 是字符串，不是标识符 如果省略括号，则必须写标识符 就算省略了括号，依然是字符串形式  如何删除对象的属性 delete var obj = { name: &#39;twoheart&#39;, gender: &#39;male&#39; } delete obj.gender delete obj[&#39;gender&#39;] var hello = &#39;name&#39; delete obj[hello] // delete 语法的三种使用方式 判断 key 是否存在于 obj 中 &#39;gender&#39; in obj
+undefined 使 obj.name = undefined 并不能使属性被删除，也不能以此为依据判断 key 是否存在于 obj 中
+如何查看对象的属性 查看自身所有 key Object."/>
+
+    <meta property="og:title" content="JS 对象基本用法" />
+<meta property="og:description" content="声明对象的两种语法  var obj = new Object({name: &#39;twoheart&#39;, gender: &#39;male&#39;}) var obj2 = {name: &#39;twoheart&#39;, gender: &#39;male&#39;}  注意：
+ key 是字符串，不是标识符 如果省略括号，则必须写标识符 就算省略了括号，依然是字符串形式  如何删除对象的属性 delete var obj = { name: &#39;twoheart&#39;, gender: &#39;male&#39; } delete obj.gender delete obj[&#39;gender&#39;] var hello = &#39;name&#39; delete obj[hello] // delete 语法的三种使用方式 判断 key 是否存在于 obj 中 &#39;gender&#39; in obj
+undefined 使 obj.name = undefined 并不能使属性被删除，也不能以此为依据判断 key 是否存在于 obj 中
+如何查看对象的属性 查看自身所有 key Object." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="twoheartliu.github.io/posts/2019-09-25-js-%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" />
+<meta property="article:published_time" content="2019-09-25T00:26:02+00:00" />
+<meta property="article:modified_time" content="2019-09-25T00:26:02+00:00" />
+
+
+    
+      <base href="twoheartliu.github.io/posts/2019-09-25-js-%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">
+    
+    <title>
+  JS 对象基本用法 · twoheart&#39;s blog
+</title>
+
+    
+      <link rel="canonical" href="twoheartliu.github.io/posts/2019-09-25-js-%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="twoheartliu.github.io/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.71.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="twoheartliu.github.io/">
+      twoheart&#39;s blog
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">JS 对象基本用法</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-09-25T00:26:02Z'>
+                September 25, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              1 分钟阅读时间
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="twoheartliu.github.io/tags/javascript/">JavaScript</a>
+      <span class="separator">•</span>
+    <a href="twoheartliu.github.io/tags/%E5%AF%B9%E8%B1%A1/">对象</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="声明对象的两种语法">声明对象的两种语法</h2>
+<ul>
+<li><code>var obj = new Object({name: 'twoheart', gender: 'male'})</code></li>
+<li><code>var obj2 = {name: 'twoheart', gender: 'male'}</code></li>
+</ul>
+<!-- raw HTML omitted -->
+<p>注意：</p>
+<ol>
+<li>key 是字符串，不是标识符</li>
+<li>如果省略括号，则必须写标识符</li>
+<li>就算省略了括号，依然是字符串形式</li>
+</ol>
+<h2 id="如何删除对象的属性">如何删除对象的属性</h2>
+<h3 id="delete">delete</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">var obj = {
+  name: &#39;twoheart&#39;,
+  gender: &#39;male&#39;
+}
+delete obj.gender
+delete obj[&#39;gender&#39;]
+var hello = &#39;name&#39;
+delete obj[hello]
+// delete 语法的三种使用方式
+</code></pre></div><h3 id="判断-key-是否存在于-obj-中">判断 key 是否存在于 obj 中</h3>
+<p><code>'gender' in obj</code></p>
+<h3 id="undefined">undefined</h3>
+<p>使 obj.name = undefined 并不能使属性被删除，也不能以此为依据判断 key 是否存在于 obj 中</p>
+<h2 id="如何查看对象的属性">如何查看对象的属性</h2>
+<h3 id="查看自身所有-key">查看自身所有 key</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Object.keys(obj)
+// [&#34;name&#34;, &#34;gender&#34;] 还有 __proto__:Array
+</code></pre></div><h3 id="查看自身所有属性">查看自身所有属性</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">console.dir(obj)
+// {name: &#39;twoheart&#39;, gender: &#39;male&#39;} 还有 __proto: Object
+</code></pre></div><h3 id="判断属性是自身还是共有的">判断属性是自身还是共有的</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">obj.hasOwnProperty(&#39;name&#39;) // 是，返回 true
+obj.hasOwnProperty(&#39;toString&#39;) // 否，返回 false
+</code></pre></div><h2 id="如何修改或增加对象的属性">如何修改或增加对象的属性</h2>
+<h3 id="直接赋值">直接赋值</h3>
+<p>如果 obj 中存在则修改，如果不存在则增加</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">obj.name = &#39;twoheartliu&#39;
+obj.age = &#39;19&#39;
+var age = &#39;height&#39;
+obj[age] = &#39;180&#39;
+obj[&#39;age&#39;]  = &#39;19&#39;
+// 注意上下两种不同，上面是变量 age, 实际是 {height: &#39;180&#39;}
+</code></pre></div><h3 id="批量赋值">批量赋值</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Object.assign(obj, {age: &#39;18&#39;, height: &#39;169&#39;, hobby: &#39;play game&#39;})
+// {name: &#34;twoheart&#34;, gender: &#34;male&#34;, height: &#34;169&#34;, age: &#34;18&#34;, hobby: &#34;play game&#34;}
+</code></pre></div><h3 id="修改根原型共有属性">修改（根）原型共有属性</h3>
+<ol>
+<li>无法直接修改共有属性</li>
+</ol>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">obj.toString = &#39;hello&#39;
+// 这将只能修改本身的 toString 属性
+var obj2 = {name: &#39;john&#39;}
+obj2.toString()
+//&#34;[object Object]&#34;
+</code></pre></div><ol start="2">
+<li>通过原型修改</li>
+</ol>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">obj.__proto__.toString = &#39;hello&#39; // 不推荐
+obj.prototype.toString = &#39;hello&#39; // 推荐
+</code></pre></div><p>一般来说不应该修改原型上的属性</p>
+<h3 id="修改隐藏属性">修改隐藏属性</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">let common = {kind: &#39;human&#39;}
+
+let obj = Object.create(common)
+
+Object.assign(obj, {name: &#39;twoheart&#39;, hair: &#39;black&#39;})
+</code></pre></div><p>注意：应该在创建对象时创建隐藏属性</p>
+<h2 id="name-in-obj-和-objhasownpropertyname-的区别">&lsquo;name&rsquo; in obj 和 obj.hasOwnProperty(&lsquo;name&rsquo;) 的区别</h2>
+<p><code>'name' in obj</code> 无论 <code>name</code> 是自身属性还是原型中的属性都会检测，如果任何地方有都会显示 true。
+<code>obj.hasOwnProperty('name')</code> 只检查自身有没有<code>name</code>属性，如果没有则为 false，不管原型上是否有该属性。</p>
+<hr>
+<p>the end</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>让我们荡起双桨</p>
+      
+      
+        ©
+        
+        2020
+         twoheart liu 
+      
+      
+         · 
+        技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>

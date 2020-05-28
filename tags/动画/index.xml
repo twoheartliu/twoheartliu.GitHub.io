@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>动画 on twoheart&#39;s blog</title>
+    <link>twoheartliu.github.io/tags/%E5%8A%A8%E7%94%BB/</link>
+    <description>Recent content in 动画 on twoheart&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 10 Sep 2019 18:27:48 +0000</lastBuildDate>
+    
+	<atom:link href="twoheartliu.github.io/tags/%E5%8A%A8%E7%94%BB/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CSS 动画总结</title>
+      <link>twoheartliu.github.io/posts/2019-09-10-css-%E5%8A%A8%E7%94%BB%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 10 Sep 2019 18:27:48 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-09-10-css-%E5%8A%A8%E7%94%BB%E6%80%BB%E7%BB%93/</guid>
+      <description>CSS 动画原理 图片快速连续的变化构成了动画
+每一幅静止画面被称作帧 每秒 24 帧（影视） 每秒 30-120 帧（游戏）
+使用 setInterval 和 id.style.left 可以使 id 元素按照设置的时间移动，从而构成动画。
+最后使用 clearInterval 清除定时器。
+浏览器渲染原理 JS / CSS &amp;gt; 样式 &amp;gt; 布局 &amp;gt; 绘制 &amp;gt; 合成
+更新方式根据不同的 JS / CSS 操作省略其中的步骤
+更新方式根据浏览器的不同省略其中的步骤
+transform 因为 left 操作在所有浏览器中都走了一遍所有流程，导致渲染效率低下，所以并不推荐使用 left 制作 CSS 动画，而使用 transform （变形）。
+transform 并没有 repaint (重新绘制)，跳过 layout 和 paint，只需要 composite。
+transform - translate(位移) transform: translateX(10px); transform: translateY(10px); transform: translateZ(10px); transform: translate(10px, 50%, 100px); translateZ 需要在父元素定义 perspective 属性，意思是视点距离视图中间位置的距离。</description>
+    </item>
+    
+  </channel>
+</rss>

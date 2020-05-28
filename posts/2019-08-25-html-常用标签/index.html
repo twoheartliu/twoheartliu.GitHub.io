@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+
+    <meta name="author" content="twoheart liu">
+    <meta name="description" content="a 标签的用法 链接通过&lt;a&gt;标签表示，用户点击后，浏览器会跳转到指定的网址。
+例如：
+&lt;a href=&quot;www.google.com&quot;&gt;打开 Google&lt;/a&gt;
+&lt;a&gt;标签内部不仅可以放置文字，也可以放置其他元素，比如段落、图像、多媒体等等。
+&lt;a href=&#34;www.google.com&#34;&gt; &lt;img src=&#34;./foo.jpg&#34;&gt; &lt;/a&gt; href href 属性除了能够设置点击后指向的链接，还能指向一个锚点。
+&lt;a href=&quot;#demo&quot;&gt;示例&lt;/a&gt;
+点击后，浏览器将自动滚动至页面中锚点所在的位置。
+title 鼠标指向 a 标签所在位置后显示的提示信息。
+target target 表示以何种方式打开链接：
+ _self(默认值): 在此标签页打开 _blank: 在新标签页打开 _parent: 在上层窗口打开，（例如 iframe 的父页面） _top: 在顶层窗口打开  除了以上四个关键字，还可以自定义名称，如 target=&#39;foo&#39;，那么将把新标签命名为 foo，如果还以同样的名称打开新链接，将在此窗口加载新的链接，覆盖原来的链接。
+download download 属性表明当前链接用于下载，而不是跳转到另一个 URL。
+此属性有兼容性问题。
+邮箱链接 链接也可以指向一个邮件地址，使用 mailto 协议。用户点击后，浏览器会打开本机默认的邮件程序，让用户向指定的地址发送邮件。
+&lt;a href=&quot;mailto:contact@example.com&quot;&gt;联系我们&lt;/a&gt;
+电话链接 如果是手机浏览的页面，还可以使用 tel 协议，创建电话链接。用户点击该链接，会唤起电话，可以进行拨号。 &lt;a href=&quot;tel: 13101101100&quot;&gt;打电话给我&lt;/a&gt;
+img 标签的用法 &lt;img&gt;标签用于插入图片。它是单独使用的，没有闭合标签。
+&lt;img&gt;默认是一个行内元素，与前后的文字处在同一行。
+alt alt 属性用来设定图片的文字说明。图片不显示时（比如下载失败，或用户关闭图片加载），图片的位置上会显示该文本。
+width、height width 属性和 height 属性可以指定图片显示时的宽度和高度，单位是像素或百分比。">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTML 常用标签"/>
+<meta name="twitter:description" content="a 标签的用法 链接通过&lt;a&gt;标签表示，用户点击后，浏览器会跳转到指定的网址。
+例如：
+&lt;a href=&quot;www.google.com&quot;&gt;打开 Google&lt;/a&gt;
+&lt;a&gt;标签内部不仅可以放置文字，也可以放置其他元素，比如段落、图像、多媒体等等。
+&lt;a href=&#34;www.google.com&#34;&gt; &lt;img src=&#34;./foo.jpg&#34;&gt; &lt;/a&gt; href href 属性除了能够设置点击后指向的链接，还能指向一个锚点。
+&lt;a href=&quot;#demo&quot;&gt;示例&lt;/a&gt;
+点击后，浏览器将自动滚动至页面中锚点所在的位置。
+title 鼠标指向 a 标签所在位置后显示的提示信息。
+target target 表示以何种方式打开链接：
+ _self(默认值): 在此标签页打开 _blank: 在新标签页打开 _parent: 在上层窗口打开，（例如 iframe 的父页面） _top: 在顶层窗口打开  除了以上四个关键字，还可以自定义名称，如 target=&#39;foo&#39;，那么将把新标签命名为 foo，如果还以同样的名称打开新链接，将在此窗口加载新的链接，覆盖原来的链接。
+download download 属性表明当前链接用于下载，而不是跳转到另一个 URL。
+此属性有兼容性问题。
+邮箱链接 链接也可以指向一个邮件地址，使用 mailto 协议。用户点击后，浏览器会打开本机默认的邮件程序，让用户向指定的地址发送邮件。
+&lt;a href=&quot;mailto:contact@example.com&quot;&gt;联系我们&lt;/a&gt;
+电话链接 如果是手机浏览的页面，还可以使用 tel 协议，创建电话链接。用户点击该链接，会唤起电话，可以进行拨号。 &lt;a href=&quot;tel: 13101101100&quot;&gt;打电话给我&lt;/a&gt;
+img 标签的用法 &lt;img&gt;标签用于插入图片。它是单独使用的，没有闭合标签。
+&lt;img&gt;默认是一个行内元素，与前后的文字处在同一行。
+alt alt 属性用来设定图片的文字说明。图片不显示时（比如下载失败，或用户关闭图片加载），图片的位置上会显示该文本。
+width、height width 属性和 height 属性可以指定图片显示时的宽度和高度，单位是像素或百分比。"/>
+
+    <meta property="og:title" content="HTML 常用标签" />
+<meta property="og:description" content="a 标签的用法 链接通过&lt;a&gt;标签表示，用户点击后，浏览器会跳转到指定的网址。
+例如：
+&lt;a href=&quot;www.google.com&quot;&gt;打开 Google&lt;/a&gt;
+&lt;a&gt;标签内部不仅可以放置文字，也可以放置其他元素，比如段落、图像、多媒体等等。
+&lt;a href=&#34;www.google.com&#34;&gt; &lt;img src=&#34;./foo.jpg&#34;&gt; &lt;/a&gt; href href 属性除了能够设置点击后指向的链接，还能指向一个锚点。
+&lt;a href=&quot;#demo&quot;&gt;示例&lt;/a&gt;
+点击后，浏览器将自动滚动至页面中锚点所在的位置。
+title 鼠标指向 a 标签所在位置后显示的提示信息。
+target target 表示以何种方式打开链接：
+ _self(默认值): 在此标签页打开 _blank: 在新标签页打开 _parent: 在上层窗口打开，（例如 iframe 的父页面） _top: 在顶层窗口打开  除了以上四个关键字，还可以自定义名称，如 target=&#39;foo&#39;，那么将把新标签命名为 foo，如果还以同样的名称打开新链接，将在此窗口加载新的链接，覆盖原来的链接。
+download download 属性表明当前链接用于下载，而不是跳转到另一个 URL。
+此属性有兼容性问题。
+邮箱链接 链接也可以指向一个邮件地址，使用 mailto 协议。用户点击后，浏览器会打开本机默认的邮件程序，让用户向指定的地址发送邮件。
+&lt;a href=&quot;mailto:contact@example.com&quot;&gt;联系我们&lt;/a&gt;
+电话链接 如果是手机浏览的页面，还可以使用 tel 协议，创建电话链接。用户点击该链接，会唤起电话，可以进行拨号。 &lt;a href=&quot;tel: 13101101100&quot;&gt;打电话给我&lt;/a&gt;
+img 标签的用法 &lt;img&gt;标签用于插入图片。它是单独使用的，没有闭合标签。
+&lt;img&gt;默认是一个行内元素，与前后的文字处在同一行。
+alt alt 属性用来设定图片的文字说明。图片不显示时（比如下载失败，或用户关闭图片加载），图片的位置上会显示该文本。
+width、height width 属性和 height 属性可以指定图片显示时的宽度和高度，单位是像素或百分比。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="twoheartliu.github.io/posts/2019-08-25-html-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" />
+<meta property="article:published_time" content="2019-08-25T19:30:39+00:00" />
+<meta property="article:modified_time" content="2019-08-25T19:30:39+00:00" />
+
+
+    
+      <base href="twoheartliu.github.io/posts/2019-08-25-html-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/">
+    
+    <title>
+  HTML 常用标签 · twoheart&#39;s blog
+</title>
+
+    
+      <link rel="canonical" href="twoheartliu.github.io/posts/2019-08-25-html-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="twoheartliu.github.io/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.71.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="twoheartliu.github.io/">
+      twoheart&#39;s blog
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">HTML 常用标签</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-08-25T19:30:39Z'>
+                August 25, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              1 分钟阅读时间
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="twoheartliu.github.io/tags/html/">HTML</a>
+      <span class="separator">•</span>
+    <a href="twoheartliu.github.io/tags/%E5%89%8D%E7%AB%AF/">前端</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="a-标签的用法">a 标签的用法</h2>
+<p>链接通过<code>&lt;a&gt;</code>标签表示，用户点击后，浏览器会跳转到指定的网址。</p>
+<!-- raw HTML omitted -->
+<p>例如：</p>
+<p><code>&lt;a href=&quot;www.google.com&quot;&gt;打开 Google&lt;/a&gt;</code></p>
+<p><code>&lt;a&gt;</code>标签内部不仅可以放置文字，也可以放置其他元素，比如段落、图像、多媒体等等。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;a href=&#34;www.google.com&#34;&gt;
+  &lt;img src=&#34;./foo.jpg&#34;&gt;
+&lt;/a&gt;
+</code></pre></div><h3 id="href">href</h3>
+<p><code>href</code> 属性除了能够设置点击后指向的链接，还能指向一个锚点。</p>
+<p><code>&lt;a href=&quot;#demo&quot;&gt;示例&lt;/a&gt;</code></p>
+<p>点击后，浏览器将自动滚动至页面中锚点所在的位置。</p>
+<h3 id="title">title</h3>
+<p>鼠标指向 a 标签所在位置后显示的提示信息。</p>
+<h3 id="target">target</h3>
+<p>target 表示以何种方式打开链接：</p>
+<ol>
+<li><code>_self</code>(默认值): 在此标签页打开</li>
+<li><code>_blank</code>: 在新标签页打开</li>
+<li><code>_parent</code>: 在上层窗口打开，（例如 iframe 的父页面）</li>
+<li><code>_top</code>: 在顶层窗口打开</li>
+</ol>
+<p>除了以上四个关键字，还可以自定义名称，如 <code>target='foo'</code>，那么将把新标签命名为 foo，如果还以同样的名称打开新链接，将在此窗口加载新的链接，覆盖原来的链接。</p>
+<h3 id="download">download</h3>
+<p>download 属性表明当前链接用于下载，而不是跳转到另一个 URL。</p>
+<p>此属性有兼容性问题。</p>
+<h3 id="邮箱链接">邮箱链接</h3>
+<p>链接也可以指向一个邮件地址，使用 mailto 协议。用户点击后，浏览器会打开本机默认的邮件程序，让用户向指定的地址发送邮件。</p>
+<p><code>&lt;a href=&quot;mailto:contact@example.com&quot;&gt;联系我们&lt;/a&gt;</code></p>
+<h3 id="电话链接">电话链接</h3>
+<p>如果是手机浏览的页面，还可以使用 tel 协议，创建电话链接。用户点击该链接，会唤起电话，可以进行拨号。
+<code>&lt;a href=&quot;tel: 13101101100&quot;&gt;打电话给我&lt;/a&gt;</code></p>
+<h2 id="img-标签的用法">img 标签的用法</h2>
+<p><code>&lt;img&gt;</code>标签用于插入图片。它是单独使用的，没有闭合标签。</p>
+<p><code>&lt;img&gt;</code>默认是一个行内元素，与前后的文字处在同一行。</p>
+<h3 id="alt">alt</h3>
+<p>alt 属性用来设定图片的文字说明。图片不显示时（比如下载失败，或用户关闭图片加载），图片的位置上会显示该文本。</p>
+<h3 id="widthheight">width、height</h3>
+<p>width 属性和 height 属性可以指定图片显示时的宽度和高度，单位是像素或百分比。</p>
+<p>width 属性和 height 属性只设置了一个，另一个没有设置。这时，浏览器会根据图片的原始大小，自动设置对应比例的图片宽度或高度。</p>
+<h3 id="loading">loading</h3>
+<p>浏览器的默认行为是，只要解析到<code>&lt;img&gt;</code>标签，就开始加载图片。对于很长的网页，这样做很浪费带宽，因为用户不一定会往下滚动，一直看到网页结束。用户很可能是点开网页，看了一会就关掉了，那些不在视口的图片加载的流量，就都浪费了。</p>
+<p>loading 属性可以取以下三个值:</p>
+<ul>
+<li>auto：浏览器默认行为，等同于不使用 loading 属性。</li>
+<li>lazy：启用懒加载。</li>
+<li>eager：立即加载资源，无论它在页面上的哪个位置。</li>
+</ul>
+<p>由于行内图片的懒加载，可能会导致页面布局重排，所以使用这个属性的时候，最好指定图片的高和宽。</p>
+<h2 id="table-标签">table 标签</h2>
+<p>表格（table）以行（row）和列（column）的形式展示数据。</p>
+<h3 id="caption">caption</h3>
+<p><code>&lt;caption&gt;</code>总是<code>&lt;table&gt;</code>里面的第一个子元素，表示表格的标题。该元素是可选的。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;table&gt;
+  &lt;caption&gt;
+    这是标题
+  &lt;/caption&gt;
+&lt;/table&gt;
+</code></pre></div><h3 id="theadtbodytfoot">thead、tbody、tfoot</h3>
+<p>分别表示 table 的表头、内容和结尾。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;table&gt;
+  &lt;thead&gt;
+    ...
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    ...
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    ...
+  &lt;/tfoot&gt;
+&lt;/table&gt;
+</code></pre></div><h3 id="tr">tr</h3>
+<p><code>&lt;tr&gt;</code>标签表示表格的一行（table row）. 放在 thead、tbody、tfoot 的下一级使用。</p>
+<h3 id="thtd">th、td</h3>
+<p><code>&lt;th&gt;</code>是标题单元格，<code>&lt;td&gt;</code>是数据单元格。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;
+        学号
+      &lt;/th&gt;
+      &lt;th&gt;
+        姓名
+      &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        0001
+      &lt;/td&gt;
+      &lt;td&gt;
+        小西
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        0002
+      &lt;/td&gt;
+      &lt;td&gt;
+        小东
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre></div><h3 id="边框样式">边框样式</h3>
+<p>表格间的间隙
+<code>border-spacing: 20px</code></p>
+<p>去除表格间隙
+<code>border-collapse: collapse</code></p>
+<p>去除表格间隙后的样式一般可以作为默认样式，可以在 reset.css 中进行如下设置。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">border-spacing: 0;
+border-collapse: collapse;
+</code></pre></div><hr>
+<p>the end</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>让我们荡起双桨</p>
+      
+      
+        ©
+        
+        2020
+         twoheart liu 
+      
+      
+         · 
+        技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+
+    <meta name="author" content="twoheart liu">
+    <meta name="description" content="到目前为止 jQuery 依然是全球范围内最长寿使用最广泛的 JavaScript 库，学习 React 、Vue 之前仍必须学习 jQuery，通过 jQuery 可以学习它的设计模式，封装技巧。
+设计思路 jQuery 的主要设计思路就是选择网页元素并进行某种操作。
+选择网页元素 使用 jQuery 的第一步就是将选择表达式放入jQuery() 或 $()中，获取到对应的 DOM 元素。选择表达式可以是 CSS 选择器也可以是 jQuery 特有的表达式。
+jQuery(&#39;body&#39;) $(&#39;#test&#39;) $(&#39;.red&#39;) 筛选网页元素（改变结果集） jQuery 提供强大的过滤器，筛选出想要的结果。
+$(&#39;div&#39;).next(&#39;p&#39;); //选择div元素后面的第一个p元素 $(&#39;div&#39;).parent(); //选择div元素的父元素 $(&#39;div&#39;).closest(&#39;form&#39;); //选择离div最近的那个form父元素 $(&#39;div&#39;).children(); //选择div的所有子元素 $(&#39;div&#39;).siblings(); //选择div的同级元素 链式操作 jQuery 选中元素之后可以进行一系列操作，操作可以像链条一样链接在一起，这也是 jQuery 最令人称道最方便的设计思想。 $(&#39;div&#39;).find(&#39;h3&#39;).eq(2).html(&#39;Hello&#39;); 可以分解为：
+$(&#39;div&#39;) //找到div元素 .find(&#39;h3&#39;) //选择其中的h3元素 .eq(2) //选择第3个h3元素 .html(&#39;Hello&#39;); //将它的内容改为Hello 原因在于，jQuery 的每一步操作都将返回 一个 jQuery 对象。
+另外 jQuery 还提供 end() 方法，可以使结果集操作后退一步。
+$(&#39;div&#39;) .find(&#39;h3&#39;) .eq(2) .">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="jQuery 设计思想与功能"/>
+<meta name="twitter:description" content="到目前为止 jQuery 依然是全球范围内最长寿使用最广泛的 JavaScript 库，学习 React 、Vue 之前仍必须学习 jQuery，通过 jQuery 可以学习它的设计模式，封装技巧。
+设计思路 jQuery 的主要设计思路就是选择网页元素并进行某种操作。
+选择网页元素 使用 jQuery 的第一步就是将选择表达式放入jQuery() 或 $()中，获取到对应的 DOM 元素。选择表达式可以是 CSS 选择器也可以是 jQuery 特有的表达式。
+jQuery(&#39;body&#39;) $(&#39;#test&#39;) $(&#39;.red&#39;) 筛选网页元素（改变结果集） jQuery 提供强大的过滤器，筛选出想要的结果。
+$(&#39;div&#39;).next(&#39;p&#39;); //选择div元素后面的第一个p元素 $(&#39;div&#39;).parent(); //选择div元素的父元素 $(&#39;div&#39;).closest(&#39;form&#39;); //选择离div最近的那个form父元素 $(&#39;div&#39;).children(); //选择div的所有子元素 $(&#39;div&#39;).siblings(); //选择div的同级元素 链式操作 jQuery 选中元素之后可以进行一系列操作，操作可以像链条一样链接在一起，这也是 jQuery 最令人称道最方便的设计思想。 $(&#39;div&#39;).find(&#39;h3&#39;).eq(2).html(&#39;Hello&#39;); 可以分解为：
+$(&#39;div&#39;) //找到div元素 .find(&#39;h3&#39;) //选择其中的h3元素 .eq(2) //选择第3个h3元素 .html(&#39;Hello&#39;); //将它的内容改为Hello 原因在于，jQuery 的每一步操作都将返回 一个 jQuery 对象。
+另外 jQuery 还提供 end() 方法，可以使结果集操作后退一步。
+$(&#39;div&#39;) .find(&#39;h3&#39;) .eq(2) ."/>
+
+    <meta property="og:title" content="jQuery 设计思想与功能" />
+<meta property="og:description" content="到目前为止 jQuery 依然是全球范围内最长寿使用最广泛的 JavaScript 库，学习 React 、Vue 之前仍必须学习 jQuery，通过 jQuery 可以学习它的设计模式，封装技巧。
+设计思路 jQuery 的主要设计思路就是选择网页元素并进行某种操作。
+选择网页元素 使用 jQuery 的第一步就是将选择表达式放入jQuery() 或 $()中，获取到对应的 DOM 元素。选择表达式可以是 CSS 选择器也可以是 jQuery 特有的表达式。
+jQuery(&#39;body&#39;) $(&#39;#test&#39;) $(&#39;.red&#39;) 筛选网页元素（改变结果集） jQuery 提供强大的过滤器，筛选出想要的结果。
+$(&#39;div&#39;).next(&#39;p&#39;); //选择div元素后面的第一个p元素 $(&#39;div&#39;).parent(); //选择div元素的父元素 $(&#39;div&#39;).closest(&#39;form&#39;); //选择离div最近的那个form父元素 $(&#39;div&#39;).children(); //选择div的所有子元素 $(&#39;div&#39;).siblings(); //选择div的同级元素 链式操作 jQuery 选中元素之后可以进行一系列操作，操作可以像链条一样链接在一起，这也是 jQuery 最令人称道最方便的设计思想。 $(&#39;div&#39;).find(&#39;h3&#39;).eq(2).html(&#39;Hello&#39;); 可以分解为：
+$(&#39;div&#39;) //找到div元素 .find(&#39;h3&#39;) //选择其中的h3元素 .eq(2) //选择第3个h3元素 .html(&#39;Hello&#39;); //将它的内容改为Hello 原因在于，jQuery 的每一步操作都将返回 一个 jQuery 对象。
+另外 jQuery 还提供 end() 方法，可以使结果集操作后退一步。
+$(&#39;div&#39;) .find(&#39;h3&#39;) .eq(2) ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="twoheartliu.github.io/posts/2020-01-16-jquery-%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E5%8A%9F%E8%83%BD/" />
+<meta property="article:published_time" content="2020-01-16T15:29:27+00:00" />
+<meta property="article:modified_time" content="2020-01-16T15:29:27+00:00" />
+
+
+    
+      <base href="twoheartliu.github.io/posts/2020-01-16-jquery-%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E5%8A%9F%E8%83%BD/">
+    
+    <title>
+  jQuery 设计思想与功能 · twoheart&#39;s blog
+</title>
+
+    
+      <link rel="canonical" href="twoheartliu.github.io/posts/2020-01-16-jquery-%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E5%8A%9F%E8%83%BD/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="twoheartliu.github.io/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.71.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="twoheartliu.github.io/">
+      twoheart&#39;s blog
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">jQuery 设计思想与功能</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-01-16T15:29:27Z'>
+                January 16, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              1 分钟阅读时间
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="twoheartliu.github.io/tags/jquery/">jQuery</a>
+      <span class="separator">•</span>
+    <a href="twoheartliu.github.io/tags/javascript/">JavaScript</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>到目前为止 jQuery 依然是全球范围内最长寿使用最广泛的 JavaScript 库，学习 React 、Vue 之前仍必须学习 jQuery，通过 jQuery 可以学习它的设计模式，封装技巧。</p>
+<!-- raw HTML omitted -->
+<h2 id="设计思路">设计思路</h2>
+<p>jQuery 的主要设计思路就是<strong>选择网页元素并进行某种操作</strong>。</p>
+<h3 id="选择网页元素">选择网页元素</h3>
+<p>使用 jQuery 的第一步就是将选择表达式放入<code>jQuery()</code> 或 <code>$()</code>中，获取到对应的 DOM 元素。选择表达式可以是 CSS 选择器也可以是 jQuery 特有的表达式。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">jQuery(&#39;body&#39;)
+$(&#39;#test&#39;)
+$(&#39;.red&#39;)
+</code></pre></div><h3 id="筛选网页元素改变结果集">筛选网页元素（改变结果集）</h3>
+<p>jQuery 提供强大的过滤器，筛选出想要的结果。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$(&#39;div&#39;).next(&#39;p&#39;); //选择div元素后面的第一个p元素
+
+$(&#39;div&#39;).parent(); //选择div元素的父元素
+
+$(&#39;div&#39;).closest(&#39;form&#39;); //选择离div最近的那个form父元素
+
+$(&#39;div&#39;).children(); //选择div的所有子元素
+
+$(&#39;div&#39;).siblings(); //选择div的同级元素
+</code></pre></div><h3 id="链式操作">链式操作</h3>
+<p>jQuery 选中元素之后可以进行一系列操作，操作可以像链条一样链接在一起，这也是 jQuery 最令人称道最方便的设计思想。
+<code>$('div').find('h3').eq(2).html('Hello');</code>
+可以分解为：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$(&#39;div&#39;) //找到div元素
+
+　　　.find(&#39;h3&#39;) //选择其中的h3元素
+
+　　　.eq(2) //选择第3个h3元素
+
+　　　.html(&#39;Hello&#39;); //将它的内容改为Hello
+</code></pre></div><p>原因在于，jQuery 的每一步操作都将返回 一个 jQuery 对象。</p>
+<p>另外 jQuery 还提供 end() 方法，可以使结果集操作后退一步。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">　$(&#39;div&#39;)
+
+　　　.find(&#39;h3&#39;)
+
+　　　.eq(2)
+
+　　　.html(&#39;Hello&#39;)
+
+　　　.end() //退回到选中所有的h3元素的那一步
+
+　　　.eq(0) //选中第一个h3元素
+
+　　　.html(&#39;World&#39;); //将它的内容改为World
+</code></pre></div><h3 id="取值赋值">取值赋值</h3>
+<p>jQuery 使用同一个方法完成取值（getter）和赋值（setter）操作，具体是取值还是赋值取决于函数中传入的参数。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$(&#39;h1&#39;).html(); //html()没有参数，表示取出h1的值
+
+$(&#39;h1&#39;).html(&#39;Hello&#39;); //html()有参数Hello，表示对h1进行赋值
+</code></pre></div><p>需要注意的是，如果结果集包含多个元素，那么赋值的时候，将对其中所有的元素赋值；取值的时候，则是只取出第一个元素的值（.text()例外，它取出所有元素的 text 内容）。</p>
+<h3 id="元素的其他操作">元素的其他操作</h3>
+<h4 id="创建元素">创建元素</h4>
+<p>创建新元素的方法非常简单，只要把新元素直接传入 jQuery 的构造函数就行了：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$(&#39;&lt;p&gt;Hello&lt;/p&gt;&#39;);
+
+$(&#39;&lt;li class=&#34;new&#34;&gt;new list item&lt;/li&gt;&#39;);
+
+$(&#39;ul&#39;).append(&#39;&lt;li&gt;list item&lt;/li&gt;&#39;);
+</code></pre></div><h4 id="移动元素">移动元素</h4>
+<p>jQuery 设计思想之五，就是提供两组方法，来操作元素在网页中的位置移动。一组方法是直接移动该元素，另一组方法是移动其他元素，使得目标元素达到我们想要的位置。
+第一种方法是使用.insertAfter()，把 div 元素移动 p 元素后面：<code>$('div').insertAfter($('p'));</code>
+第二种方法是使用.after()，把 p 元素加到 div 元素前面：<code>$('p').after($('div'));</code>
+这两者最大的区别是返回的元素不同，第一种方法返回 div 元素，第二种方法返回 p 元素。</p>
+<h4 id="修改属性">修改属性</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">.attr() 取出或设置某个属性的值
+
+.width() 取出或设置某个元素的宽度
+
+.height() 取出或设置某个元素的高度
+
+.val() 取出某个表单元素的值
+</code></pre></div><p>参考资料：<a href="http://www.ruanyifeng.com/blog/2011/07/jquery_fundamentals.html">jQuery 设计思想：阮一峰</a></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>让我们荡起双桨</p>
+      
+      
+        ©
+        
+        2020
+         twoheart liu 
+      
+      
+         · 
+        技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>

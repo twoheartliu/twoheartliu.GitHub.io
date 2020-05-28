@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>twoheart&#39;s blog</title>
+    <link>twoheartliu.github.io/</link>
+    <description>Recent content on twoheart&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Fri, 22 May 2020 15:15:54 +0000</lastBuildDate>
+    
+	<atom:link href="twoheartliu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vue 模版/指令与修饰符</title>
+      <link>twoheartliu.github.io/posts/2020-05-22-vue-%E6%A8%A1%E7%89%88-%E6%8C%87%E4%BB%A4%E4%B8%8E%E4%BF%AE%E9%A5%B0%E7%AC%A6/</link>
+      <pubDate>Fri, 22 May 2020 15:15:54 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2020-05-22-vue-%E6%A8%A1%E7%89%88-%E6%8C%87%E4%BB%A4%E4%B8%8E%E4%BF%AE%E9%A5%B0%E7%AC%A6/</guid>
+      <description>Vue 模版（template）的三种写法 1. 直接写在 HTML 里（完整版） 2. 写在 Vue 的 options 里（完整版） 3. Vue 文件中的 template 标签（非完整版） //cell.vue // 引入 注意： 在 template 标签里，是使用的 xml 语法，需要闭合标签。
+展示内容 表达式 object.a //变量 a + b //表达式 fn(n) //调用函数 fn(n) //调用函数 如果值为 undefined 或者 null 则不显示 另一写法是
+&amp;lt;span v-text=&amp;#34;msg&amp;#34;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;!-- 和下面的一样 --&amp;gt; &amp;lt;span&amp;gt;{{msg}}&amp;lt;/span&amp;gt; 显示富文本 html 内容 &amp;lt;div v-html=&amp;#34;&amp;#39;&amp;lt;h1&amp;gt;this is h1&amp;lt;/h1&amp;gt;&amp;#39;&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; v-pre 当需要不对模版进行编译时
+&amp;lt;div v-pre&amp;gt;{{n}}&amp;lt;/div&amp;gt; // 页面显示的内容就是： {{ n }} 本身 绑定属性：v-bind img 的 src // x = &amp;#39;xxx.</description>
+    </item>
+    
+    <item>
+      <title>Vue 进阶属性之 computed/watch</title>
+      <link>twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/</link>
+      <pubDate>Thu, 21 May 2020 10:38:11 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/</guid>
+      <description>首先复习一下响应式原理：
+ Vue 对传入的 data 进行监听 传入的 data 会被 Vue 代理 每次对 data 的读写都会通过代理处理 Vue 会在 data 变化时更新 UI  这里要讲 Vue 除了可以更新 UI 还可以做什么
+computed 计算属性 用途 示例代码 1
+ 当模版内需要使用复杂逻辑、表达式来展示时，使用 computed 是比较好的实践 同时当模版内有多处包含复杂逻辑时，可以用 computed 自定义计算属性可以是一个 function，也可以是一个包含 get、set 的对象。  示例代码 2
+ 使用 methods 属性 filter 筛选性别 使用 v-for 指令渲染数组  有没有更优雅的办法？使用 computed 属性 示例代码 3
+ computed 消除相同逻辑代码，避免重复（DRY：Don&amp;rsquo;t repeat yourself） 逻辑清晰，方便增加功能 computed 有缓存，当数据没有发生变化，便不会重新渲染页面  watch 简单举例 watch 即当数据发生变化时，执行一个函数。 示例代码 1 ：用 watch 实现撤消 示例代码 2 ：用 watch 模拟 computed ) 由此可见，watch 更偏向于监听记录，而非进行计算，该根据需要选择适用的属性</description>
+    </item>
+    
+    <item>
+      <title>Vue 数据响应式</title>
+      <link>twoheartliu.github.io/posts/2020-05-19-vue-%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/</link>
+      <pubDate>Tue, 19 May 2020 11:26:33 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2020-05-19-vue-%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/</guid>
+      <description>在学习 Vue options 的进阶属性之前，我们需要深入学习 options 的 data 属性 主要原理在 Vue 文档的「深入响应式原理」一节
+Vue 对 data 做了什么操作 示例代码 在 Vue 对 data 进行操作前，data 是普通的 obj，而在操作后 obj 是形如 {ob: Observer} 的东西，而且 n: (&amp;hellip;) 同时数据显示正常。要理解这一操作，我们需要如下前置知识。
+前置知识一：getter/setter ES 6 新特性列表 get 语法将对象属性绑定到查询该属性时将被调用的函数。 简单地说，当 obj 中的函数属性前带有 get 时，可以像调用方法一样调用函数，不用加括号就能进行调用。
+let obj0 = { firstName: &amp;#39;twoheart&amp;#39;, lastName: &amp;#39;liu&amp;#39;, name() { return this.firstName + this.lastName }, age: 18 } console.log(`my name is ${obj0.name()}`) let obj1 = { firstName: &amp;#39;twoheart&amp;#39;, lastName: &amp;#39;liu&amp;#39;, get name() { return this.</description>
+    </item>
+    
+    <item>
+      <title>Vue 实例与构造选项</title>
+      <link>twoheartliu.github.io/posts/2020-05-14-vue-%E5%AE%9E%E4%BE%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9/</link>
+      <pubDate>Thu, 14 May 2020 10:47:56 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2020-05-14-vue-%E5%AE%9E%E4%BE%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9/</guid>
+      <description>什么是 Vue 实例 每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始
+const vm = new Vue(options); vm 对象封装了对视图的所有操作，包括数据读写、事件绑定、DOM 更新 vm 的构造函数是 Vue，按照 ES6 的说法，vm 所属的类是 Vue options 是 new Vue 的参数，一般称之为选项或构造选项
+options 在 Vue 的文档中将选项分为了这样几大类，分别是：数据、DOM、生命周期钩子、资源、组合和其他。 options 的五类属性  数据: data/props/propsData/computed/methods/watch DOM: el/tempalte/render/renderError 生命周期钩子： beforeCreate/created/beforeMount/mounted/beforeUpdate/updated/activated/deactivated/beforeDestroy/destroyed/errorCaptured 资源：directives/filters/component 组合：parent/mixins/provide/inject 其他  属性分类 入门属性 el-挂载点 Vue 实例所挂载的 DOM 元素，如果存在 el 则实例立即进行编译，如果不存在则需要使用 vm.$mount 手动开启编译
+new Vue({ el: &amp;#39;#app&amp;#39;, render: h =&amp;gt; h1(Demo) }) // 同下 new Vue({ render: h =&amp;gt; h1(Demo) }).</description>
+    </item>
+    
+    <item>
+      <title>Vue 的两个版本</title>
+      <link>twoheartliu.github.io/posts/2020-05-13-vue-%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Wed, 13 May 2020 01:15:52 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2020-05-13-vue-%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/</guid>
+      <description>Vue 分为完整版本和 runtime-only 版本。
+    Vue 完整版 Vue 非完整版 评价     视图 写在 HTML 里 或者写在 template 里 写在 render 函数里用 h 来创建标签 h 是尤雨溪写好传给 render 的   特点 有 compiler 没有 compiler compiler 占 40% 体积   webpack 引入 需要配置 alias 默认使用此版 尤雨溪配置的   cdn 引入 vue.js vue.runtime.js 文件名不同，生成环境后缀为 .min.js   @vue/cli 引入 需要额外配置 默认使用此版 尤雨溪、蒋豪群配置的    使用场景  Vue 完整版虽然有编译器，可以直接操作 HTML 节点，但是他相对于来说体积比 runtime 版本多 40%，所以完整版适用于部分开发环境 Vue runtime 版抛弃了编译器，使它的体积小了很多，适用于生产版本 @vue/cli 让 runtime 版本也提供了便利的开发体验，利用 vue-loader 让开发者不必使用 h 函数 所以最佳实践是总是使用非完整版，然后配合 vue-loader 和 vue 文件  template 与 render template 即 vue 文件格式下使用 template 创建 html 页面内容。 render 函数就是用 render 函数用类似 dom 树的方式对页面进行创建，即：</description>
+    </item>
+    
+    <item>
+      <title>浅析 MVC</title>
+      <link>twoheartliu.github.io/posts/2020-05-07-%E6%B5%85%E6%9E%90-mvc/</link>
+      <pubDate>Thu, 07 May 2020 00:42:32 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2020-05-07-%E6%B5%85%E6%9E%90-mvc/</guid>
+      <description>什么是 MVC MVC 是一种架构设计模式，分别指 Model（模型）、View（视图）和 Controller (控制器)。这种架构思想，使得代码复杂度能够恒定增长，提高代码灵活性和复用性。
+其中：
+  模型 model 用于封装与应用程序的业务逻辑相关的数据以及对数据的处理方法，会有一个或多个视图监听此模型。一旦模型的数据发生变化，模型将通知有关的视图。
+eg：
+const model = { data: 原数据, create() {}, delete() {}, update(data) { // 将传入的 data 覆盖原有的数据 Object.assign(model.data, data) // 用 eventBus 进行对象间通信， 方便 view 收到更新的状态 eventBus.trigger(&amp;#39;m:update&amp;#39;) } }   视图 view 是它在屏幕上的表示，描绘的是 model 的当前状态。当模型的数据发生变化，视图相应地得到刷新自己的机会。 eg：
+const view = { el: 默认元素, html: 将要写入到页面的 DOM, init(element) { // 初始化绑定的元素 view.el = $(element) }, render(n) { 将 DOM 清空，并把新数据渲染到 DOM } }   控制器 controller 定义用户界面对用户输入的响应方式，起到不同层面间的组织作用，用于控制应用程序的流程，它处理用户的行为和数据 model 上的改变。 eg：</description>
+    </item>
+    
+    <item>
+      <title>jQuery 设计思想与功能</title>
+      <link>twoheartliu.github.io/posts/2020-01-16-jquery-%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>Thu, 16 Jan 2020 15:29:27 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2020-01-16-jquery-%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E5%8A%9F%E8%83%BD/</guid>
+      <description>到目前为止 jQuery 依然是全球范围内最长寿使用最广泛的 JavaScript 库，学习 React 、Vue 之前仍必须学习 jQuery，通过 jQuery 可以学习它的设计模式，封装技巧。
+设计思路 jQuery 的主要设计思路就是选择网页元素并进行某种操作。
+选择网页元素 使用 jQuery 的第一步就是将选择表达式放入jQuery() 或 $()中，获取到对应的 DOM 元素。选择表达式可以是 CSS 选择器也可以是 jQuery 特有的表达式。
+jQuery(&amp;#39;body&amp;#39;) $(&amp;#39;#test&amp;#39;) $(&amp;#39;.red&amp;#39;) 筛选网页元素（改变结果集） jQuery 提供强大的过滤器，筛选出想要的结果。
+$(&amp;#39;div&amp;#39;).next(&amp;#39;p&amp;#39;); //选择div元素后面的第一个p元素 $(&amp;#39;div&amp;#39;).parent(); //选择div元素的父元素 $(&amp;#39;div&amp;#39;).closest(&amp;#39;form&amp;#39;); //选择离div最近的那个form父元素 $(&amp;#39;div&amp;#39;).children(); //选择div的所有子元素 $(&amp;#39;div&amp;#39;).siblings(); //选择div的同级元素 链式操作 jQuery 选中元素之后可以进行一系列操作，操作可以像链条一样链接在一起，这也是 jQuery 最令人称道最方便的设计思想。 $(&#39;div&#39;).find(&#39;h3&#39;).eq(2).html(&#39;Hello&#39;); 可以分解为：
+$(&amp;#39;div&amp;#39;) //找到div元素 .find(&amp;#39;h3&amp;#39;) //选择其中的h3元素 .eq(2) //选择第3个h3元素 .html(&amp;#39;Hello&amp;#39;); //将它的内容改为Hello 原因在于，jQuery 的每一步操作都将返回 一个 jQuery 对象。
+另外 jQuery 还提供 end() 方法，可以使结果集操作后退一步。
+$(&amp;#39;div&amp;#39;) .find(&amp;#39;h3&amp;#39;) .eq(2) .</description>
+    </item>
+    
+    <item>
+      <title>JS 函数的执行时机</title>
+      <link>twoheartliu.github.io/posts/2019-10-29-js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</link>
+      <pubDate>Tue, 29 Oct 2019 23:39:08 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-10-29-js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
+      <description>解题 let i = 0; for(i = 0; i&amp;lt;6; i++){ setTimeout(()=&amp;gt;{ console.log(i) },0) } 打印出的结果会是 6 个 6。 因为 i 是在全局下定义的，i 的值在循环后最终会是 6，而 setTimeout 函数会在循环后运行，运行 6 次，所以结果会是 6 个 6.
+如何符合预期 for(let i = 0; i &amp;lt; 6; i++){ setTimeout(()=&amp;gt;{ console.log(i) },0) } 此时将打印出 0 1 2 3 4 5。因为 for let 循环中，let 在每次循环会生成不同的 i，每次打印的是 i 的不同值。
+其他方法 for(var i = 0; i &amp;lt; 6; i++) { !function() { var j = i setTimeout(() =&amp;gt; { console.</description>
+    </item>
+    
+    <item>
+      <title>JS 对象基本用法</title>
+      <link>twoheartliu.github.io/posts/2019-09-25-js-%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Wed, 25 Sep 2019 00:26:02 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-09-25-js-%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      <description>声明对象的两种语法  var obj = new Object({name: &#39;twoheart&#39;, gender: &#39;male&#39;}) var obj2 = {name: &#39;twoheart&#39;, gender: &#39;male&#39;}  注意：
+ key 是字符串，不是标识符 如果省略括号，则必须写标识符 就算省略了括号，依然是字符串形式  如何删除对象的属性 delete var obj = { name: &amp;#39;twoheart&amp;#39;, gender: &amp;#39;male&amp;#39; } delete obj.gender delete obj[&amp;#39;gender&amp;#39;] var hello = &amp;#39;name&amp;#39; delete obj[hello] // delete 语法的三种使用方式 判断 key 是否存在于 obj 中 &#39;gender&#39; in obj
+undefined 使 obj.name = undefined 并不能使属性被删除，也不能以此为依据判断 key 是否存在于 obj 中
+如何查看对象的属性 查看自身所有 key Object.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript 语法</title>
+      <link>twoheartliu.github.io/posts/2019-09-20-javascript-%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Fri, 20 Sep 2019 13:52:37 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-09-20-javascript-%E8%AF%AD%E6%B3%95/</guid>
+      <description>表达式和语句 表达式：
+1 + 2 // 表达式的值是 3 add(1, 2) // 表达式的值为函数的返回值 console.log // 表达式的值为函数本身 console.log(3) // 表达式的值为 undefined 语句：
+var a = &amp;#39;hello&amp;#39; 区别：
+ 表达式一般都有值，语句可能有也可能没有 语句一般会改变环境（声明、赋值） 以上不绝对  标识符的规则 规则：
+ 第一个字符，可以是 Unicode 字母或 $ 或 _ 或中文 后面字符除了上面说的，还可以是数字 变量名是标识符  if else 语句 if (a === 10) { console.log(&amp;#39;如果 a 与 10 相等，这里会执行&amp;#39;) } else { console.log(&amp;#39;a 与 10 不相等&amp;#39;) } // 注意：“=”是赋值，“===”是逻辑判断 形如“如果条件成立执行 a 不然执行 b”的语句，可以写成三元表达式（条件运算符）的形式，以上用三元表达式表示为：</description>
+    </item>
+    
+    <item>
+      <title>CSS 动画总结</title>
+      <link>twoheartliu.github.io/posts/2019-09-10-css-%E5%8A%A8%E7%94%BB%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 10 Sep 2019 18:27:48 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-09-10-css-%E5%8A%A8%E7%94%BB%E6%80%BB%E7%BB%93/</guid>
+      <description>CSS 动画原理 图片快速连续的变化构成了动画
+每一幅静止画面被称作帧 每秒 24 帧（影视） 每秒 30-120 帧（游戏）
+使用 setInterval 和 id.style.left 可以使 id 元素按照设置的时间移动，从而构成动画。
+最后使用 clearInterval 清除定时器。
+浏览器渲染原理 JS / CSS &amp;gt; 样式 &amp;gt; 布局 &amp;gt; 绘制 &amp;gt; 合成
+更新方式根据不同的 JS / CSS 操作省略其中的步骤
+更新方式根据浏览器的不同省略其中的步骤
+transform 因为 left 操作在所有浏览器中都走了一遍所有流程，导致渲染效率低下，所以并不推荐使用 left 制作 CSS 动画，而使用 transform （变形）。
+transform 并没有 repaint (重新绘制)，跳过 layout 和 paint，只需要 composite。
+transform - translate(位移) transform: translateX(10px); transform: translateY(10px); transform: translateZ(10px); transform: translate(10px, 50%, 100px); translateZ 需要在父元素定义 perspective 属性，意思是视点距离视图中间位置的距离。</description>
+    </item>
+    
+    <item>
+      <title>JavaScript 的诞生及历史</title>
+      <link>twoheartliu.github.io/posts/2019-09-04-javascript-%E7%9A%84%E8%AF%9E%E7%94%9F%E5%8F%8A%E5%8E%86%E5%8F%B2/</link>
+      <pubDate>Wed, 04 Sep 2019 00:30:05 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-09-04-javascript-%E7%9A%84%E8%AF%9E%E7%94%9F%E5%8F%8A%E5%8E%86%E5%8F%B2/</guid>
+      <description>一个人的命运，当然要靠自我奋斗，但是也要考虑到历史的行程。
+ JavaScript 的诞生 1994 年，网景公司（Netscape）发布了 Navigator 浏览器 0.9 版。这是历史上第一个比较成熟的网络浏览器，轰动一时。但是，这个版本的浏览器只能用来浏览，不具备与访问者互动的能力。网景公司急需一种网页脚本语言，使得浏览器可以与网页互动。
+当时的形势就是，网景公司的整个管理层，都是 Java 语言的信徒，Sun 公司完全介入网页脚本语言的决策。
+此时，34 岁的系统程序员 Brendan Eich 登场了。1995 年 4 月，网景公司录用了他。
+Brendan Eich 的主要方向和兴趣是函数式编程，网景公司招聘他的目的，是研究将 Scheme 语言作为网页脚本语言的可能性。Brendan Eich 本人也是这样想的，以为进入新公司后，会主要与 Scheme 语言打交道。
+仅仅一个月之后，1995 年 5 月，网景公司做出决策，未来的网页脚本语言必须&amp;quot;看上去与 Java 足够相似&amp;rdquo;，但是比 Java 简单，使得非专业的网页作者也能很快上手。这个决策实际上将 Perl、Python、Tcl、Scheme 等非面向对象编程的语言都排除在外了。
+Brendan Eich 被指定为这种&amp;quot;简化版 Java 语言&amp;quot;的设计师。
+但是，他对 Java 一点兴趣也没有。为了应付公司安排的任务，他只用 10 天时间就把 Javascript 设计出来了。
+ &amp;ldquo;与其说我爱 Javascript，不如说我恨它。它是 C 语言和 Self 语言一夜情的产物。十八世纪英国文学家约翰逊博士说得好：&amp;lsquo;它的优秀之处并非原创，它的原创之处并不优秀。&#39;&amp;rdquo; ——Brendan Eich
+ 就是这样一个连发明这门语言的人都不待见，只用了 10 天时间草草完工的语言竟然成了世界上使用最广泛的语言之一，实在是充满了传奇色彩。
+JavaScript 的历史 浏览器大战 JavaScript 发明之后微软进行跟进发明了 JScript，而网景公司进行反击，将 JavaScript 向 ECMA 提交标准，制定了 ECMAScript。</description>
+    </item>
+    
+    <item>
+      <title>浅析 URL</title>
+      <link>twoheartliu.github.io/posts/2019-09-01-%E6%B5%85%E6%9E%90-url/</link>
+      <pubDate>Sun, 01 Sep 2019 13:56:10 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-09-01-%E6%B5%85%E6%9E%90-url/</guid>
+      <description>URL 什么是 URL URL 指的是统一资源定位符（Uniform Resource Locator）。URL 无非就是一个给定的独特资源在 Web 上的地址。理论上说，每个有效的 URL 都指向一个独特的资源。这个资源可以是一个 HTML 页面，一个 CSS 文档，一幅图像，等等。而在实际中，有一些例外，最常见的情况就是 URL 指向了不存在的或是被移动过的资源。由于通过 URL 呈现的资源和 URL 本身由 Web 服务器处理，因此 web 服务器的拥有者需要认真地维护资源以及与它关联的 URL。
+URL 组成部分 一个 URL 由不同的部分组成，其中一些是必须的，而另一些是可选的。让我们以下面这个 URL 为例看看其中最重要的部分： http://www.example.com:80/path/to/myfile.html?key1=value1&amp;amp;key2=value2#SomewhereInTheDocument
+ http:// 是协议。表明了浏览器必须使用何种协议 www.example.com 是域名。它表明正在请求哪个 Web 服务器。 :80 是端口。相当于房间号。 /path/to/myfile.html 是网络服务器上资源的路径。在 Web 的早期阶段，像这样的路径表示 Web 服务器上的物理文件位置。如今，它主要是由没有任何物理现实的 Web 服务器处理的抽象。 ?key1=value1&amp;amp;key2=value2 是提供给网络服务器的额外参数。这些参数是用 &amp;amp; 符号分隔的键/值对列表。服务器可以根据键值对的内容处理并返回响应。 #SomewhereInTheDocument 是资源本身的另一部分的锚点。锚点表示资源中的一种“书签”，给浏览器显示位于该“加书签”位置的内容的方向。注意：锚点信息不会发送给服务器  DNS 什么是 DNS DNS (Domain Name System) 域名系统，将方便用户记忆的域名地址 domain names 转换为 IP 数字串、IP addresses，从而在因特网 Internet 或者私有网络上找到特定的机器。</description>
+    </item>
+    
+    <item>
+      <title>HTML 常用标签</title>
+      <link>twoheartliu.github.io/posts/2019-08-25-html-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Sun, 25 Aug 2019 19:30:39 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-08-25-html-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
+      <description>a 标签的用法 链接通过&amp;lt;a&amp;gt;标签表示，用户点击后，浏览器会跳转到指定的网址。
+例如：
+&amp;lt;a href=&amp;quot;www.google.com&amp;quot;&amp;gt;打开 Google&amp;lt;/a&amp;gt;
+&amp;lt;a&amp;gt;标签内部不仅可以放置文字，也可以放置其他元素，比如段落、图像、多媒体等等。
+&amp;lt;a href=&amp;#34;www.google.com&amp;#34;&amp;gt; &amp;lt;img src=&amp;#34;./foo.jpg&amp;#34;&amp;gt; &amp;lt;/a&amp;gt; href href 属性除了能够设置点击后指向的链接，还能指向一个锚点。
+&amp;lt;a href=&amp;quot;#demo&amp;quot;&amp;gt;示例&amp;lt;/a&amp;gt;
+点击后，浏览器将自动滚动至页面中锚点所在的位置。
+title 鼠标指向 a 标签所在位置后显示的提示信息。
+target target 表示以何种方式打开链接：
+ _self(默认值): 在此标签页打开 _blank: 在新标签页打开 _parent: 在上层窗口打开，（例如 iframe 的父页面） _top: 在顶层窗口打开  除了以上四个关键字，还可以自定义名称，如 target=&#39;foo&#39;，那么将把新标签命名为 foo，如果还以同样的名称打开新链接，将在此窗口加载新的链接，覆盖原来的链接。
+download download 属性表明当前链接用于下载，而不是跳转到另一个 URL。
+此属性有兼容性问题。
+邮箱链接 链接也可以指向一个邮件地址，使用 mailto 协议。用户点击后，浏览器会打开本机默认的邮件程序，让用户向指定的地址发送邮件。
+&amp;lt;a href=&amp;quot;mailto:contact@example.com&amp;quot;&amp;gt;联系我们&amp;lt;/a&amp;gt;
+电话链接 如果是手机浏览的页面，还可以使用 tel 协议，创建电话链接。用户点击该链接，会唤起电话，可以进行拨号。 &amp;lt;a href=&amp;quot;tel: 13101101100&amp;quot;&amp;gt;打电话给我&amp;lt;/a&amp;gt;
+img 标签的用法 &amp;lt;img&amp;gt;标签用于插入图片。它是单独使用的，没有闭合标签。
+&amp;lt;img&amp;gt;默认是一个行内元素，与前后的文字处在同一行。
+alt alt 属性用来设定图片的文字说明。图片不显示时（比如下载失败，或用户关闭图片加载），图片的位置上会显示该文本。
+width、height width 属性和 height 属性可以指定图片显示时的宽度和高度，单位是像素或百分比。</description>
+    </item>
+    
+    <item>
+      <title>HTML 入门笔记1</title>
+      <link>twoheartliu.github.io/posts/2019-08-19-html-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Mon, 19 Aug 2019 10:49:53 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-08-19-html-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
+      <description>HTML 简介 HTML 的全名是“超文本标记语言”（HyperText Markup Language），上个世纪 90 年代由欧洲核子研究中心的物理学家蒂姆·伯纳斯-李（Tim Berners-Lee）发明。
+浏览器的网页开发，主要涉及三种技术：HTML、CSS 和 JavaScript。普遍上称 HTML 为骨架，CSS 为衣服（外观），JavaScript 为动作（行为）。可以说 CSS 、JavaScript 需要依存于 HTML 存在，足见 HTML 的重要。
+第一个 HTML 页面 使用 VS Code 打开一个空文件夹，并新建名为index.html的文件。点击打开 html 文件之后，在第一行输入英文!并按tab键，将自动生成包含了 html 基本属性信息的默认模版。
+一般只修改以下两处：
+ 将lang=en改为lang=zh-CN 将title改为自己的网页想要起的标题名  常用的表示章节的标签 h1-h6 用来表示文章标题，h1为最高级，h6为最低级。
+section section标签表示一个含有主题的独立部分，通常用在文档里面表示一个章节，比如article可以包含多个section。
+article article标签表示页面里面一段完整的内容，即使页面的其他部分不存在，也具有独立使用的意义，通常用来表示一篇文章或者一个论坛帖子。它可以有自己的标题（h1到h6）。
+main main标签表示页面的主体内容，一个页面只能有一个main。
+aside aside标签用来放置与网页或文章主要内容间接相关的部分。网页级别的aside，可以用来放置侧边栏，但不一定就在页面的侧边；文章级别的aside，可以用来放置评论或注释。
+示例 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;zh-CN&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34;&amp;gt; &amp;lt;title&amp;gt;HTML 示例&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;header&amp;gt;顶部广告&amp;lt;/header&amp;gt; &amp;lt;div&amp;gt; &amp;lt;main&amp;gt; &amp;lt;h1&amp;gt;文章标题&amp;lt;/h1&amp;gt; &amp;lt;section&amp;gt; &amp;lt;h2&amp;gt;第一章&amp;lt;/h2&amp;gt; &amp;lt;p&amp;gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit.</description>
+    </item>
+    
+    <item>
+      <title>如何使用 GitHub Pages 预览 HTML</title>
+      <link>twoheartliu.github.io/posts/2019-08-18-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-github-pages-%E9%A2%84%E8%A7%88-html/</link>
+      <pubDate>Sun, 18 Aug 2019 10:54:45 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-08-18-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-github-pages-%E9%A2%84%E8%A7%88-html/</guid>
+      <description>当你想要将自己写好的网页分享给其他人看到展示效果的时候，使用 Github Pages 是个快速高效的选择。
+ 如果你还不懂 Github 的注册登录以及基本使用，推荐阅读 知乎：如何使用 Github？
+创建新 repo 如果你阅读了上面的链接应该不用我过多介绍了，填写了 repo 名和必要的描述信息之后，点击 Create repository，就创建好了一个新 repo。
+上传代码 创建后的界面如图所示
+创建完成后你会看到这样一个界面。你可以通过 Git 命令（如果你没有使用过需要做一些配置 配置 github 配置 git 使用 git。
+当然你也可以点击 uploading an existing file 按钮，直接把 nHTML 文件直接通过文件上传的形式上传到 Github 仓库。
+预览 HTML 上传后的文件目录如图所示
+点击右上角的 Settings
+下拉到这个区域 将 None 改为 master branch 这时候上面会出现一个网址，这个网址http://twoheart.cn/html-view-demo/就是预览网址。
+你的看到的网址可能是xxx.github.io/html-view-doemo/，这是正常的。如果显示的是 404，你需要在网址最后加上 html 的路径，如果你的文件名是main.html,则路径为xxx.github.io/html-view-doemo/main.html，如果你的 html 主文件在文件夹内，如果文件名为build则改成xxx.github.io/html-view-doemo/build/main.html.
+ the end</description>
+    </item>
+    
+    <item>
+      <title>JavaScript 中的数据类型</title>
+      <link>twoheartliu.github.io/posts/2019-07-22-bref-js-type/</link>
+      <pubDate>Mon, 22 Jul 2019 16:05:17 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-07-22-bref-js-type/</guid>
+      <description>JavaScript 中大致分七种类型：
+ String Boolean Number Symbol null undefined Object  String String 即字符串，var a = &#39;Jack&#39; Jack 就是一个字符串。
+多行字符串 多行字符串的表示方法：
+1. var a = &amp;#39;a / b / c &amp;#39; 2. var a = &amp;#39;a&amp;#39; + &amp;#39;b&amp;#39; + &amp;#39;c&amp;#39; 3. (es6新语法) var a = `a b c` 转义符 当需要使用 &#39; 或者&amp;quot; 这种本身标识字符串的符号的时候，需要使用\来转义，不然会报错。
+var a = &amp;#39;\&amp;#39;&amp;#39;; var b = &amp;#34;\&amp;#34;&amp;#34;; // 以及 \ 本身 var c = &amp;#39;\\&amp;#39;; // 这里表示 c = &amp;#39;\&amp;#39; Boolean Boolean 用来表示逻辑上的 true / false 。</description>
+    </item>
+    
+    <item>
+      <title>常用的 CSS 布局套路</title>
+      <link>twoheartliu.github.io/posts/2019-06-10-common-css/</link>
+      <pubDate>Mon, 10 Jun 2019 17:39:51 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-06-10-common-css/</guid>
+      <description>这里记录一下基础的 CSS 布局套路
+ 左右布局 show in JSbin三栏布局 show in JSbin各种居中 show in JSbinTHE END</description>
+    </item>
+    
+    <item>
+      <title>CSS 简义</title>
+      <link>twoheartliu.github.io/posts/2019-06-01-bref-css/</link>
+      <pubDate>Sat, 01 Jun 2019 23:52:00 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-06-01-bref-css/</guid>
+      <description>CSS 是一门玄学 这里记录一下基础的 CSS 套路
+ float 解决高度塌陷问题 .clearfix::after { content: &amp;#34;&amp;#34;; display: block; clear: both; } 在需要浮动的子元素设置 float: left 之后，需要使用 clearfix 套路放在父元素上，否则会使下方所有文档流塌陷到上部，导致页面布局发生问题。
+文档流 文档流的英文是 Normal Flow，文档流是一个很垃圾的翻译。
+文档流代表元素在文档中的「流动」方向。
+float:left、position:fixed、position:absolute 都能使元素脱离文档流。
+内联元素文档流 默认：从左往右，如果遇到阻碍自动换行
+英文默认不会被换行分割
+如果需要，使用属性：
+word-break: break-all; //默认 break-word;
+一旦脱离文档流，元素高度将不占用文档流高度
+background 背景图按比例缩放： background-size: cover;
+背景图蒙版：
+background: rgba(0, 0, 0, 0.8)//最后一项是透明度
+背景图位置居中：
+background-positon: center center;//上下 左右 位置
+布局 尽量不要使用固定宽高： 使用 padding 进行布局，从内向外撑起需要的宽高。
+ 减少 bug 方便修改文案  CSS 画三角形 利用 border</description>
+    </item>
+    
+    <item>
+      <title>值得一提的 HTML</title>
+      <link>twoheartliu.github.io/posts/2019-05-28-bref-html/</link>
+      <pubDate>Tue, 28 May 2019 01:00:40 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-05-28-bref-html/</guid>
+      <description> 很多新手觉得 HTML 实在过于简单，草草地把 HTML 标签过一下，就 div + span 一把梭地用起来了。 用当然是可以用的，凑合谁不会呢？如果你相信自己不止于此，那么就应向青草更青处漫溯。
+ iframe 与 a 的联动 iframe 是一个新生代前端不常用也不屑用的标签了，但很多不屑于做某事的人其实是真的不会做而已。 我们知道 iframe 是一个页面上的子页面: &amp;lt;iframe src=&amp;quot;https://www.baidu.com&amp;quot; name=&amp;quot;xxx&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt; 当 a 标签的 target 属性和 iframe 的 name 属性进行绑定时，iframe 所呈现的内容将是 a 标签点击后的网页内容。 &amp;lt;iframe src=&amp;#34;#&amp;#34; name=&amp;#34;xxx&amp;#34; frameborder=&amp;#34;0&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;a target=&amp;#34;xxx&amp;#34; href=&amp;#34;http://www.qq.com&amp;#34;&amp;gt;QQ&amp;lt;a/&amp;gt; &amp;lt;a target=&amp;#34;xxx&amp;#34; href=&amp;#34;http://www.baidu.com&amp;#34;&amp;gt;baidu&amp;lt;a/&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>空标签和可替换标签</title>
+      <link>twoheartliu.github.io/posts/2019-05-24-tags/</link>
+      <pubDate>Fri, 24 May 2019 00:32:47 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-05-24-tags/</guid>
+      <description>空标签 没有闭合的标签称为空标签，也叫空元素。如：&amp;lt;br/&amp;gt;和&amp;lt;img/&amp;gt;等。他们不存在成对的情况。 在 HTML 中，通常在一个空元素上使用一个闭标签是无效的。例如， &amp;lt;input type=&amp;#34;text&amp;#34;&amp;gt;&amp;lt;/input&amp;gt; 的闭标签是无效的 HTML。 &amp;lt;!-- more --&amp;gt; 反之具有成对性质的，且有效的，例如：&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;、&amp;lt;form&amp;gt;&amp;lt;/form&amp;gt;就不是空标签。 在 HTML 中有以下这些空元素： &amp;lt;area&amp;gt; &amp;lt;base&amp;gt; &amp;lt;br&amp;gt; &amp;lt;col&amp;gt; &amp;lt;colgroup&amp;gt; when the span is present &amp;lt;command&amp;gt; &amp;lt;embed&amp;gt; &amp;lt;hr&amp;gt; &amp;lt;img&amp;gt; &amp;lt;input&amp;gt; &amp;lt;keygen&amp;gt; &amp;lt;link&amp;gt; &amp;lt;meta&amp;gt; &amp;lt;param&amp;gt; &amp;lt;source&amp;gt; &amp;lt;track&amp;gt; &amp;lt;wbr&amp;gt; 可替换标签 这些元素是一种外部对象，它们外观的渲染，是独立于 CSS 的。
+简单来说，它们的内容不受当前文档的样式的影响。CSS 可以影响可替换元素的位置，但不会影响到可替换元素自身的内容。
+典型的可替换元素有： &amp;lt;iframe&amp;gt; &amp;lt;video&amp;gt; &amp;lt;embed&amp;gt; &amp;lt;img&amp;gt; 有些元素仅在特定情况下被作为可替换元素处理，例如： &amp;lt;option&amp;gt; &amp;lt;audio&amp;gt; &amp;lt;canvas&amp;gt; &amp;lt;object&amp;gt; &amp;lt;applet&amp;gt; THE END</description>
+    </item>
+    
+    <item>
+      <title>HTTP 基础</title>
+      <link>twoheartliu.github.io/posts/2019-05-23-http-basic/</link>
+      <pubDate>Thu, 23 May 2019 01:06:01 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-05-23-http-basic/</guid>
+      <description>WWW 的发明 Tim Berners-Lee（下文中称为李爵士）在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。主要包含三个概念
+ URI，俗称网址 HTTP，两个电脑之间传输内容的协议 HTML，超级文本，主要用来做页面跳转 URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。 这是一个简单而完美的系统。李爵士除了发明了这些概念，还付诸了行动： 发明了第一个服务器 发明了第一个浏览器 写出了第一个网页  URI 是什么 Google URI 维基百科即可查看全称。 URI 分为 URL 和 URN，我们一般使用 URL 作为网址。
+URN Google URN 维基百科即可查看全称。 ISBN: 9787115275790 就是一个 URN，通过 URN 你可以确定一个「唯一的」资源，ISBN: 9787115275790 对应的资源的是《JavaScript 高级程序设计（第三版）》这本书。你去是介绍任何一个图书馆、书店，他们都知道是这本书。
+URL Google URL 维基百科即可查看全称。 https://www.baidu.com/s?wd=hello&amp;amp;rsv_spt=1#5 就是一个 URL，通过 URL 你可以确定一个「唯一的」地址（网址）。
+HTTP 请求与响应 请求的格式 1 动词路径协议/版本 2 Key1: value1 2 Key2: value2 2 Key3: value3 2 Content-Type: application/x-www-form-urlencoded 2 Host: www.</description>
+    </item>
+    
+    <item>
+      <title>Github Page —— build warning 之坑</title>
+      <link>twoheartliu.github.io/posts/2019-05-17-github-page-error/</link>
+      <pubDate>Fri, 17 May 2019 00:57:08 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-05-17-github-page-error/</guid>
+      <description>自从恢复使用博客以来，每次向 Github push 代码总会如期而至的收到一封发自 Github 的题为 Page build warning 的来信。
+今天下班早，我决定试着解决一下这个问题。
+道路是曲折的，通过 Google ，我发现似乎是由于顶级域名和 DNS 配置过期的量子纠缠而引发的问题。
+似乎只有不多的几篇中文博客谈到了这个问题。
+在试着通过 这篇博客以及 另一篇博客的方法设置之后，依然没有解决。
+在群里问了大佬，大佬给出的建议是——将 @github 设置为垃圾邮件。
+这当然是一个简单粗暴又省时的好办法。
+但是作为一个江湖儿女，我决定再挣扎一番。
+在尝试了多个语句之后，终于在 reddit以及 stackoverflow找到了几乎正确的方法。
+在用顶级域名尝试了上面两个网站的设置之后，问题依旧。最后抱着死马当活马医的心情，设置了 www 域名前缀，问题终于算是解决了。
+在 Github Warning 解除之后，顺便升级了下 HTTPS 。
+今天的故事告诉我们：
+ 学好英文很重要 勇于尝试很重要 钻牛角尖很浪费时间  THE END</description>
+    </item>
+    
+    <item>
+      <title>前端（只）需要掌握这些命令行（就还行了）</title>
+      <link>twoheartliu.github.io/posts/2019-05-15-command-line/</link>
+      <pubDate>Wed, 15 May 2019 00:56:59 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-05-15-command-line/</guid>
+      <description>命令 全拼 缩写     创建目录 make directory mkdir   删除 remove rm   移动/重命名 move mv   复制 copy cp   罗列 list ls   改变目录 change directory cd    练习  windows 用户在任意目录使用 shift + 右键 打开 cmd 或者 powershell；或通过其他方式打开命令行 cd ~/Desktop 回车 恭喜你在命令行里进入了桌面 输入命令 mkdir demo1 cd demo1 进入目录 cd .. 回退到桌面 rm -rf demo1 删除目录，其中 -r 表示递归地删除路径下的所有文件，如果删除的是文件夹必须加 -r；-f 表示强制删除，不加的话在 Linux / Unix 系统下每删除一个文件都会提示是否删除 touch 1.</description>
+    </item>
+    
+    <item>
+      <title>react 基础梳理(1)</title>
+      <link>twoheartliu.github.io/posts/2019-04-17-react-note-0/</link>
+      <pubDate>Wed, 17 Apr 2019 10:09:14 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-04-17-react-note-0/</guid>
+      <description>首发于我的知乎专栏二心集，转载请保留链接：）
+ 架构与工作原理 广告语：React 是声明式、组件化、高效、灵活的前端框架
+React 的理念 归结为一个公式：
+​ UI = render(data)
+用户看到的界面（UI），应该是一个函数（render）的执行结果，只接受数据（data）作为参数。这个函数是一个纯函数，所谓纯函数指的是没有任何副作用，输出完全依赖于输入的函数，两次函数调用如果输入相同，那么输出也绝对相同。那么，最终的用户界面，在 render 函数确定的情况下完全取决于输入数据。
+对于开发者来说，重要的是区分开哪些是属于 data，哪些属于 render，想要更新用户界面，要做的就是要更新 data，用户界面自然会做出响应，所以 React 实践的也是&amp;quot;响应式编程&amp;rdquo;（Reactive Programming）的思想，这也是 React 为什么叫做 React 的原因。
+虚拟（Virtual）DOM React 应用通过重复渲染来实现用户交互，每当 state 、props 改变，render 函数会重新被调用，似乎是会造成性能的浪费，但是事实是 React 利用 Virtual DOM，让每次渲染都只重新渲染最少的 DOM 元素。
+什么是 DOM ？ 文档对象模型（Document Object Model，简称DOM），其实就是 HTML 文本，HTML 中的每个元素对应 DOM 的某个节点。因为 HTML 元素的逐级包含关系， DOM 节点自然就构成一个树形结构，称为 DOM 树。
+浏览器为了渲染 HTML 格式的网页，会先将 HTML 文本解析以构建 DOM 树，然后根据 DOM 树渲染出用户看到的界面，当要改变界面内容的时候，就去改变 DOM 树上的节点。
+Web 前端开发关于性能优化有一个原则：尽量减少 DOM 操作。虽然 DOM 操作只是一些简单的 JavaScript 语句，但是 DOM 操作会引起浏览器对网页进行重新布局，重新绘制，这就是一个比 JavaScript 语句执行慢得多的过程。</description>
+    </item>
+    
+    <item>
+      <title>如何学编程的方法论</title>
+      <link>twoheartliu.github.io/posts/2018-10-26-how-to-learn-code/</link>
+      <pubDate>Fri, 26 Oct 2018 15:36:18 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2018-10-26-how-to-learn-code/</guid>
+      <description>你要记住，写程序也好，包括学说话也好，包括学任何一个技能，包括打篮球学英语都要经过大量的练习你去学英语，学一个单词一个句子的念法可能要重复几十次上百次比如说你去学唱一首歌，刚开始你可能连调都跟不上，后来你可能跟上调了但是你老忘词，你唱了几个星期或者连续几天，你会发现你会唱的比较顺畅，你能把它唱出来而且也能跟上调，写程序也是一样，任何的技能都应该用大量的时间去学习掌握当你不会唱这首歌的时候你会怎么办，你会去看一遍歌词，会听一遍然后继续唱歌写程序应该也是这样的  当你忘记 while 怎么写的时候，你应该去看下，或者直接复制下来照着抄很多人不是这样，上课的时候或者看书的时候，感觉好简单，他把这个书，合起来盖住，他要把它默写出来，默不出的时候就会很暴躁很急，那这种方式就错了学唱歌的时候会这样吗？你忘了歌词你能强行想起来吗，你听一遍歌就能唱出歌词吗，绝无可能那你学编程的时候为什么要这样做呢？这是因为编程是有特殊性的，特殊在你从小到大你并没接触这个东西你不知道该用怎么样的概念，怎么样一个格式去处理，然后你就懵了所以你就会去乱搞，那我现在教会你正确的模式你一定要按照我们教你的方式，这个学习过程就会变得很顺畅，这个方法是对的，你只要加强练习就可以掌握知识，编程不是一些魔法或者一些需要天赋，很多人说这个人编程天赋，我不适合编程这是无稽之谈，就像唱歌跳舞搬砖挖地，都是重复就能做好的事情开车那么难的一个事情，我不会开车，但是你可能会开车，你怎么学会的呢你可能去驾校学了几十个小时，练好就会了编程一个道理，有很多四十岁五十岁的大叔阿姨他都会去学开车并且能够学的会，所以不存在什么天赋问题 骑自行车也是，你去学了花了时间就能掌握，可能你花的时间比别人长一点，这是正常的，大家掌握技能需要不同的时间嘛这都是非常正常的，你又不是做爱因斯坦，你为什么期望自己一次搞定呢，为什么别人比你快你就不能接受呢？从小到大无数人都比你快啊各方面你都不是第一名，你照样活得好好的，为什么你在编程上面就要这么纠结呢，这是因为这是一个全新的概念你无所适从，你现在按照我的方式，就跟唱歌一样去学这个编程，照着他抄抄个五遍十遍就会了，你复制粘贴去改，改着改着就会了你不应该去钻牛角尖，摒弃你之前的想法还有不要说，你是不是没有天赋，我是不是不适合这样的想法搬砖这种事情，古代人都要做的，没有你不适合就不用搬砖这种说法，这个世界就是这样的你现在可以不学编程也能活得好好的，所以你会给自己找各种各样的借口，然后你觉得你不会编程你学不会编程还是照常活着，每天还是吃吃喝喝玩玩乐乐睡觉，没问题，但是你这个想法是错的，不要说没天赋学不会，都是假的方法不对而已——摘自萧大B 站前端试听课
+ 如果说有什么支持着我走下去，萧大的这段话算一个。
+贴到这里，希望看到这里的人，有所感触。</description>
+    </item>
+    
+    <item>
+      <title>新的开始</title>
+      <link>twoheartliu.github.io/posts/2018-09-21-new-hello/</link>
+      <pubDate>Fri, 21 Sep 2018 15:36:18 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2018-09-21-new-hello/</guid>
+      <description>写字即是露怯
+ 前言 这里是二心的第不知道多少个博客。
+初中那会，在各大门户网站上都建了博客，随手写一点东西大概是那会养成的习惯。
+暂时决定微信公众号可能会更新编程之外的东西，这里会主要更新关于编程的一些思考和记录。
+最近的学习重心大概有以下几点：
+ Vue 基本语法回顾 Vue 练手项目的完善 React Demo 回顾 大全的内容过一遍  所谓写字即是露怯，是指写出来的东西总会被指摘，被当做讨论的根据，即使是自己，多年后看到当时写的内容也多半难以接受， 但好处还是更多一些的，所以我选择写一点。</description>
+    </item>
+    
+  </channel>
+</rss>

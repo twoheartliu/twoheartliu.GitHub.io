@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTML on twoheart&#39;s blog</title>
+    <link>twoheartliu.github.io/tags/html/</link>
+    <description>Recent content in HTML on twoheart&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 25 Aug 2019 19:30:39 +0000</lastBuildDate>
+    
+	<atom:link href="twoheartliu.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HTML 常用标签</title>
+      <link>twoheartliu.github.io/posts/2019-08-25-html-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Sun, 25 Aug 2019 19:30:39 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-08-25-html-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
+      <description>a 标签的用法 链接通过&amp;lt;a&amp;gt;标签表示，用户点击后，浏览器会跳转到指定的网址。
+例如：
+&amp;lt;a href=&amp;quot;www.google.com&amp;quot;&amp;gt;打开 Google&amp;lt;/a&amp;gt;
+&amp;lt;a&amp;gt;标签内部不仅可以放置文字，也可以放置其他元素，比如段落、图像、多媒体等等。
+&amp;lt;a href=&amp;#34;www.google.com&amp;#34;&amp;gt; &amp;lt;img src=&amp;#34;./foo.jpg&amp;#34;&amp;gt; &amp;lt;/a&amp;gt; href href 属性除了能够设置点击后指向的链接，还能指向一个锚点。
+&amp;lt;a href=&amp;quot;#demo&amp;quot;&amp;gt;示例&amp;lt;/a&amp;gt;
+点击后，浏览器将自动滚动至页面中锚点所在的位置。
+title 鼠标指向 a 标签所在位置后显示的提示信息。
+target target 表示以何种方式打开链接：
+ _self(默认值): 在此标签页打开 _blank: 在新标签页打开 _parent: 在上层窗口打开，（例如 iframe 的父页面） _top: 在顶层窗口打开  除了以上四个关键字，还可以自定义名称，如 target=&#39;foo&#39;，那么将把新标签命名为 foo，如果还以同样的名称打开新链接，将在此窗口加载新的链接，覆盖原来的链接。
+download download 属性表明当前链接用于下载，而不是跳转到另一个 URL。
+此属性有兼容性问题。
+邮箱链接 链接也可以指向一个邮件地址，使用 mailto 协议。用户点击后，浏览器会打开本机默认的邮件程序，让用户向指定的地址发送邮件。
+&amp;lt;a href=&amp;quot;mailto:contact@example.com&amp;quot;&amp;gt;联系我们&amp;lt;/a&amp;gt;
+电话链接 如果是手机浏览的页面，还可以使用 tel 协议，创建电话链接。用户点击该链接，会唤起电话，可以进行拨号。 &amp;lt;a href=&amp;quot;tel: 13101101100&amp;quot;&amp;gt;打电话给我&amp;lt;/a&amp;gt;
+img 标签的用法 &amp;lt;img&amp;gt;标签用于插入图片。它是单独使用的，没有闭合标签。
+&amp;lt;img&amp;gt;默认是一个行内元素，与前后的文字处在同一行。
+alt alt 属性用来设定图片的文字说明。图片不显示时（比如下载失败，或用户关闭图片加载），图片的位置上会显示该文本。
+width、height width 属性和 height 属性可以指定图片显示时的宽度和高度，单位是像素或百分比。</description>
+    </item>
+    
+    <item>
+      <title>HTML 入门笔记1</title>
+      <link>twoheartliu.github.io/posts/2019-08-19-html-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Mon, 19 Aug 2019 10:49:53 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-08-19-html-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
+      <description>HTML 简介 HTML 的全名是“超文本标记语言”（HyperText Markup Language），上个世纪 90 年代由欧洲核子研究中心的物理学家蒂姆·伯纳斯-李（Tim Berners-Lee）发明。
+浏览器的网页开发，主要涉及三种技术：HTML、CSS 和 JavaScript。普遍上称 HTML 为骨架，CSS 为衣服（外观），JavaScript 为动作（行为）。可以说 CSS 、JavaScript 需要依存于 HTML 存在，足见 HTML 的重要。
+第一个 HTML 页面 使用 VS Code 打开一个空文件夹，并新建名为index.html的文件。点击打开 html 文件之后，在第一行输入英文!并按tab键，将自动生成包含了 html 基本属性信息的默认模版。
+一般只修改以下两处：
+ 将lang=en改为lang=zh-CN 将title改为自己的网页想要起的标题名  常用的表示章节的标签 h1-h6 用来表示文章标题，h1为最高级，h6为最低级。
+section section标签表示一个含有主题的独立部分，通常用在文档里面表示一个章节，比如article可以包含多个section。
+article article标签表示页面里面一段完整的内容，即使页面的其他部分不存在，也具有独立使用的意义，通常用来表示一篇文章或者一个论坛帖子。它可以有自己的标题（h1到h6）。
+main main标签表示页面的主体内容，一个页面只能有一个main。
+aside aside标签用来放置与网页或文章主要内容间接相关的部分。网页级别的aside，可以用来放置侧边栏，但不一定就在页面的侧边；文章级别的aside，可以用来放置评论或注释。
+示例 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;zh-CN&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34;&amp;gt; &amp;lt;title&amp;gt;HTML 示例&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;header&amp;gt;顶部广告&amp;lt;/header&amp;gt; &amp;lt;div&amp;gt; &amp;lt;main&amp;gt; &amp;lt;h1&amp;gt;文章标题&amp;lt;/h1&amp;gt; &amp;lt;section&amp;gt; &amp;lt;h2&amp;gt;第一章&amp;lt;/h2&amp;gt; &amp;lt;p&amp;gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit.</description>
+    </item>
+    
+    <item>
+      <title>如何使用 GitHub Pages 预览 HTML</title>
+      <link>twoheartliu.github.io/posts/2019-08-18-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-github-pages-%E9%A2%84%E8%A7%88-html/</link>
+      <pubDate>Sun, 18 Aug 2019 10:54:45 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-08-18-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-github-pages-%E9%A2%84%E8%A7%88-html/</guid>
+      <description>当你想要将自己写好的网页分享给其他人看到展示效果的时候，使用 Github Pages 是个快速高效的选择。
+ 如果你还不懂 Github 的注册登录以及基本使用，推荐阅读 知乎：如何使用 Github？
+创建新 repo 如果你阅读了上面的链接应该不用我过多介绍了，填写了 repo 名和必要的描述信息之后，点击 Create repository，就创建好了一个新 repo。
+上传代码 创建后的界面如图所示
+创建完成后你会看到这样一个界面。你可以通过 Git 命令（如果你没有使用过需要做一些配置 配置 github 配置 git 使用 git。
+当然你也可以点击 uploading an existing file 按钮，直接把 nHTML 文件直接通过文件上传的形式上传到 Github 仓库。
+预览 HTML 上传后的文件目录如图所示
+点击右上角的 Settings
+下拉到这个区域 将 None 改为 master branch 这时候上面会出现一个网址，这个网址http://twoheart.cn/html-view-demo/就是预览网址。
+你的看到的网址可能是xxx.github.io/html-view-doemo/，这是正常的。如果显示的是 404，你需要在网址最后加上 html 的路径，如果你的文件名是main.html,则路径为xxx.github.io/html-view-doemo/main.html，如果你的 html 主文件在文件夹内，如果文件名为build则改成xxx.github.io/html-view-doemo/build/main.html.
+ the end</description>
+    </item>
+    
+    <item>
+      <title>值得一提的 HTML</title>
+      <link>twoheartliu.github.io/posts/2019-05-28-bref-html/</link>
+      <pubDate>Tue, 28 May 2019 01:00:40 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-05-28-bref-html/</guid>
+      <description> 很多新手觉得 HTML 实在过于简单，草草地把 HTML 标签过一下，就 div + span 一把梭地用起来了。 用当然是可以用的，凑合谁不会呢？如果你相信自己不止于此，那么就应向青草更青处漫溯。
+ iframe 与 a 的联动 iframe 是一个新生代前端不常用也不屑用的标签了，但很多不屑于做某事的人其实是真的不会做而已。 我们知道 iframe 是一个页面上的子页面: &amp;lt;iframe src=&amp;quot;https://www.baidu.com&amp;quot; name=&amp;quot;xxx&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt; 当 a 标签的 target 属性和 iframe 的 name 属性进行绑定时，iframe 所呈现的内容将是 a 标签点击后的网页内容。 &amp;lt;iframe src=&amp;#34;#&amp;#34; name=&amp;#34;xxx&amp;#34; frameborder=&amp;#34;0&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;a target=&amp;#34;xxx&amp;#34; href=&amp;#34;http://www.qq.com&amp;#34;&amp;gt;QQ&amp;lt;a/&amp;gt; &amp;lt;a target=&amp;#34;xxx&amp;#34; href=&amp;#34;http://www.baidu.com&amp;#34;&amp;gt;baidu&amp;lt;a/&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>空标签和可替换标签</title>
+      <link>twoheartliu.github.io/posts/2019-05-24-tags/</link>
+      <pubDate>Fri, 24 May 2019 00:32:47 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-05-24-tags/</guid>
+      <description>空标签 没有闭合的标签称为空标签，也叫空元素。如：&amp;lt;br/&amp;gt;和&amp;lt;img/&amp;gt;等。他们不存在成对的情况。 在 HTML 中，通常在一个空元素上使用一个闭标签是无效的。例如， &amp;lt;input type=&amp;#34;text&amp;#34;&amp;gt;&amp;lt;/input&amp;gt; 的闭标签是无效的 HTML。 &amp;lt;!-- more --&amp;gt; 反之具有成对性质的，且有效的，例如：&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;、&amp;lt;form&amp;gt;&amp;lt;/form&amp;gt;就不是空标签。 在 HTML 中有以下这些空元素： &amp;lt;area&amp;gt; &amp;lt;base&amp;gt; &amp;lt;br&amp;gt; &amp;lt;col&amp;gt; &amp;lt;colgroup&amp;gt; when the span is present &amp;lt;command&amp;gt; &amp;lt;embed&amp;gt; &amp;lt;hr&amp;gt; &amp;lt;img&amp;gt; &amp;lt;input&amp;gt; &amp;lt;keygen&amp;gt; &amp;lt;link&amp;gt; &amp;lt;meta&amp;gt; &amp;lt;param&amp;gt; &amp;lt;source&amp;gt; &amp;lt;track&amp;gt; &amp;lt;wbr&amp;gt; 可替换标签 这些元素是一种外部对象，它们外观的渲染，是独立于 CSS 的。
+简单来说，它们的内容不受当前文档的样式的影响。CSS 可以影响可替换元素的位置，但不会影响到可替换元素自身的内容。
+典型的可替换元素有： &amp;lt;iframe&amp;gt; &amp;lt;video&amp;gt; &amp;lt;embed&amp;gt; &amp;lt;img&amp;gt; 有些元素仅在特定情况下被作为可替换元素处理，例如： &amp;lt;option&amp;gt; &amp;lt;audio&amp;gt; &amp;lt;canvas&amp;gt; &amp;lt;object&amp;gt; &amp;lt;applet&amp;gt; THE END</description>
+    </item>
+    
+  </channel>
+</rss>

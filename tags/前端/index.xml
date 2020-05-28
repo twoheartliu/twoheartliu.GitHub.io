@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前端 on twoheart&#39;s blog</title>
+    <link>twoheartliu.github.io/tags/%E5%89%8D%E7%AB%AF/</link>
+    <description>Recent content in 前端 on twoheart&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Wed, 13 May 2020 01:15:52 +0000</lastBuildDate>
+    
+	<atom:link href="twoheartliu.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vue 的两个版本</title>
+      <link>twoheartliu.github.io/posts/2020-05-13-vue-%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Wed, 13 May 2020 01:15:52 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2020-05-13-vue-%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/</guid>
+      <description>Vue 分为完整版本和 runtime-only 版本。
+    Vue 完整版 Vue 非完整版 评价     视图 写在 HTML 里 或者写在 template 里 写在 render 函数里用 h 来创建标签 h 是尤雨溪写好传给 render 的   特点 有 compiler 没有 compiler compiler 占 40% 体积   webpack 引入 需要配置 alias 默认使用此版 尤雨溪配置的   cdn 引入 vue.js vue.runtime.js 文件名不同，生成环境后缀为 .min.js   @vue/cli 引入 需要额外配置 默认使用此版 尤雨溪、蒋豪群配置的    使用场景  Vue 完整版虽然有编译器，可以直接操作 HTML 节点，但是他相对于来说体积比 runtime 版本多 40%，所以完整版适用于部分开发环境 Vue runtime 版抛弃了编译器，使它的体积小了很多，适用于生产版本 @vue/cli 让 runtime 版本也提供了便利的开发体验，利用 vue-loader 让开发者不必使用 h 函数 所以最佳实践是总是使用非完整版，然后配合 vue-loader 和 vue 文件  template 与 render template 即 vue 文件格式下使用 template 创建 html 页面内容。 render 函数就是用 render 函数用类似 dom 树的方式对页面进行创建，即：</description>
+    </item>
+    
+    <item>
+      <title>JavaScript 的诞生及历史</title>
+      <link>twoheartliu.github.io/posts/2019-09-04-javascript-%E7%9A%84%E8%AF%9E%E7%94%9F%E5%8F%8A%E5%8E%86%E5%8F%B2/</link>
+      <pubDate>Wed, 04 Sep 2019 00:30:05 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-09-04-javascript-%E7%9A%84%E8%AF%9E%E7%94%9F%E5%8F%8A%E5%8E%86%E5%8F%B2/</guid>
+      <description>一个人的命运，当然要靠自我奋斗，但是也要考虑到历史的行程。
+ JavaScript 的诞生 1994 年，网景公司（Netscape）发布了 Navigator 浏览器 0.9 版。这是历史上第一个比较成熟的网络浏览器，轰动一时。但是，这个版本的浏览器只能用来浏览，不具备与访问者互动的能力。网景公司急需一种网页脚本语言，使得浏览器可以与网页互动。
+当时的形势就是，网景公司的整个管理层，都是 Java 语言的信徒，Sun 公司完全介入网页脚本语言的决策。
+此时，34 岁的系统程序员 Brendan Eich 登场了。1995 年 4 月，网景公司录用了他。
+Brendan Eich 的主要方向和兴趣是函数式编程，网景公司招聘他的目的，是研究将 Scheme 语言作为网页脚本语言的可能性。Brendan Eich 本人也是这样想的，以为进入新公司后，会主要与 Scheme 语言打交道。
+仅仅一个月之后，1995 年 5 月，网景公司做出决策，未来的网页脚本语言必须&amp;quot;看上去与 Java 足够相似&amp;rdquo;，但是比 Java 简单，使得非专业的网页作者也能很快上手。这个决策实际上将 Perl、Python、Tcl、Scheme 等非面向对象编程的语言都排除在外了。
+Brendan Eich 被指定为这种&amp;quot;简化版 Java 语言&amp;quot;的设计师。
+但是，他对 Java 一点兴趣也没有。为了应付公司安排的任务，他只用 10 天时间就把 Javascript 设计出来了。
+ &amp;ldquo;与其说我爱 Javascript，不如说我恨它。它是 C 语言和 Self 语言一夜情的产物。十八世纪英国文学家约翰逊博士说得好：&amp;lsquo;它的优秀之处并非原创，它的原创之处并不优秀。&#39;&amp;rdquo; ——Brendan Eich
+ 就是这样一个连发明这门语言的人都不待见，只用了 10 天时间草草完工的语言竟然成了世界上使用最广泛的语言之一，实在是充满了传奇色彩。
+JavaScript 的历史 浏览器大战 JavaScript 发明之后微软进行跟进发明了 JScript，而网景公司进行反击，将 JavaScript 向 ECMA 提交标准，制定了 ECMAScript。</description>
+    </item>
+    
+    <item>
+      <title>浅析 URL</title>
+      <link>twoheartliu.github.io/posts/2019-09-01-%E6%B5%85%E6%9E%90-url/</link>
+      <pubDate>Sun, 01 Sep 2019 13:56:10 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-09-01-%E6%B5%85%E6%9E%90-url/</guid>
+      <description>URL 什么是 URL URL 指的是统一资源定位符（Uniform Resource Locator）。URL 无非就是一个给定的独特资源在 Web 上的地址。理论上说，每个有效的 URL 都指向一个独特的资源。这个资源可以是一个 HTML 页面，一个 CSS 文档，一幅图像，等等。而在实际中，有一些例外，最常见的情况就是 URL 指向了不存在的或是被移动过的资源。由于通过 URL 呈现的资源和 URL 本身由 Web 服务器处理，因此 web 服务器的拥有者需要认真地维护资源以及与它关联的 URL。
+URL 组成部分 一个 URL 由不同的部分组成，其中一些是必须的，而另一些是可选的。让我们以下面这个 URL 为例看看其中最重要的部分： http://www.example.com:80/path/to/myfile.html?key1=value1&amp;amp;key2=value2#SomewhereInTheDocument
+ http:// 是协议。表明了浏览器必须使用何种协议 www.example.com 是域名。它表明正在请求哪个 Web 服务器。 :80 是端口。相当于房间号。 /path/to/myfile.html 是网络服务器上资源的路径。在 Web 的早期阶段，像这样的路径表示 Web 服务器上的物理文件位置。如今，它主要是由没有任何物理现实的 Web 服务器处理的抽象。 ?key1=value1&amp;amp;key2=value2 是提供给网络服务器的额外参数。这些参数是用 &amp;amp; 符号分隔的键/值对列表。服务器可以根据键值对的内容处理并返回响应。 #SomewhereInTheDocument 是资源本身的另一部分的锚点。锚点表示资源中的一种“书签”，给浏览器显示位于该“加书签”位置的内容的方向。注意：锚点信息不会发送给服务器  DNS 什么是 DNS DNS (Domain Name System) 域名系统，将方便用户记忆的域名地址 domain names 转换为 IP 数字串、IP addresses，从而在因特网 Internet 或者私有网络上找到特定的机器。</description>
+    </item>
+    
+    <item>
+      <title>HTML 常用标签</title>
+      <link>twoheartliu.github.io/posts/2019-08-25-html-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Sun, 25 Aug 2019 19:30:39 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-08-25-html-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
+      <description>a 标签的用法 链接通过&amp;lt;a&amp;gt;标签表示，用户点击后，浏览器会跳转到指定的网址。
+例如：
+&amp;lt;a href=&amp;quot;www.google.com&amp;quot;&amp;gt;打开 Google&amp;lt;/a&amp;gt;
+&amp;lt;a&amp;gt;标签内部不仅可以放置文字，也可以放置其他元素，比如段落、图像、多媒体等等。
+&amp;lt;a href=&amp;#34;www.google.com&amp;#34;&amp;gt; &amp;lt;img src=&amp;#34;./foo.jpg&amp;#34;&amp;gt; &amp;lt;/a&amp;gt; href href 属性除了能够设置点击后指向的链接，还能指向一个锚点。
+&amp;lt;a href=&amp;quot;#demo&amp;quot;&amp;gt;示例&amp;lt;/a&amp;gt;
+点击后，浏览器将自动滚动至页面中锚点所在的位置。
+title 鼠标指向 a 标签所在位置后显示的提示信息。
+target target 表示以何种方式打开链接：
+ _self(默认值): 在此标签页打开 _blank: 在新标签页打开 _parent: 在上层窗口打开，（例如 iframe 的父页面） _top: 在顶层窗口打开  除了以上四个关键字，还可以自定义名称，如 target=&#39;foo&#39;，那么将把新标签命名为 foo，如果还以同样的名称打开新链接，将在此窗口加载新的链接，覆盖原来的链接。
+download download 属性表明当前链接用于下载，而不是跳转到另一个 URL。
+此属性有兼容性问题。
+邮箱链接 链接也可以指向一个邮件地址，使用 mailto 协议。用户点击后，浏览器会打开本机默认的邮件程序，让用户向指定的地址发送邮件。
+&amp;lt;a href=&amp;quot;mailto:contact@example.com&amp;quot;&amp;gt;联系我们&amp;lt;/a&amp;gt;
+电话链接 如果是手机浏览的页面，还可以使用 tel 协议，创建电话链接。用户点击该链接，会唤起电话，可以进行拨号。 &amp;lt;a href=&amp;quot;tel: 13101101100&amp;quot;&amp;gt;打电话给我&amp;lt;/a&amp;gt;
+img 标签的用法 &amp;lt;img&amp;gt;标签用于插入图片。它是单独使用的，没有闭合标签。
+&amp;lt;img&amp;gt;默认是一个行内元素，与前后的文字处在同一行。
+alt alt 属性用来设定图片的文字说明。图片不显示时（比如下载失败，或用户关闭图片加载），图片的位置上会显示该文本。
+width、height width 属性和 height 属性可以指定图片显示时的宽度和高度，单位是像素或百分比。</description>
+    </item>
+    
+    <item>
+      <title>HTML 入门笔记1</title>
+      <link>twoheartliu.github.io/posts/2019-08-19-html-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Mon, 19 Aug 2019 10:49:53 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-08-19-html-%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01/</guid>
+      <description>HTML 简介 HTML 的全名是“超文本标记语言”（HyperText Markup Language），上个世纪 90 年代由欧洲核子研究中心的物理学家蒂姆·伯纳斯-李（Tim Berners-Lee）发明。
+浏览器的网页开发，主要涉及三种技术：HTML、CSS 和 JavaScript。普遍上称 HTML 为骨架，CSS 为衣服（外观），JavaScript 为动作（行为）。可以说 CSS 、JavaScript 需要依存于 HTML 存在，足见 HTML 的重要。
+第一个 HTML 页面 使用 VS Code 打开一个空文件夹，并新建名为index.html的文件。点击打开 html 文件之后，在第一行输入英文!并按tab键，将自动生成包含了 html 基本属性信息的默认模版。
+一般只修改以下两处：
+ 将lang=en改为lang=zh-CN 将title改为自己的网页想要起的标题名  常用的表示章节的标签 h1-h6 用来表示文章标题，h1为最高级，h6为最低级。
+section section标签表示一个含有主题的独立部分，通常用在文档里面表示一个章节，比如article可以包含多个section。
+article article标签表示页面里面一段完整的内容，即使页面的其他部分不存在，也具有独立使用的意义，通常用来表示一篇文章或者一个论坛帖子。它可以有自己的标题（h1到h6）。
+main main标签表示页面的主体内容，一个页面只能有一个main。
+aside aside标签用来放置与网页或文章主要内容间接相关的部分。网页级别的aside，可以用来放置侧边栏，但不一定就在页面的侧边；文章级别的aside，可以用来放置评论或注释。
+示例 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;zh-CN&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width, initial-scale=1.0&amp;#34;&amp;gt; &amp;lt;meta http-equiv=&amp;#34;X-UA-Compatible&amp;#34; content=&amp;#34;ie=edge&amp;#34;&amp;gt; &amp;lt;title&amp;gt;HTML 示例&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;header&amp;gt;顶部广告&amp;lt;/header&amp;gt; &amp;lt;div&amp;gt; &amp;lt;main&amp;gt; &amp;lt;h1&amp;gt;文章标题&amp;lt;/h1&amp;gt; &amp;lt;section&amp;gt; &amp;lt;h2&amp;gt;第一章&amp;lt;/h2&amp;gt; &amp;lt;p&amp;gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript 中的数据类型</title>
+      <link>twoheartliu.github.io/posts/2019-07-22-bref-js-type/</link>
+      <pubDate>Mon, 22 Jul 2019 16:05:17 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-07-22-bref-js-type/</guid>
+      <description>JavaScript 中大致分七种类型：
+ String Boolean Number Symbol null undefined Object  String String 即字符串，var a = &#39;Jack&#39; Jack 就是一个字符串。
+多行字符串 多行字符串的表示方法：
+1. var a = &amp;#39;a / b / c &amp;#39; 2. var a = &amp;#39;a&amp;#39; + &amp;#39;b&amp;#39; + &amp;#39;c&amp;#39; 3. (es6新语法) var a = `a b c` 转义符 当需要使用 &#39; 或者&amp;quot; 这种本身标识字符串的符号的时候，需要使用\来转义，不然会报错。
+var a = &amp;#39;\&amp;#39;&amp;#39;; var b = &amp;#34;\&amp;#34;&amp;#34;; // 以及 \ 本身 var c = &amp;#39;\\&amp;#39;; // 这里表示 c = &amp;#39;\&amp;#39; Boolean Boolean 用来表示逻辑上的 true / false 。</description>
+    </item>
+    
+    <item>
+      <title>常用的 CSS 布局套路</title>
+      <link>twoheartliu.github.io/posts/2019-06-10-common-css/</link>
+      <pubDate>Mon, 10 Jun 2019 17:39:51 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-06-10-common-css/</guid>
+      <description>这里记录一下基础的 CSS 布局套路
+ 左右布局 show in JSbin三栏布局 show in JSbin各种居中 show in JSbinTHE END</description>
+    </item>
+    
+    <item>
+      <title>CSS 简义</title>
+      <link>twoheartliu.github.io/posts/2019-06-01-bref-css/</link>
+      <pubDate>Sat, 01 Jun 2019 23:52:00 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-06-01-bref-css/</guid>
+      <description>CSS 是一门玄学 这里记录一下基础的 CSS 套路
+ float 解决高度塌陷问题 .clearfix::after { content: &amp;#34;&amp;#34;; display: block; clear: both; } 在需要浮动的子元素设置 float: left 之后，需要使用 clearfix 套路放在父元素上，否则会使下方所有文档流塌陷到上部，导致页面布局发生问题。
+文档流 文档流的英文是 Normal Flow，文档流是一个很垃圾的翻译。
+文档流代表元素在文档中的「流动」方向。
+float:left、position:fixed、position:absolute 都能使元素脱离文档流。
+内联元素文档流 默认：从左往右，如果遇到阻碍自动换行
+英文默认不会被换行分割
+如果需要，使用属性：
+word-break: break-all; //默认 break-word;
+一旦脱离文档流，元素高度将不占用文档流高度
+background 背景图按比例缩放： background-size: cover;
+背景图蒙版：
+background: rgba(0, 0, 0, 0.8)//最后一项是透明度
+背景图位置居中：
+background-positon: center center;//上下 左右 位置
+布局 尽量不要使用固定宽高： 使用 padding 进行布局，从内向外撑起需要的宽高。
+ 减少 bug 方便修改文案  CSS 画三角形 利用 border</description>
+    </item>
+    
+    <item>
+      <title>值得一提的 HTML</title>
+      <link>twoheartliu.github.io/posts/2019-05-28-bref-html/</link>
+      <pubDate>Tue, 28 May 2019 01:00:40 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-05-28-bref-html/</guid>
+      <description> 很多新手觉得 HTML 实在过于简单，草草地把 HTML 标签过一下，就 div + span 一把梭地用起来了。 用当然是可以用的，凑合谁不会呢？如果你相信自己不止于此，那么就应向青草更青处漫溯。
+ iframe 与 a 的联动 iframe 是一个新生代前端不常用也不屑用的标签了，但很多不屑于做某事的人其实是真的不会做而已。 我们知道 iframe 是一个页面上的子页面: &amp;lt;iframe src=&amp;quot;https://www.baidu.com&amp;quot; name=&amp;quot;xxx&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt; 当 a 标签的 target 属性和 iframe 的 name 属性进行绑定时，iframe 所呈现的内容将是 a 标签点击后的网页内容。 &amp;lt;iframe src=&amp;#34;#&amp;#34; name=&amp;#34;xxx&amp;#34; frameborder=&amp;#34;0&amp;#34;&amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;a target=&amp;#34;xxx&amp;#34; href=&amp;#34;http://www.qq.com&amp;#34;&amp;gt;QQ&amp;lt;a/&amp;gt; &amp;lt;a target=&amp;#34;xxx&amp;#34; href=&amp;#34;http://www.baidu.com&amp;#34;&amp;gt;baidu&amp;lt;a/&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>空标签和可替换标签</title>
+      <link>twoheartliu.github.io/posts/2019-05-24-tags/</link>
+      <pubDate>Fri, 24 May 2019 00:32:47 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-05-24-tags/</guid>
+      <description>空标签 没有闭合的标签称为空标签，也叫空元素。如：&amp;lt;br/&amp;gt;和&amp;lt;img/&amp;gt;等。他们不存在成对的情况。 在 HTML 中，通常在一个空元素上使用一个闭标签是无效的。例如， &amp;lt;input type=&amp;#34;text&amp;#34;&amp;gt;&amp;lt;/input&amp;gt; 的闭标签是无效的 HTML。 &amp;lt;!-- more --&amp;gt; 反之具有成对性质的，且有效的，例如：&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;、&amp;lt;form&amp;gt;&amp;lt;/form&amp;gt;就不是空标签。 在 HTML 中有以下这些空元素： &amp;lt;area&amp;gt; &amp;lt;base&amp;gt; &amp;lt;br&amp;gt; &amp;lt;col&amp;gt; &amp;lt;colgroup&amp;gt; when the span is present &amp;lt;command&amp;gt; &amp;lt;embed&amp;gt; &amp;lt;hr&amp;gt; &amp;lt;img&amp;gt; &amp;lt;input&amp;gt; &amp;lt;keygen&amp;gt; &amp;lt;link&amp;gt; &amp;lt;meta&amp;gt; &amp;lt;param&amp;gt; &amp;lt;source&amp;gt; &amp;lt;track&amp;gt; &amp;lt;wbr&amp;gt; 可替换标签 这些元素是一种外部对象，它们外观的渲染，是独立于 CSS 的。
+简单来说，它们的内容不受当前文档的样式的影响。CSS 可以影响可替换元素的位置，但不会影响到可替换元素自身的内容。
+典型的可替换元素有： &amp;lt;iframe&amp;gt; &amp;lt;video&amp;gt; &amp;lt;embed&amp;gt; &amp;lt;img&amp;gt; 有些元素仅在特定情况下被作为可替换元素处理，例如： &amp;lt;option&amp;gt; &amp;lt;audio&amp;gt; &amp;lt;canvas&amp;gt; &amp;lt;object&amp;gt; &amp;lt;applet&amp;gt; THE END</description>
+    </item>
+    
+    <item>
+      <title>HTTP 基础</title>
+      <link>twoheartliu.github.io/posts/2019-05-23-http-basic/</link>
+      <pubDate>Thu, 23 May 2019 01:06:01 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-05-23-http-basic/</guid>
+      <description>WWW 的发明 Tim Berners-Lee（下文中称为李爵士）在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。主要包含三个概念
+ URI，俗称网址 HTTP，两个电脑之间传输内容的协议 HTML，超级文本，主要用来做页面跳转 URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。 这是一个简单而完美的系统。李爵士除了发明了这些概念，还付诸了行动： 发明了第一个服务器 发明了第一个浏览器 写出了第一个网页  URI 是什么 Google URI 维基百科即可查看全称。 URI 分为 URL 和 URN，我们一般使用 URL 作为网址。
+URN Google URN 维基百科即可查看全称。 ISBN: 9787115275790 就是一个 URN，通过 URN 你可以确定一个「唯一的」资源，ISBN: 9787115275790 对应的资源的是《JavaScript 高级程序设计（第三版）》这本书。你去是介绍任何一个图书馆、书店，他们都知道是这本书。
+URL Google URL 维基百科即可查看全称。 https://www.baidu.com/s?wd=hello&amp;amp;rsv_spt=1#5 就是一个 URL，通过 URL 你可以确定一个「唯一的」地址（网址）。
+HTTP 请求与响应 请求的格式 1 动词路径协议/版本 2 Key1: value1 2 Key2: value2 2 Key3: value3 2 Content-Type: application/x-www-form-urlencoded 2 Host: www.</description>
+    </item>
+    
+    <item>
+      <title>Github Page —— build warning 之坑</title>
+      <link>twoheartliu.github.io/posts/2019-05-17-github-page-error/</link>
+      <pubDate>Fri, 17 May 2019 00:57:08 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-05-17-github-page-error/</guid>
+      <description>自从恢复使用博客以来，每次向 Github push 代码总会如期而至的收到一封发自 Github 的题为 Page build warning 的来信。
+今天下班早，我决定试着解决一下这个问题。
+道路是曲折的，通过 Google ，我发现似乎是由于顶级域名和 DNS 配置过期的量子纠缠而引发的问题。
+似乎只有不多的几篇中文博客谈到了这个问题。
+在试着通过 这篇博客以及 另一篇博客的方法设置之后，依然没有解决。
+在群里问了大佬，大佬给出的建议是——将 @github 设置为垃圾邮件。
+这当然是一个简单粗暴又省时的好办法。
+但是作为一个江湖儿女，我决定再挣扎一番。
+在尝试了多个语句之后，终于在 reddit以及 stackoverflow找到了几乎正确的方法。
+在用顶级域名尝试了上面两个网站的设置之后，问题依旧。最后抱着死马当活马医的心情，设置了 www 域名前缀，问题终于算是解决了。
+在 Github Warning 解除之后，顺便升级了下 HTTPS 。
+今天的故事告诉我们：
+ 学好英文很重要 勇于尝试很重要 钻牛角尖很浪费时间  THE END</description>
+    </item>
+    
+    <item>
+      <title>前端（只）需要掌握这些命令行（就还行了）</title>
+      <link>twoheartliu.github.io/posts/2019-05-15-command-line/</link>
+      <pubDate>Wed, 15 May 2019 00:56:59 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-05-15-command-line/</guid>
+      <description>命令 全拼 缩写     创建目录 make directory mkdir   删除 remove rm   移动/重命名 move mv   复制 copy cp   罗列 list ls   改变目录 change directory cd    练习  windows 用户在任意目录使用 shift + 右键 打开 cmd 或者 powershell；或通过其他方式打开命令行 cd ~/Desktop 回车 恭喜你在命令行里进入了桌面 输入命令 mkdir demo1 cd demo1 进入目录 cd .. 回退到桌面 rm -rf demo1 删除目录，其中 -r 表示递归地删除路径下的所有文件，如果删除的是文件夹必须加 -r；-f 表示强制删除，不加的话在 Linux / Unix 系统下每删除一个文件都会提示是否删除 touch 1.</description>
+    </item>
+    
+    <item>
+      <title>react 基础梳理(1)</title>
+      <link>twoheartliu.github.io/posts/2019-04-17-react-note-0/</link>
+      <pubDate>Wed, 17 Apr 2019 10:09:14 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-04-17-react-note-0/</guid>
+      <description>首发于我的知乎专栏二心集，转载请保留链接：）
+ 架构与工作原理 广告语：React 是声明式、组件化、高效、灵活的前端框架
+React 的理念 归结为一个公式：
+​ UI = render(data)
+用户看到的界面（UI），应该是一个函数（render）的执行结果，只接受数据（data）作为参数。这个函数是一个纯函数，所谓纯函数指的是没有任何副作用，输出完全依赖于输入的函数，两次函数调用如果输入相同，那么输出也绝对相同。那么，最终的用户界面，在 render 函数确定的情况下完全取决于输入数据。
+对于开发者来说，重要的是区分开哪些是属于 data，哪些属于 render，想要更新用户界面，要做的就是要更新 data，用户界面自然会做出响应，所以 React 实践的也是&amp;quot;响应式编程&amp;rdquo;（Reactive Programming）的思想，这也是 React 为什么叫做 React 的原因。
+虚拟（Virtual）DOM React 应用通过重复渲染来实现用户交互，每当 state 、props 改变，render 函数会重新被调用，似乎是会造成性能的浪费，但是事实是 React 利用 Virtual DOM，让每次渲染都只重新渲染最少的 DOM 元素。
+什么是 DOM ？ 文档对象模型（Document Object Model，简称DOM），其实就是 HTML 文本，HTML 中的每个元素对应 DOM 的某个节点。因为 HTML 元素的逐级包含关系， DOM 节点自然就构成一个树形结构，称为 DOM 树。
+浏览器为了渲染 HTML 格式的网页，会先将 HTML 文本解析以构建 DOM 树，然后根据 DOM 树渲染出用户看到的界面，当要改变界面内容的时候，就去改变 DOM 树上的节点。
+Web 前端开发关于性能优化有一个原则：尽量减少 DOM 操作。虽然 DOM 操作只是一些简单的 JavaScript 语句，但是 DOM 操作会引起浏览器对网页进行重新布局，重新绘制，这就是一个比 JavaScript 语句执行慢得多的过程。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+
+    <meta name="author" content="twoheart liu">
+    <meta name="description" content="JavaScript 中大致分七种类型：
+ String Boolean Number Symbol null undefined Object  String String 即字符串，var a = &#39;Jack&#39; Jack 就是一个字符串。
+多行字符串 多行字符串的表示方法：
+1. var a = &#39;a / b / c &#39; 2. var a = &#39;a&#39; &#43; &#39;b&#39; &#43; &#39;c&#39; 3. (es6新语法) var a = `a b c` 转义符 当需要使用 &#39; 或者&quot; 这种本身标识字符串的符号的时候，需要使用\来转义，不然会报错。
+var a = &#39;\&#39;&#39;; var b = &#34;\&#34;&#34;; // 以及 \ 本身 var c = &#39;\\&#39;; // 这里表示 c = &#39;\&#39; Boolean Boolean 用来表示逻辑上的 true / false 。">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JavaScript 中的数据类型"/>
+<meta name="twitter:description" content="JavaScript 中大致分七种类型：
+ String Boolean Number Symbol null undefined Object  String String 即字符串，var a = &#39;Jack&#39; Jack 就是一个字符串。
+多行字符串 多行字符串的表示方法：
+1. var a = &#39;a / b / c &#39; 2. var a = &#39;a&#39; &#43; &#39;b&#39; &#43; &#39;c&#39; 3. (es6新语法) var a = `a b c` 转义符 当需要使用 &#39; 或者&quot; 这种本身标识字符串的符号的时候，需要使用\来转义，不然会报错。
+var a = &#39;\&#39;&#39;; var b = &#34;\&#34;&#34;; // 以及 \ 本身 var c = &#39;\\&#39;; // 这里表示 c = &#39;\&#39; Boolean Boolean 用来表示逻辑上的 true / false 。"/>
+
+    <meta property="og:title" content="JavaScript 中的数据类型" />
+<meta property="og:description" content="JavaScript 中大致分七种类型：
+ String Boolean Number Symbol null undefined Object  String String 即字符串，var a = &#39;Jack&#39; Jack 就是一个字符串。
+多行字符串 多行字符串的表示方法：
+1. var a = &#39;a / b / c &#39; 2. var a = &#39;a&#39; &#43; &#39;b&#39; &#43; &#39;c&#39; 3. (es6新语法) var a = `a b c` 转义符 当需要使用 &#39; 或者&quot; 这种本身标识字符串的符号的时候，需要使用\来转义，不然会报错。
+var a = &#39;\&#39;&#39;; var b = &#34;\&#34;&#34;; // 以及 \ 本身 var c = &#39;\\&#39;; // 这里表示 c = &#39;\&#39; Boolean Boolean 用来表示逻辑上的 true / false 。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="twoheartliu.github.io/posts/2019-07-22-bref-js-type/" />
+<meta property="article:published_time" content="2019-07-22T16:05:17+00:00" />
+<meta property="article:modified_time" content="2019-07-22T16:05:17+00:00" />
+
+
+    
+      <base href="twoheartliu.github.io/posts/2019-07-22-bref-js-type/">
+    
+    <title>
+  JavaScript 中的数据类型 · twoheart&#39;s blog
+</title>
+
+    
+      <link rel="canonical" href="twoheartliu.github.io/posts/2019-07-22-bref-js-type/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="twoheartliu.github.io/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.71.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="twoheartliu.github.io/">
+      twoheart&#39;s blog
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">JavaScript 中的数据类型</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-07-22T16:05:17Z'>
+                July 22, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              2 分钟阅读时间
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="twoheartliu.github.io/tags/javascript/">JavaScript</a>
+      <span class="separator">•</span>
+    <a href="twoheartliu.github.io/tags/%E5%89%8D%E7%AB%AF/">前端</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>JavaScript 中大致分七种类型：</p>
+<ul>
+<li>String</li>
+<li>Boolean</li>
+<li>Number</li>
+<li>Symbol</li>
+<li>null</li>
+<li>undefined</li>
+<li>Object</li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="string">String</h2>
+<p>String 即字符串，<code>var a = 'Jack'</code> <code>Jack</code> 就是一个字符串。</p>
+<h3 id="多行字符串">多行字符串</h3>
+<p>多行字符串的表示方法：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">1.
+var a = &#39;a /
+b /
+c
+&#39;
+2.
+var a = &#39;a&#39; +
+&#39;b&#39; +
+&#39;c&#39;
+3. (es6新语法)
+var a = `a
+b
+c`
+</code></pre></div><h3 id="转义符">转义符</h3>
+<p>当需要使用 <code>'</code> 或者<code>&quot;</code> 这种本身标识字符串的符号的时候，需要使用<code>\</code>来转义，不然会报错。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">var a = &#39;\&#39;&#39;;
+var b = &#34;\&#34;&#34;;
+// 以及 \ 本身
+var c = &#39;\\&#39;; // 这里表示 c = &#39;\&#39;
+</code></pre></div><h2 id="boolean">Boolean</h2>
+<p>Boolean 用来表示逻辑上的 true / false 。</p>
+<h3 id="逻辑运算符">逻辑运算符</h3>
+<ul>
+<li>
+<p>与（&amp;&amp;）两者皆为 true 返回 true ，否则返回 false</p>
+</li>
+<li>
+<p>或（||）两者皆为 false 返回 false， 否则返回 true</p>
+</li>
+<li>
+<p>非（!）取反</p>
+</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">var a = true;
+var b = false;
+var c = a || b; // true
+var d = a &amp;&amp; b; // false
+var e = !a; // false
+</code></pre></div><h2 id="number">Number</h2>
+<h3 id="十进制">十进制</h3>
+<p>Number 分为整数和小数（浮点数）。可以用科学计数法表示。</p>
+<p><a href="https://github.com/camsong/blog/issues/9">JavaScript 浮点数陷阱及解法</a></p>
+<h3 id="二进制">二进制</h3>
+<p><code>0b11</code></p>
+<h3 id="八进制">八进制</h3>
+<p><code>011</code>（ES5 添加了 0o11 语法）</p>
+<h3 id="十六进制">十六进制</h3>
+<p><code>0x11</code></p>
+<h2 id="null-与-undefined">null 与 undefined</h2>
+<p>null 和 undefined 类型和值都是他们自己。</p>
+<ul>
+<li>变量没被赋值，默认为 undefined</li>
+<li>对象没被赋值，默认约定为 null</li>
+<li>非对象没被赋值，默认约定为 undefined</li>
+</ul>
+<h2 id="symbol">Symbol</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/22652486">方应杭：JS 中的 Symbol 是什么？</a></p>
+<p>一句话解释：Symbol 生成一个全局唯一的值。</p>
+<h2 id="object">Object</h2>
+<p>以上被称为原始数据类型，或者基本数据类型。而 Object 被称为复杂数据类型，即各种基本数据类型的排列组合。</p>
+<ul>
+<li>
+<p>object 里面可以有 object</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  var person = {
+      name: &#39;Frank&#39;,
+      &#39;child&#39;: {
+          name: &#39;Jack&#39;
+      }, // 最后这个逗号可有可无
+  }
+</code></pre></div></li>
+<li>
+<p>object 的 key 一律是字符串，不存在其他类型的 key</p>
+</li>
+<li>
+<p>object[''] 是合法的</p>
+</li>
+<li>
+<p>object[&lsquo;key&rsquo;] 可以写作 object.key</p>
+</li>
+<li>
+<p>注意 object.key 与 <code>object[key]</code> 不同</p>
+</li>
+<li>
+<p>delete object[&lsquo;key&rsquo;]</p>
+</li>
+<li>
+<p>&lsquo;key&rsquo; in object</p>
+</li>
+</ul>
+<h2 id="typeof-操作符">typeof 操作符</h2>
+<table>
+<thead>
+<tr>
+<th>xxx 的类型</th>
+<th>string</th>
+<th>number</th>
+<th>boolean</th>
+<th>symbol</th>
+<th>undefined</th>
+<th>null</th>
+<th>object</th>
+<th>function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>typeof xxx</td>
+<td>&lsquo;string&rsquo;</td>
+<td>&lsquo;number&rsquo;</td>
+<td>&lsquo;boolean&rsquo;</td>
+<td>&lsquo;symbol&rsquo;</td>
+<td>&lsquo;undefined&rsquo;</td>
+<td><strong>&lsquo;object&rsquo;</strong></td>
+<td>&lsquo;object&rsquo;</td>
+<td>&lsquo;function&rsquo;</td>
+</tr>
+</tbody>
+</table>
+<p>typeof 的 bug：</p>
+<ul>
+<li><code>typeof null</code> // 输出 <code>object</code> 设计之初的 bug</li>
+<li><code>typeof fn1</code> // 输出 <code>function</code> 其实应该是 object，function 并不是一种数据类型</li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>让我们荡起双桨</p>
+      
+      
+        ©
+        
+        2020
+         twoheart liu 
+      
+      
+         · 
+        技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>

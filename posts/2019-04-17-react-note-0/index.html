@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+
+    <meta name="author" content="twoheart liu">
+    <meta name="description" content="首发于我的知乎专栏二心集，转载请保留链接：）
+ 架构与工作原理 广告语：React 是声明式、组件化、高效、灵活的前端框架
+React 的理念 归结为一个公式：
+​ UI = render(data)
+用户看到的界面（UI），应该是一个函数（render）的执行结果，只接受数据（data）作为参数。这个函数是一个纯函数，所谓纯函数指的是没有任何副作用，输出完全依赖于输入的函数，两次函数调用如果输入相同，那么输出也绝对相同。那么，最终的用户界面，在 render 函数确定的情况下完全取决于输入数据。
+对于开发者来说，重要的是区分开哪些是属于 data，哪些属于 render，想要更新用户界面，要做的就是要更新 data，用户界面自然会做出响应，所以 React 实践的也是&quot;响应式编程&rdquo;（Reactive Programming）的思想，这也是 React 为什么叫做 React 的原因。
+虚拟（Virtual）DOM React 应用通过重复渲染来实现用户交互，每当 state 、props 改变，render 函数会重新被调用，似乎是会造成性能的浪费，但是事实是 React 利用 Virtual DOM，让每次渲染都只重新渲染最少的 DOM 元素。
+什么是 DOM ？ 文档对象模型（Document Object Model，简称DOM），其实就是 HTML 文本，HTML 中的每个元素对应 DOM 的某个节点。因为 HTML 元素的逐级包含关系， DOM 节点自然就构成一个树形结构，称为 DOM 树。
+浏览器为了渲染 HTML 格式的网页，会先将 HTML 文本解析以构建 DOM 树，然后根据 DOM 树渲染出用户看到的界面，当要改变界面内容的时候，就去改变 DOM 树上的节点。
+Web 前端开发关于性能优化有一个原则：尽量减少 DOM 操作。虽然 DOM 操作只是一些简单的 JavaScript 语句，但是 DOM 操作会引起浏览器对网页进行重新布局，重新绘制，这就是一个比 JavaScript 语句执行慢得多的过程。">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="react 基础梳理(1)"/>
+<meta name="twitter:description" content="首发于我的知乎专栏二心集，转载请保留链接：）
+ 架构与工作原理 广告语：React 是声明式、组件化、高效、灵活的前端框架
+React 的理念 归结为一个公式：
+​ UI = render(data)
+用户看到的界面（UI），应该是一个函数（render）的执行结果，只接受数据（data）作为参数。这个函数是一个纯函数，所谓纯函数指的是没有任何副作用，输出完全依赖于输入的函数，两次函数调用如果输入相同，那么输出也绝对相同。那么，最终的用户界面，在 render 函数确定的情况下完全取决于输入数据。
+对于开发者来说，重要的是区分开哪些是属于 data，哪些属于 render，想要更新用户界面，要做的就是要更新 data，用户界面自然会做出响应，所以 React 实践的也是&quot;响应式编程&rdquo;（Reactive Programming）的思想，这也是 React 为什么叫做 React 的原因。
+虚拟（Virtual）DOM React 应用通过重复渲染来实现用户交互，每当 state 、props 改变，render 函数会重新被调用，似乎是会造成性能的浪费，但是事实是 React 利用 Virtual DOM，让每次渲染都只重新渲染最少的 DOM 元素。
+什么是 DOM ？ 文档对象模型（Document Object Model，简称DOM），其实就是 HTML 文本，HTML 中的每个元素对应 DOM 的某个节点。因为 HTML 元素的逐级包含关系， DOM 节点自然就构成一个树形结构，称为 DOM 树。
+浏览器为了渲染 HTML 格式的网页，会先将 HTML 文本解析以构建 DOM 树，然后根据 DOM 树渲染出用户看到的界面，当要改变界面内容的时候，就去改变 DOM 树上的节点。
+Web 前端开发关于性能优化有一个原则：尽量减少 DOM 操作。虽然 DOM 操作只是一些简单的 JavaScript 语句，但是 DOM 操作会引起浏览器对网页进行重新布局，重新绘制，这就是一个比 JavaScript 语句执行慢得多的过程。"/>
+
+    <meta property="og:title" content="react 基础梳理(1)" />
+<meta property="og:description" content="首发于我的知乎专栏二心集，转载请保留链接：）
+ 架构与工作原理 广告语：React 是声明式、组件化、高效、灵活的前端框架
+React 的理念 归结为一个公式：
+​ UI = render(data)
+用户看到的界面（UI），应该是一个函数（render）的执行结果，只接受数据（data）作为参数。这个函数是一个纯函数，所谓纯函数指的是没有任何副作用，输出完全依赖于输入的函数，两次函数调用如果输入相同，那么输出也绝对相同。那么，最终的用户界面，在 render 函数确定的情况下完全取决于输入数据。
+对于开发者来说，重要的是区分开哪些是属于 data，哪些属于 render，想要更新用户界面，要做的就是要更新 data，用户界面自然会做出响应，所以 React 实践的也是&quot;响应式编程&rdquo;（Reactive Programming）的思想，这也是 React 为什么叫做 React 的原因。
+虚拟（Virtual）DOM React 应用通过重复渲染来实现用户交互，每当 state 、props 改变，render 函数会重新被调用，似乎是会造成性能的浪费，但是事实是 React 利用 Virtual DOM，让每次渲染都只重新渲染最少的 DOM 元素。
+什么是 DOM ？ 文档对象模型（Document Object Model，简称DOM），其实就是 HTML 文本，HTML 中的每个元素对应 DOM 的某个节点。因为 HTML 元素的逐级包含关系， DOM 节点自然就构成一个树形结构，称为 DOM 树。
+浏览器为了渲染 HTML 格式的网页，会先将 HTML 文本解析以构建 DOM 树，然后根据 DOM 树渲染出用户看到的界面，当要改变界面内容的时候，就去改变 DOM 树上的节点。
+Web 前端开发关于性能优化有一个原则：尽量减少 DOM 操作。虽然 DOM 操作只是一些简单的 JavaScript 语句，但是 DOM 操作会引起浏览器对网页进行重新布局，重新绘制，这就是一个比 JavaScript 语句执行慢得多的过程。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="twoheartliu.github.io/posts/2019-04-17-react-note-0/" />
+<meta property="article:published_time" content="2019-04-17T10:09:14+00:00" />
+<meta property="article:modified_time" content="2019-04-17T10:09:14+00:00" />
+
+
+    
+      <base href="twoheartliu.github.io/posts/2019-04-17-react-note-0/">
+    
+    <title>
+  react 基础梳理(1) · twoheart&#39;s blog
+</title>
+
+    
+      <link rel="canonical" href="twoheartliu.github.io/posts/2019-04-17-react-note-0/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="twoheartliu.github.io/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.71.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="twoheartliu.github.io/">
+      twoheart&#39;s blog
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">react 基础梳理(1)</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-04-17T10:09:14Z'>
+                April 17, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              2 分钟阅读时间
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="twoheartliu.github.io/tags/react/">react</a>
+      <span class="separator">•</span>
+    <a href="twoheartliu.github.io/tags/%E5%89%8D%E7%AB%AF/">前端</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <blockquote>
+<p>首发于我的知乎专栏<a href="https://zhuanlan.zhihu.com/p/62764830">二心集</a>，转载请保留链接：）</p>
+</blockquote>
+<h2 id="架构与工作原理">架构与工作原理</h2>
+<p><em>广告语：React 是声明式、组件化、高效、灵活的前端框架</em></p>
+<h3 id="react-的理念">React 的理念</h3>
+<p>归结为一个公式：</p>
+<p>​ UI = render(data)</p>
+<!-- raw HTML omitted -->
+<p>用户看到的界面（UI），应该是一个函数（render）的执行结果，只接受数据（data）作为参数。这个函数是一个<strong>纯函数</strong>，所谓纯函数指的是没有任何副作用，输出完全依赖于输入的函数，两次函数调用如果输入相同，那么输出也绝对相同。那么，最终的用户界面，在 render 函数确定的情况下完全取决于输入数据。</p>
+<p>对于开发者来说，重要的是区分开哪些是属于 data，哪些属于 render，想要更新用户界面，要做的就是要更新 data，用户界面自然会做出响应，所以 React 实践的也是&quot;响应式编程&rdquo;（Reactive Programming）的思想，这也是 React 为什么叫做 React 的原因。</p>
+<h3 id="虚拟virtualdom">虚拟（Virtual）DOM</h3>
+<p>React 应用通过重复渲染来实现用户交互，每当 state 、props 改变，render 函数会重新被调用，似乎是会造成性能的浪费，但是事实是 React 利用 Virtual DOM，让每次渲染都只重新渲染最少的 DOM 元素。</p>
+<h4 id="什么是-dom-">什么是 DOM ？</h4>
+<p>文档对象模型（Document Object Model，简称<strong>DOM</strong>），其实就是 HTML 文本，HTML 中的每个元素对应 DOM 的某个节点。因为 HTML 元素的逐级包含关系， DOM 节点自然就构成一个树形结构，称为 DOM 树。</p>
+<p>浏览器为了渲染 HTML 格式的网页，会先将 HTML 文本解析以构建 DOM 树，然后根据 DOM 树渲染出用户看到的界面，当要改变界面内容的时候，就去改变 DOM 树上的节点。</p>
+<p>Web 前端开发关于性能优化有一个原则：<strong>尽量减少 DOM 操作</strong>。虽然 DOM 操作只是一些简单的 JavaScript 语句，但是 DOM 操作会引起浏览器对网页进行重新布局，重新绘制，这就是一个比 JavaScript 语句执行慢得多的过程。</p>
+<p>而 React 并不是通过语句直接构建 DOM 树，而是实现构建 Virtual DOM。如果说 DOM 树是对 HTML 的抽象，那么 Virtual DOM 就是对 DOM 树的抽象。 Virtual DOM 只存在于 JavaScript 中，每当渲染发生改变，Virtual DOM 会对比渲染前后的差异，修改真正的 DOM 树时只需要触及差别中的部分就行了。</p>
+<p>React 进行 Virtual DOM 的对比使用了一个改进版的 diff 算法，使得比对的时间复杂度由 O(N²) 降低到 O(N) ，但是这需要开发者提供 key 属性，并且保证 key 是唯一的且稳定不变的。</p>
+<h2 id="高质量的-react-组件">高质量的 React 组件</h2>
+<h3 id="组件划分的设计原则">组件划分的设计原则</h3>
+<p>作为软件设计的通则，组件的划分要满足<strong>高内聚</strong>和<strong>低耦合</strong>的原则。</p>
+<p>高内聚指的是把逻辑紧密相关的内容放在一个组件中。</p>
+<p>低耦合指的是不同组件之间的依赖关系要尽量弱化，也就是每个组件要尽量独立。</p>
+<h3 id="组件中的数据">组件中的数据</h3>
+<p>React 组件中的数据分为两种，prop 和 state，无论是 prop 还是 state 都会引发组件的重新渲染。</p>
+<p>什么时候用 prop 什么时候用 state ？</p>
+<p>在组件内部用 state，用于接受组件外部的属性用 prop。</p>
+<h4 id="proptypes-类型检查">PropTypes 类型检查</h4>
+<p>使用 PropTypes 让组件声明自己的接口规范：</p>
+<ol>
+<li>这个组件支持哪些 prop 2. 每个 prop 应该是什么样的格式</li>
+</ol>
+<h3 id="prop-和-state-对比">prop 和 state 对比</h3>
+<p>区别：</p>
+<ol>
+<li>prop 用于定义外部接口，state 用于记录内部状态； 2. prop 的赋值在外部世界使用组件时，state 的赋值在组件内部； 3. 组件不应该改变 prop 的值，而 state 存在的目的就是让组件来改变的。</li>
+</ol>
+<p>state 通过 this.setState 函数修改 state 就改变了组件的状态，然后通过渲染过程把这种变化体现出来。</p>
+<p>组件不应该去修改传入的 props 值。如果父组件包含多个子组件，然后把值通过 props 传给这几个子组件，而某个子组件改变了这个值，接下来其他子组件读取这个值会变得混乱，无法预料是改变后的值还是最初值，这违背了 React 设计的初衷。</p>
+<p>​ UI = render(data)</p>
+<p>React 组件扮演的是 render 函数的角色，应该是一个没有副作用的纯函数。而修改 props 的值，是一个副作用，组件应该避免。</p>
+<h3 id="组件的生命周期">组件的生命周期</h3>
+<p>人有生老病死，有少青中老。组件也会有被创建、更新和删除，正如生命体一样，自然发生的状态。</p>
+<p>React 的生命周期可能会经历如下的过程：</p>
+<ul>
+<li>装载过程(Mount)，也就是把组件第一次在 DOM 树中渲染的过程；</li>
+<li>更新过程(Update)，当组件被重新渲染的过程；</li>
+<li>卸载过程(Unmount)， 组件从 DOM 中删除的过程。</li>
+</ul>
+<p>三种不同的过程，React 库会依次调用组件中的一些成员函数，这些成员函数被称为生命周期函数。</p>
+<p><img src="https://i.loli.net/2020/05/20/jL8bDIUMTZi3lmz.jpg" alt="111"></p>
+<h4 id="装载过程">装载过程</h4>
+<p><strong>1. constructor</strong></p>
+<p>ES6 中每个类的构造函数。并不是每个组件都需要定义自己的构造函数，无状态组件并不需要定义构造函数。</p>
+<p>一个 React 组件需要构造函数，往往是为了：</p>
+<ul>
+<li>初始化 state</li>
+<li>绑定成员函数的 this 环境</li>
+</ul>
+<p><strong>2. getInitialState 和 getDefaultProps</strong></p>
+<p>es6 语法下这两个生命周期函数无法产生作用且用处不大。</p>
+<p><strong>3. render</strong></p>
+<p>render 函数是 React 组件中最重要的函数，一个 React 组件其他函数都可以不实现，但是必须有 render 函数。因为所有 React 组件的父类 React.Component 类对除 render 之外的生命周期函数都有默认实现。</p>
+<p>render 函数应该是一个纯函数，完全根据 this.state 和 this.props 来决定返回的结果。所以不应该在 render 函数中调用 this.setState。</p>
+<p><strong>4. componentWillMount 和 componentDidMount</strong></p>
+<p>在装载过程中，componentWillMount 会在调用 render 函数前被调用，componentDidMount 会在调用 render 函数之后被调用。</p>
+<p>我们通常不需要使用 componentWillMount 函数，而 componentDidMount 作用巨大。</p>
+<p>另外 componentWillMount 可以在服务器端被调用也可以在浏览器端被调用，而 componentDidMount 只能在浏览器端被调用。这是一个很好的位置用来通过 Ajax 获取数据来填充组件中的内容。</p>
+<p>在 componentDidMount 被调用的时候，组件已经被装载到 DOM 树上，可以放心获取渲染出来的任何 DOM，我们可以利用这个特性，让 React 和其他 UI 库配合使用。</p>
+<h4 id="更新过程">更新过程</h4>
+<p><strong>1. componentWillReceiveProps(nextProps)</strong></p>
+<p>只要父组件的 render 函数被调用，在 render 函数里面被渲染的子组件就会经历更新过程，不管父组件传给子组件的 props 有没有改变。</p>
+<p><strong>2. shouldComponentUpdate(nextPorps, nextState)</strong></p>
+<p>除了 render 函数之外，React 生命周期组件最重要的函数。render 函数决定了应该渲染什么，而 shouldComponentUpdate 决定了一个组件什么时候不需要渲染。</p>
+<p>shouldComponentUpdate 需要返回一个布尔值，告诉 React 库这个组件在这次更新过程中需不需要进行。</p>
+<p>如果使用得当 shouldComponentUpdate 会大大提高 React 的性能。</p>
+<p>**3. componentWillUpdate 和 componentDidupdate **</p>
+<p>如果 shouldComponentUpdate 函数返回 true，接下来 React 会依次调用 componentWillUpdate 、render 和 componentDidupdate 函数。</p>
+<h4 id="卸载过程">卸载过程</h4>
+<p><strong>componentWillUnmount</strong></p>
+<p>当 React 组件要从 DOM 树上删除掉之前，对应的 componentWillUnmount 函数会被调用，适合执行一些清理性的工作。</p>
+<h3 id="父子组件传值">父子组件传值</h3>
+<p>我们知道通过 prop 可以从父组件传值给子组件，而子组件向父组件传值，其实也是通过 prop。</p>
+<p>我们可以通过 prop 让子组件调用父组件的方法，通过给父组件的方法传值，最终让父组件的方法实现对数据的改变。</p>
+<h3 id="state-和-prop-的局限">state 和 prop 的局限</h3>
+<p>多子组件之间每个子组件记录自己的状态会导致数据重复，如果数据不一致，很难决定到底哪个是正确结果。</p>
+<p>而全局状态，把数据源存在一个地方，将是解决这个问题的最佳方法。这也是我们接下来要讲的 Flux 、Redux 中 store 的概念。</p>
+<p>to be continued</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>让我们荡起双桨</p>
+      
+      
+        ©
+        
+        2020
+         twoheart liu 
+      
+      
+         · 
+        技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>

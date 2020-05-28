@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>生活 on twoheart&#39;s blog</title>
+    <link>twoheartliu.github.io/tags/%E7%94%9F%E6%B4%BB/</link>
+    <description>Recent content in 生活 on twoheart&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Fri, 21 Sep 2018 15:36:18 +0000</lastBuildDate>
+    
+	<atom:link href="twoheartliu.github.io/tags/%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>新的开始</title>
+      <link>twoheartliu.github.io/posts/2018-09-21-new-hello/</link>
+      <pubDate>Fri, 21 Sep 2018 15:36:18 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2018-09-21-new-hello/</guid>
+      <description>写字即是露怯
+ 前言 这里是二心的第不知道多少个博客。
+初中那会，在各大门户网站上都建了博客，随手写一点东西大概是那会养成的习惯。
+暂时决定微信公众号可能会更新编程之外的东西，这里会主要更新关于编程的一些思考和记录。
+最近的学习重心大概有以下几点：
+ Vue 基本语法回顾 Vue 练手项目的完善 React Demo 回顾 大全的内容过一遍  所谓写字即是露怯，是指写出来的东西总会被指摘，被当做讨论的根据，即使是自己，多年后看到当时写的内容也多半难以接受， 但好处还是更多一些的，所以我选择写一点。</description>
+    </item>
+    
+  </channel>
+</rss>

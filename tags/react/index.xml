@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react on twoheart&#39;s blog</title>
+    <link>twoheartliu.github.io/tags/react/</link>
+    <description>Recent content in react on twoheart&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Wed, 17 Apr 2019 10:09:14 +0000</lastBuildDate>
+    
+	<atom:link href="twoheartliu.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>react 基础梳理(1)</title>
+      <link>twoheartliu.github.io/posts/2019-04-17-react-note-0/</link>
+      <pubDate>Wed, 17 Apr 2019 10:09:14 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-04-17-react-note-0/</guid>
+      <description>首发于我的知乎专栏二心集，转载请保留链接：）
+ 架构与工作原理 广告语：React 是声明式、组件化、高效、灵活的前端框架
+React 的理念 归结为一个公式：
+​ UI = render(data)
+用户看到的界面（UI），应该是一个函数（render）的执行结果，只接受数据（data）作为参数。这个函数是一个纯函数，所谓纯函数指的是没有任何副作用，输出完全依赖于输入的函数，两次函数调用如果输入相同，那么输出也绝对相同。那么，最终的用户界面，在 render 函数确定的情况下完全取决于输入数据。
+对于开发者来说，重要的是区分开哪些是属于 data，哪些属于 render，想要更新用户界面，要做的就是要更新 data，用户界面自然会做出响应，所以 React 实践的也是&amp;quot;响应式编程&amp;rdquo;（Reactive Programming）的思想，这也是 React 为什么叫做 React 的原因。
+虚拟（Virtual）DOM React 应用通过重复渲染来实现用户交互，每当 state 、props 改变，render 函数会重新被调用，似乎是会造成性能的浪费，但是事实是 React 利用 Virtual DOM，让每次渲染都只重新渲染最少的 DOM 元素。
+什么是 DOM ？ 文档对象模型（Document Object Model，简称DOM），其实就是 HTML 文本，HTML 中的每个元素对应 DOM 的某个节点。因为 HTML 元素的逐级包含关系， DOM 节点自然就构成一个树形结构，称为 DOM 树。
+浏览器为了渲染 HTML 格式的网页，会先将 HTML 文本解析以构建 DOM 树，然后根据 DOM 树渲染出用户看到的界面，当要改变界面内容的时候，就去改变 DOM 树上的节点。
+Web 前端开发关于性能优化有一个原则：尽量减少 DOM 操作。虽然 DOM 操作只是一些简单的 JavaScript 语句，但是 DOM 操作会引起浏览器对网页进行重新布局，重新绘制，这就是一个比 JavaScript 语句执行慢得多的过程。</description>
+    </item>
+    
+  </channel>
+</rss>

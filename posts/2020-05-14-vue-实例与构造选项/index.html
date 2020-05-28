@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+
+    <meta name="author" content="twoheart liu">
+    <meta name="description" content="什么是 Vue 实例 每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始
+const vm = new Vue(options); vm 对象封装了对视图的所有操作，包括数据读写、事件绑定、DOM 更新 vm 的构造函数是 Vue，按照 ES6 的说法，vm 所属的类是 Vue options 是 new Vue 的参数，一般称之为选项或构造选项
+options 在 Vue 的文档中将选项分为了这样几大类，分别是：数据、DOM、生命周期钩子、资源、组合和其他。 options 的五类属性  数据: data/props/propsData/computed/methods/watch DOM: el/tempalte/render/renderError 生命周期钩子： beforeCreate/created/beforeMount/mounted/beforeUpdate/updated/activated/deactivated/beforeDestroy/destroyed/errorCaptured 资源：directives/filters/component 组合：parent/mixins/provide/inject 其他  属性分类 入门属性 el-挂载点 Vue 实例所挂载的 DOM 元素，如果存在 el 则实例立即进行编译，如果不存在则需要使用 vm.$mount 手动开启编译
+new Vue({ el: &#39;#app&#39;, render: h =&gt; h1(Demo) }) // 同下 new Vue({ render: h =&gt; h1(Demo) }).">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue 实例与构造选项"/>
+<meta name="twitter:description" content="什么是 Vue 实例 每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始
+const vm = new Vue(options); vm 对象封装了对视图的所有操作，包括数据读写、事件绑定、DOM 更新 vm 的构造函数是 Vue，按照 ES6 的说法，vm 所属的类是 Vue options 是 new Vue 的参数，一般称之为选项或构造选项
+options 在 Vue 的文档中将选项分为了这样几大类，分别是：数据、DOM、生命周期钩子、资源、组合和其他。 options 的五类属性  数据: data/props/propsData/computed/methods/watch DOM: el/tempalte/render/renderError 生命周期钩子： beforeCreate/created/beforeMount/mounted/beforeUpdate/updated/activated/deactivated/beforeDestroy/destroyed/errorCaptured 资源：directives/filters/component 组合：parent/mixins/provide/inject 其他  属性分类 入门属性 el-挂载点 Vue 实例所挂载的 DOM 元素，如果存在 el 则实例立即进行编译，如果不存在则需要使用 vm.$mount 手动开启编译
+new Vue({ el: &#39;#app&#39;, render: h =&gt; h1(Demo) }) // 同下 new Vue({ render: h =&gt; h1(Demo) })."/>
+
+    <meta property="og:title" content="Vue 实例与构造选项" />
+<meta property="og:description" content="什么是 Vue 实例 每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始
+const vm = new Vue(options); vm 对象封装了对视图的所有操作，包括数据读写、事件绑定、DOM 更新 vm 的构造函数是 Vue，按照 ES6 的说法，vm 所属的类是 Vue options 是 new Vue 的参数，一般称之为选项或构造选项
+options 在 Vue 的文档中将选项分为了这样几大类，分别是：数据、DOM、生命周期钩子、资源、组合和其他。 options 的五类属性  数据: data/props/propsData/computed/methods/watch DOM: el/tempalte/render/renderError 生命周期钩子： beforeCreate/created/beforeMount/mounted/beforeUpdate/updated/activated/deactivated/beforeDestroy/destroyed/errorCaptured 资源：directives/filters/component 组合：parent/mixins/provide/inject 其他  属性分类 入门属性 el-挂载点 Vue 实例所挂载的 DOM 元素，如果存在 el 则实例立即进行编译，如果不存在则需要使用 vm.$mount 手动开启编译
+new Vue({ el: &#39;#app&#39;, render: h =&gt; h1(Demo) }) // 同下 new Vue({ render: h =&gt; h1(Demo) })." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="twoheartliu.github.io/posts/2020-05-14-vue-%E5%AE%9E%E4%BE%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9/" />
+<meta property="article:published_time" content="2020-05-14T10:47:56+00:00" />
+<meta property="article:modified_time" content="2020-05-14T10:47:56+00:00" />
+
+
+    
+      <base href="twoheartliu.github.io/posts/2020-05-14-vue-%E5%AE%9E%E4%BE%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9/">
+    
+    <title>
+  Vue 实例与构造选项 · twoheart&#39;s blog
+</title>
+
+    
+      <link rel="canonical" href="twoheartliu.github.io/posts/2020-05-14-vue-%E5%AE%9E%E4%BE%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="twoheartliu.github.io/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.71.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="twoheartliu.github.io/">
+      twoheart&#39;s blog
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Vue 实例与构造选项</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-05-14T10:47:56Z'>
+                May 14, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              2 分钟阅读时间
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="twoheartliu.github.io/categories/%E5%89%8D%E7%AB%AF/">前端</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="twoheartliu.github.io/tags/vue/">Vue</a>
+      <span class="separator">•</span>
+    <a href="twoheartliu.github.io/tags/javascript/">JavaScript</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="什么是-vue-实例">什么是 Vue 实例</h2>
+<!-- raw HTML omitted -->
+<p>每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">const vm = new Vue(options);
+</code></pre></div><p>vm 对象封装了对视图的所有操作，包括<strong>数据读写、事件绑定、DOM 更新</strong>
+vm 的<strong>构造函数</strong>是 Vue，按照 ES6 的说法，vm <strong>所属的类是 Vue</strong>
+options 是 new Vue 的参数，一般称之为<strong>选项</strong>或<strong>构造选项</strong></p>
+<h2 id="options">options</h2>
+<p>在 Vue 的文档中将选项分为了这样几大类，分别是：数据、DOM、生命周期钩子、资源、组合和其他。
+<img src="https://i.loli.net/2020/05/20/82fjzNkWDElmaQ5.jpg" alt="4871c945ly1get4ct2ftmj20g207rdgc"></p>
+<h3 id="options-的五类属性">options 的五类属性</h3>
+<ul>
+<li>数据: data/props/propsData/computed/methods/watch</li>
+<li>DOM: el/tempalte/render/renderError</li>
+<li>生命周期钩子：
+beforeCreate/created/beforeMount/mounted/beforeUpdate/updated/activated/deactivated/beforeDestroy/destroyed/errorCaptured</li>
+<li>资源：directives/filters/component</li>
+<li>组合：parent/mixins/provide/inject</li>
+<li>其他</li>
+</ul>
+<h3 id="属性分类">属性分类</h3>
+<p><img src="https://i.loli.net/2020/05/20/RMsYvyp9DPmHVen.jpg" alt="4871c945ly1getb3eqxxcj20ti0edwkl">
+<img src="https://i.loli.net/2020/05/20/Qz2GEuAPrtmBwKi.jpg" alt="4871c945ly1getb3epkq8j20s60na0xu"></p>
+<h3 id="入门属性">入门属性</h3>
+<p><img src="https://i.loli.net/2020/05/20/GBlZegbnyAxskSm.jpg" alt="4871c945ly1getb5xc59kj20v00lygrq"></p>
+<h4 id="el-挂载点">el-挂载点</h4>
+<p>Vue 实例所挂载的 DOM 元素，如果存在 el 则实例立即进行编译，如果不存在则需要使用 vm.$mount 手动开启编译</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">new Vue({
+  el: &#39;#app&#39;,
+  render: h =&gt; h1(Demo)
+})
+
+// 同下
+new Vue({
+  render: h =&gt; h1(Demo)
+}).$mount(&#39;#app&#39;);
+</code></pre></div><h4 id="data">data</h4>
+<p>内部数据。支持对象和函数，优先使用函数。
+在组件中不支持使用 obj 的方式使用 data，因为 obj 是值的引用，当其中一个组件对值进行修改之后，其他组件也会获得改动后的数据，而使用 function 将在本地 return 一个新的 obj，不会造成本地修改值之后，其他组件值被改动的后果。每个实例可以维护一份被返回对象的独立的拷贝。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">new Vue({
+  data() {
+    return {
+      n: 0
+    }
+  }
+})
+
+// 如果在组件中使用这种方式，则会报错
+// error  `data` property in component must be a function
+new Vue({
+  data: {
+    n: 0;
+  }
+})
+</code></pre></div><h4 id="methods">methods</h4>
+<p>将自定义的方法放在 methods 中，注意不要使用箭头函数的方式来定义 method 函数，如果使用的话，this 将不会指向到 Vue 的实例。</p>
+<h4 id="components">components</h4>
+<p>组件。
+创建组件的几种方法：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">//import 引入
+import Demo from &#39;./Demo&#39;;
+
+new Vue({
+  components: {demo: Demo},
+})
+
+// 定义一个名为 button-counter 的新组件
+Vue.component(&#39;button-counter&#39;, {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: &#39;&lt;button v-on:click=&#34;count++&#34;&gt;You clicked me {{ count }} times.&lt;/button&gt;&#39;
+})
+
+// 变体
+const x = {
+    demo: {
+      template: &#39;&lt;div&gt;demo3&lt;/div&gt;&#39;
+    }
+  }
+new Vue({
+  components: x
+})
+</code></pre></div><p>注意：@vue/cli 中默认使用的 runtime-only 版本的 Vue，不支持使用 template 渲染页面。
+优先使用第一种。
+创建文件名优先使用全小写，组件的再定义，使用大写开头。防止与默认 html 自带标签冲突。</p>
+<h4 id="生命周期钩子">生命周期钩子</h4>
+<p>生命周期钩子，指在某些时刻，自动执行的某些函数：</p>
+<ul>
+<li>create - 实例出现在内存中</li>
+<li>mounted - 实例出现在页面中</li>
+<li>updated - 实例更新</li>
+<li>destroyed - 实例从页面和内存中被摧毁</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">new Vue({
+  data() {},
+  methods: {},
+  created() {},
+  mounted() {},
+  updated() {},
+  destroyed() {}
+})
+</code></pre></div><h4 id="props">props</h4>
+<p>子组件可以用 props 自定义一些属性，当父组件通过这个属性将数据传入的时候，子组件可以接收到这个属性的数据。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Vue.component(&#39;blog-post&#39;, {
+  props: [&#39;title&#39;],
+  template: &#39;&lt;h3&gt;{{ title }}&lt;/h3&gt;&#39;
+})
+
+&lt;blog-post title=&#34;hello world&#34;&gt;&lt;/blog-post&gt;
+</code></pre></div><p>如果在属性前加“：”表示里面是变量或者表达式，如果没加，表示字面量，如字符串。</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>让我们荡起双桨</p>
+      
+      
+        ©
+        
+        2020
+         twoheart liu 
+      
+      
+         · 
+        技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>

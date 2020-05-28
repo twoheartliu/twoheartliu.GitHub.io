@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript on twoheart&#39;s blog</title>
+    <link>twoheartliu.github.io/tags/javascript/</link>
+    <description>Recent content in JavaScript on twoheart&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Fri, 22 May 2020 15:15:54 +0000</lastBuildDate>
+    
+	<atom:link href="twoheartliu.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vue 模版/指令与修饰符</title>
+      <link>twoheartliu.github.io/posts/2020-05-22-vue-%E6%A8%A1%E7%89%88-%E6%8C%87%E4%BB%A4%E4%B8%8E%E4%BF%AE%E9%A5%B0%E7%AC%A6/</link>
+      <pubDate>Fri, 22 May 2020 15:15:54 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2020-05-22-vue-%E6%A8%A1%E7%89%88-%E6%8C%87%E4%BB%A4%E4%B8%8E%E4%BF%AE%E9%A5%B0%E7%AC%A6/</guid>
+      <description>Vue 模版（template）的三种写法 1. 直接写在 HTML 里（完整版） 2. 写在 Vue 的 options 里（完整版） 3. Vue 文件中的 template 标签（非完整版） //cell.vue // 引入 注意： 在 template 标签里，是使用的 xml 语法，需要闭合标签。
+展示内容 表达式 object.a //变量 a + b //表达式 fn(n) //调用函数 fn(n) //调用函数 如果值为 undefined 或者 null 则不显示 另一写法是
+&amp;lt;span v-text=&amp;#34;msg&amp;#34;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;!-- 和下面的一样 --&amp;gt; &amp;lt;span&amp;gt;{{msg}}&amp;lt;/span&amp;gt; 显示富文本 html 内容 &amp;lt;div v-html=&amp;#34;&amp;#39;&amp;lt;h1&amp;gt;this is h1&amp;lt;/h1&amp;gt;&amp;#39;&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; v-pre 当需要不对模版进行编译时
+&amp;lt;div v-pre&amp;gt;{{n}}&amp;lt;/div&amp;gt; // 页面显示的内容就是： {{ n }} 本身 绑定属性：v-bind img 的 src // x = &amp;#39;xxx.</description>
+    </item>
+    
+    <item>
+      <title>Vue 进阶属性之 computed/watch</title>
+      <link>twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/</link>
+      <pubDate>Thu, 21 May 2020 10:38:11 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/</guid>
+      <description>首先复习一下响应式原理：
+ Vue 对传入的 data 进行监听 传入的 data 会被 Vue 代理 每次对 data 的读写都会通过代理处理 Vue 会在 data 变化时更新 UI  这里要讲 Vue 除了可以更新 UI 还可以做什么
+computed 计算属性 用途 示例代码 1
+ 当模版内需要使用复杂逻辑、表达式来展示时，使用 computed 是比较好的实践 同时当模版内有多处包含复杂逻辑时，可以用 computed 自定义计算属性可以是一个 function，也可以是一个包含 get、set 的对象。  示例代码 2
+ 使用 methods 属性 filter 筛选性别 使用 v-for 指令渲染数组  有没有更优雅的办法？使用 computed 属性 示例代码 3
+ computed 消除相同逻辑代码，避免重复（DRY：Don&amp;rsquo;t repeat yourself） 逻辑清晰，方便增加功能 computed 有缓存，当数据没有发生变化，便不会重新渲染页面  watch 简单举例 watch 即当数据发生变化时，执行一个函数。 示例代码 1 ：用 watch 实现撤消 示例代码 2 ：用 watch 模拟 computed ) 由此可见，watch 更偏向于监听记录，而非进行计算，该根据需要选择适用的属性</description>
+    </item>
+    
+    <item>
+      <title>Vue 实例与构造选项</title>
+      <link>twoheartliu.github.io/posts/2020-05-14-vue-%E5%AE%9E%E4%BE%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9/</link>
+      <pubDate>Thu, 14 May 2020 10:47:56 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2020-05-14-vue-%E5%AE%9E%E4%BE%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9/</guid>
+      <description>什么是 Vue 实例 每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始
+const vm = new Vue(options); vm 对象封装了对视图的所有操作，包括数据读写、事件绑定、DOM 更新 vm 的构造函数是 Vue，按照 ES6 的说法，vm 所属的类是 Vue options 是 new Vue 的参数，一般称之为选项或构造选项
+options 在 Vue 的文档中将选项分为了这样几大类，分别是：数据、DOM、生命周期钩子、资源、组合和其他。 options 的五类属性  数据: data/props/propsData/computed/methods/watch DOM: el/tempalte/render/renderError 生命周期钩子： beforeCreate/created/beforeMount/mounted/beforeUpdate/updated/activated/deactivated/beforeDestroy/destroyed/errorCaptured 资源：directives/filters/component 组合：parent/mixins/provide/inject 其他  属性分类 入门属性 el-挂载点 Vue 实例所挂载的 DOM 元素，如果存在 el 则实例立即进行编译，如果不存在则需要使用 vm.$mount 手动开启编译
+new Vue({ el: &amp;#39;#app&amp;#39;, render: h =&amp;gt; h1(Demo) }) // 同下 new Vue({ render: h =&amp;gt; h1(Demo) }).</description>
+    </item>
+    
+    <item>
+      <title>jQuery 设计思想与功能</title>
+      <link>twoheartliu.github.io/posts/2020-01-16-jquery-%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>Thu, 16 Jan 2020 15:29:27 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2020-01-16-jquery-%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E4%B8%8E%E5%8A%9F%E8%83%BD/</guid>
+      <description>到目前为止 jQuery 依然是全球范围内最长寿使用最广泛的 JavaScript 库，学习 React 、Vue 之前仍必须学习 jQuery，通过 jQuery 可以学习它的设计模式，封装技巧。
+设计思路 jQuery 的主要设计思路就是选择网页元素并进行某种操作。
+选择网页元素 使用 jQuery 的第一步就是将选择表达式放入jQuery() 或 $()中，获取到对应的 DOM 元素。选择表达式可以是 CSS 选择器也可以是 jQuery 特有的表达式。
+jQuery(&amp;#39;body&amp;#39;) $(&amp;#39;#test&amp;#39;) $(&amp;#39;.red&amp;#39;) 筛选网页元素（改变结果集） jQuery 提供强大的过滤器，筛选出想要的结果。
+$(&amp;#39;div&amp;#39;).next(&amp;#39;p&amp;#39;); //选择div元素后面的第一个p元素 $(&amp;#39;div&amp;#39;).parent(); //选择div元素的父元素 $(&amp;#39;div&amp;#39;).closest(&amp;#39;form&amp;#39;); //选择离div最近的那个form父元素 $(&amp;#39;div&amp;#39;).children(); //选择div的所有子元素 $(&amp;#39;div&amp;#39;).siblings(); //选择div的同级元素 链式操作 jQuery 选中元素之后可以进行一系列操作，操作可以像链条一样链接在一起，这也是 jQuery 最令人称道最方便的设计思想。 $(&#39;div&#39;).find(&#39;h3&#39;).eq(2).html(&#39;Hello&#39;); 可以分解为：
+$(&amp;#39;div&amp;#39;) //找到div元素 .find(&amp;#39;h3&amp;#39;) //选择其中的h3元素 .eq(2) //选择第3个h3元素 .html(&amp;#39;Hello&amp;#39;); //将它的内容改为Hello 原因在于，jQuery 的每一步操作都将返回 一个 jQuery 对象。
+另外 jQuery 还提供 end() 方法，可以使结果集操作后退一步。
+$(&amp;#39;div&amp;#39;) .find(&amp;#39;h3&amp;#39;) .eq(2) .</description>
+    </item>
+    
+    <item>
+      <title>JS 函数的执行时机</title>
+      <link>twoheartliu.github.io/posts/2019-10-29-js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</link>
+      <pubDate>Tue, 29 Oct 2019 23:39:08 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-10-29-js-%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
+      <description>解题 let i = 0; for(i = 0; i&amp;lt;6; i++){ setTimeout(()=&amp;gt;{ console.log(i) },0) } 打印出的结果会是 6 个 6。 因为 i 是在全局下定义的，i 的值在循环后最终会是 6，而 setTimeout 函数会在循环后运行，运行 6 次，所以结果会是 6 个 6.
+如何符合预期 for(let i = 0; i &amp;lt; 6; i++){ setTimeout(()=&amp;gt;{ console.log(i) },0) } 此时将打印出 0 1 2 3 4 5。因为 for let 循环中，let 在每次循环会生成不同的 i，每次打印的是 i 的不同值。
+其他方法 for(var i = 0; i &amp;lt; 6; i++) { !function() { var j = i setTimeout(() =&amp;gt; { console.</description>
+    </item>
+    
+    <item>
+      <title>JS 对象基本用法</title>
+      <link>twoheartliu.github.io/posts/2019-09-25-js-%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Wed, 25 Sep 2019 00:26:02 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-09-25-js-%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      <description>声明对象的两种语法  var obj = new Object({name: &#39;twoheart&#39;, gender: &#39;male&#39;}) var obj2 = {name: &#39;twoheart&#39;, gender: &#39;male&#39;}  注意：
+ key 是字符串，不是标识符 如果省略括号，则必须写标识符 就算省略了括号，依然是字符串形式  如何删除对象的属性 delete var obj = { name: &amp;#39;twoheart&amp;#39;, gender: &amp;#39;male&amp;#39; } delete obj.gender delete obj[&amp;#39;gender&amp;#39;] var hello = &amp;#39;name&amp;#39; delete obj[hello] // delete 语法的三种使用方式 判断 key 是否存在于 obj 中 &#39;gender&#39; in obj
+undefined 使 obj.name = undefined 并不能使属性被删除，也不能以此为依据判断 key 是否存在于 obj 中
+如何查看对象的属性 查看自身所有 key Object.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript 语法</title>
+      <link>twoheartliu.github.io/posts/2019-09-20-javascript-%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Fri, 20 Sep 2019 13:52:37 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-09-20-javascript-%E8%AF%AD%E6%B3%95/</guid>
+      <description>表达式和语句 表达式：
+1 + 2 // 表达式的值是 3 add(1, 2) // 表达式的值为函数的返回值 console.log // 表达式的值为函数本身 console.log(3) // 表达式的值为 undefined 语句：
+var a = &amp;#39;hello&amp;#39; 区别：
+ 表达式一般都有值，语句可能有也可能没有 语句一般会改变环境（声明、赋值） 以上不绝对  标识符的规则 规则：
+ 第一个字符，可以是 Unicode 字母或 $ 或 _ 或中文 后面字符除了上面说的，还可以是数字 变量名是标识符  if else 语句 if (a === 10) { console.log(&amp;#39;如果 a 与 10 相等，这里会执行&amp;#39;) } else { console.log(&amp;#39;a 与 10 不相等&amp;#39;) } // 注意：“=”是赋值，“===”是逻辑判断 形如“如果条件成立执行 a 不然执行 b”的语句，可以写成三元表达式（条件运算符）的形式，以上用三元表达式表示为：</description>
+    </item>
+    
+    <item>
+      <title>JavaScript 的诞生及历史</title>
+      <link>twoheartliu.github.io/posts/2019-09-04-javascript-%E7%9A%84%E8%AF%9E%E7%94%9F%E5%8F%8A%E5%8E%86%E5%8F%B2/</link>
+      <pubDate>Wed, 04 Sep 2019 00:30:05 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-09-04-javascript-%E7%9A%84%E8%AF%9E%E7%94%9F%E5%8F%8A%E5%8E%86%E5%8F%B2/</guid>
+      <description>一个人的命运，当然要靠自我奋斗，但是也要考虑到历史的行程。
+ JavaScript 的诞生 1994 年，网景公司（Netscape）发布了 Navigator 浏览器 0.9 版。这是历史上第一个比较成熟的网络浏览器，轰动一时。但是，这个版本的浏览器只能用来浏览，不具备与访问者互动的能力。网景公司急需一种网页脚本语言，使得浏览器可以与网页互动。
+当时的形势就是，网景公司的整个管理层，都是 Java 语言的信徒，Sun 公司完全介入网页脚本语言的决策。
+此时，34 岁的系统程序员 Brendan Eich 登场了。1995 年 4 月，网景公司录用了他。
+Brendan Eich 的主要方向和兴趣是函数式编程，网景公司招聘他的目的，是研究将 Scheme 语言作为网页脚本语言的可能性。Brendan Eich 本人也是这样想的，以为进入新公司后，会主要与 Scheme 语言打交道。
+仅仅一个月之后，1995 年 5 月，网景公司做出决策，未来的网页脚本语言必须&amp;quot;看上去与 Java 足够相似&amp;rdquo;，但是比 Java 简单，使得非专业的网页作者也能很快上手。这个决策实际上将 Perl、Python、Tcl、Scheme 等非面向对象编程的语言都排除在外了。
+Brendan Eich 被指定为这种&amp;quot;简化版 Java 语言&amp;quot;的设计师。
+但是，他对 Java 一点兴趣也没有。为了应付公司安排的任务，他只用 10 天时间就把 Javascript 设计出来了。
+ &amp;ldquo;与其说我爱 Javascript，不如说我恨它。它是 C 语言和 Self 语言一夜情的产物。十八世纪英国文学家约翰逊博士说得好：&amp;lsquo;它的优秀之处并非原创，它的原创之处并不优秀。&#39;&amp;rdquo; ——Brendan Eich
+ 就是这样一个连发明这门语言的人都不待见，只用了 10 天时间草草完工的语言竟然成了世界上使用最广泛的语言之一，实在是充满了传奇色彩。
+JavaScript 的历史 浏览器大战 JavaScript 发明之后微软进行跟进发明了 JScript，而网景公司进行反击，将 JavaScript 向 ECMA 提交标准，制定了 ECMAScript。</description>
+    </item>
+    
+    <item>
+      <title>JavaScript 中的数据类型</title>
+      <link>twoheartliu.github.io/posts/2019-07-22-bref-js-type/</link>
+      <pubDate>Mon, 22 Jul 2019 16:05:17 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-07-22-bref-js-type/</guid>
+      <description>JavaScript 中大致分七种类型：
+ String Boolean Number Symbol null undefined Object  String String 即字符串，var a = &#39;Jack&#39; Jack 就是一个字符串。
+多行字符串 多行字符串的表示方法：
+1. var a = &amp;#39;a / b / c &amp;#39; 2. var a = &amp;#39;a&amp;#39; + &amp;#39;b&amp;#39; + &amp;#39;c&amp;#39; 3. (es6新语法) var a = `a b c` 转义符 当需要使用 &#39; 或者&amp;quot; 这种本身标识字符串的符号的时候，需要使用\来转义，不然会报错。
+var a = &amp;#39;\&amp;#39;&amp;#39;; var b = &amp;#34;\&amp;#34;&amp;#34;; // 以及 \ 本身 var c = &amp;#39;\\&amp;#39;; // 这里表示 c = &amp;#39;\&amp;#39; Boolean Boolean 用来表示逻辑上的 true / false 。</description>
+    </item>
+    
+  </channel>
+</rss>

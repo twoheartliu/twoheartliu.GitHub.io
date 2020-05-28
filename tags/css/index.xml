@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on twoheart&#39;s blog</title>
+    <link>twoheartliu.github.io/tags/css/</link>
+    <description>Recent content in CSS on twoheart&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 10 Sep 2019 18:27:48 +0000</lastBuildDate>
+    
+	<atom:link href="twoheartliu.github.io/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CSS 动画总结</title>
+      <link>twoheartliu.github.io/posts/2019-09-10-css-%E5%8A%A8%E7%94%BB%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 10 Sep 2019 18:27:48 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-09-10-css-%E5%8A%A8%E7%94%BB%E6%80%BB%E7%BB%93/</guid>
+      <description>CSS 动画原理 图片快速连续的变化构成了动画
+每一幅静止画面被称作帧 每秒 24 帧（影视） 每秒 30-120 帧（游戏）
+使用 setInterval 和 id.style.left 可以使 id 元素按照设置的时间移动，从而构成动画。
+最后使用 clearInterval 清除定时器。
+浏览器渲染原理 JS / CSS &amp;gt; 样式 &amp;gt; 布局 &amp;gt; 绘制 &amp;gt; 合成
+更新方式根据不同的 JS / CSS 操作省略其中的步骤
+更新方式根据浏览器的不同省略其中的步骤
+transform 因为 left 操作在所有浏览器中都走了一遍所有流程，导致渲染效率低下，所以并不推荐使用 left 制作 CSS 动画，而使用 transform （变形）。
+transform 并没有 repaint (重新绘制)，跳过 layout 和 paint，只需要 composite。
+transform - translate(位移) transform: translateX(10px); transform: translateY(10px); transform: translateZ(10px); transform: translate(10px, 50%, 100px); translateZ 需要在父元素定义 perspective 属性，意思是视点距离视图中间位置的距离。</description>
+    </item>
+    
+    <item>
+      <title>常用的 CSS 布局套路</title>
+      <link>twoheartliu.github.io/posts/2019-06-10-common-css/</link>
+      <pubDate>Mon, 10 Jun 2019 17:39:51 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-06-10-common-css/</guid>
+      <description>这里记录一下基础的 CSS 布局套路
+ 左右布局 show in JSbin三栏布局 show in JSbin各种居中 show in JSbinTHE END</description>
+    </item>
+    
+    <item>
+      <title>CSS 简义</title>
+      <link>twoheartliu.github.io/posts/2019-06-01-bref-css/</link>
+      <pubDate>Sat, 01 Jun 2019 23:52:00 +0000</pubDate>
+      
+      <guid>twoheartliu.github.io/posts/2019-06-01-bref-css/</guid>
+      <description>CSS 是一门玄学 这里记录一下基础的 CSS 套路
+ float 解决高度塌陷问题 .clearfix::after { content: &amp;#34;&amp;#34;; display: block; clear: both; } 在需要浮动的子元素设置 float: left 之后，需要使用 clearfix 套路放在父元素上，否则会使下方所有文档流塌陷到上部，导致页面布局发生问题。
+文档流 文档流的英文是 Normal Flow，文档流是一个很垃圾的翻译。
+文档流代表元素在文档中的「流动」方向。
+float:left、position:fixed、position:absolute 都能使元素脱离文档流。
+内联元素文档流 默认：从左往右，如果遇到阻碍自动换行
+英文默认不会被换行分割
+如果需要，使用属性：
+word-break: break-all; //默认 break-word;
+一旦脱离文档流，元素高度将不占用文档流高度
+background 背景图按比例缩放： background-size: cover;
+背景图蒙版：
+background: rgba(0, 0, 0, 0.8)//最后一项是透明度
+背景图位置居中：
+background-positon: center center;//上下 左右 位置
+布局 尽量不要使用固定宽高： 使用 padding 进行布局，从内向外撑起需要的宽高。
+ 减少 bug 方便修改文案  CSS 画三角形 利用 border</description>
+    </item>
+    
+  </channel>
+</rss>

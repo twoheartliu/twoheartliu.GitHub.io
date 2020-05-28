@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+
+    <meta name="author" content="twoheart liu">
+    <meta name="description" content="表达式和语句 表达式：
+1 &#43; 2 // 表达式的值是 3 add(1, 2) // 表达式的值为函数的返回值 console.log // 表达式的值为函数本身 console.log(3) // 表达式的值为 undefined 语句：
+var a = &#39;hello&#39; 区别：
+ 表达式一般都有值，语句可能有也可能没有 语句一般会改变环境（声明、赋值） 以上不绝对  标识符的规则 规则：
+ 第一个字符，可以是 Unicode 字母或 $ 或 _ 或中文 后面字符除了上面说的，还可以是数字 变量名是标识符  if else 语句 if (a === 10) { console.log(&#39;如果 a 与 10 相等，这里会执行&#39;) } else { console.log(&#39;a 与 10 不相等&#39;) } // 注意：“=”是赋值，“===”是逻辑判断 形如“如果条件成立执行 a 不然执行 b”的语句，可以写成三元表达式（条件运算符）的形式，以上用三元表达式表示为：">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JavaScript 语法"/>
+<meta name="twitter:description" content="表达式和语句 表达式：
+1 &#43; 2 // 表达式的值是 3 add(1, 2) // 表达式的值为函数的返回值 console.log // 表达式的值为函数本身 console.log(3) // 表达式的值为 undefined 语句：
+var a = &#39;hello&#39; 区别：
+ 表达式一般都有值，语句可能有也可能没有 语句一般会改变环境（声明、赋值） 以上不绝对  标识符的规则 规则：
+ 第一个字符，可以是 Unicode 字母或 $ 或 _ 或中文 后面字符除了上面说的，还可以是数字 变量名是标识符  if else 语句 if (a === 10) { console.log(&#39;如果 a 与 10 相等，这里会执行&#39;) } else { console.log(&#39;a 与 10 不相等&#39;) } // 注意：“=”是赋值，“===”是逻辑判断 形如“如果条件成立执行 a 不然执行 b”的语句，可以写成三元表达式（条件运算符）的形式，以上用三元表达式表示为："/>
+
+    <meta property="og:title" content="JavaScript 语法" />
+<meta property="og:description" content="表达式和语句 表达式：
+1 &#43; 2 // 表达式的值是 3 add(1, 2) // 表达式的值为函数的返回值 console.log // 表达式的值为函数本身 console.log(3) // 表达式的值为 undefined 语句：
+var a = &#39;hello&#39; 区别：
+ 表达式一般都有值，语句可能有也可能没有 语句一般会改变环境（声明、赋值） 以上不绝对  标识符的规则 规则：
+ 第一个字符，可以是 Unicode 字母或 $ 或 _ 或中文 后面字符除了上面说的，还可以是数字 变量名是标识符  if else 语句 if (a === 10) { console.log(&#39;如果 a 与 10 相等，这里会执行&#39;) } else { console.log(&#39;a 与 10 不相等&#39;) } // 注意：“=”是赋值，“===”是逻辑判断 形如“如果条件成立执行 a 不然执行 b”的语句，可以写成三元表达式（条件运算符）的形式，以上用三元表达式表示为：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="twoheartliu.github.io/posts/2019-09-20-javascript-%E8%AF%AD%E6%B3%95/" />
+<meta property="article:published_time" content="2019-09-20T13:52:37+00:00" />
+<meta property="article:modified_time" content="2019-09-20T13:52:37+00:00" />
+
+
+    
+      <base href="twoheartliu.github.io/posts/2019-09-20-javascript-%E8%AF%AD%E6%B3%95/">
+    
+    <title>
+  JavaScript 语法 · twoheart&#39;s blog
+</title>
+
+    
+      <link rel="canonical" href="twoheartliu.github.io/posts/2019-09-20-javascript-%E8%AF%AD%E6%B3%95/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="twoheartliu.github.io/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.71.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="twoheartliu.github.io/">
+      twoheart&#39;s blog
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="twoheartliu.github.io/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">JavaScript 语法</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-09-20T13:52:37Z'>
+                September 20, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              2 分钟阅读时间
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="twoheartliu.github.io/tags/javascript/">JavaScript</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="表达式和语句">表达式和语句</h2>
+<!-- raw HTML omitted -->
+<p>表达式：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">1 + 2
+// 表达式的值是 3
+add(1, 2)
+// 表达式的值为函数的返回值
+console.log
+// 表达式的值为函数本身
+console.log(3)
+// 表达式的值为 undefined
+</code></pre></div><p>语句：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">var a = &#39;hello&#39;
+</code></pre></div><p>区别：</p>
+<ul>
+<li>表达式一般都有值，语句可能有也可能没有</li>
+<li>语句一般会改变环境（声明、赋值）</li>
+<li>以上不绝对</li>
+</ul>
+<h2 id="标识符的规则">标识符的规则</h2>
+<p>规则：</p>
+<ul>
+<li>第一个字符，可以是 Unicode 字母或 $ 或 _ 或中文</li>
+<li>后面字符除了上面说的，还可以是数字</li>
+<li>变量名是标识符</li>
+</ul>
+<h2 id="if-else-语句">if else 语句</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">if (a === 10) {
+  console.log(&#39;如果 a 与 10 相等，这里会执行&#39;)
+} else {
+  console.log(&#39;a 与 10 不相等&#39;)
+}
+
+// 注意：“=”是赋值，“===”是逻辑判断
+</code></pre></div><p>形如“如果条件成立执行 a 不然执行 b”的语句，可以写成三元表达式（条件运算符）的形式，以上用三元表达式表示为：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">a === 10 ? console.log(&#39;如果 a 与 10 相等，这里会执行&#39;) : console.log(&#39;a 与 10 不相等&#39;)
+</code></pre></div><h2 id="while-for-语句">while for 语句</h2>
+<p>JavaScript 中的循环方法</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">while(a &lt; 10) {
+  console.log(&#39;如果 a &lt; 10 则这句被打印&#39;)
+  a = a + 1 // 此条语句保证每次循环之后改变 a 的值，不然会重复循环直到消耗掉所有内存
+}
+</code></pre></div><p>for 循环是 while 循环的语法糖：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">for(var i = 0; i &lt; 10; i++) {
+  console.log(&#39;如果 a &lt; 10 则这句被打印&#39;)
+}
+</code></pre></div><p>注意： for 循环中的 var 声明 和 let 声明经常会作为面试题</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">for (var i = 0; i &lt; 5; i++) {
+
+}
+console.log(&#39;i&#39;, i)
+// i 是 5
+
+for(let i = 0; i &lt; 5; i++) {
+
+}
+console.log(&#39;i&#39;, i)
+//ReferenceError: i is not defined
+
+for (var i = 0; i &lt; 5; i++) {
+  setTimeout(() =&gt; {
+    console.log(&#39;i&#39;, i)
+  }, 100)
+}
+// 打印出 5 个 i 5
+
+for (let i = 0; i &lt; 5; i++) {
+  setTimeout(() =&gt; {
+    console.log(&#39;i&#39;, i)
+  }, 100)
+}
+// 打印出 i 0 / i 1 / i 2 / i 3 / i 4
+
+</code></pre></div><h2 id="break-contine">break contine</h2>
+<p>在循环中， break 表示彻底跳出循环， continue 表示跳出单次循环。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">for (var i = 0; i &lt; 10; i++) {
+  if (i % 2 === 1) {
+    break;
+  }
+}
+console.log(&#39;i&#39;, i)
+// 打印出 i 1
+
+for (var i = 0; i &lt; 10; i++) {
+  if (i % 2 === 1) {
+    continue;
+  } else {
+    console.log(&#39;i&#39;, i)
+  }
+}
+// 打印出 0 2 4 6 8
+</code></pre></div><h2 id="label">label</h2>
+<p>label(标签),相当于定位符，用于跳转到程序的任意位置，格式如下：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">label:
+  语句
+</code></pre></div><p>标签可以是任意的标识符，但不能是保留字，语句部分可以是任意语句。</p>
+<p>标签通常与 break 语句和 continue 语句配合使用，跳出特定的循环。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">top:
+  for (var i = 0; i &lt; 3; i++){
+    for (var j = 0; j &lt; 3; j++){
+      if (i === 1 &amp;&amp; j === 1) break top;
+      console.log(&#39;i=&#39; + i + &#39;, j=&#39; + j);
+    }
+  }
+// i=0, j=0
+// i=0, j=1
+// i=0, j=2
+// i=1, j=0
+</code></pre></div><p>上面代码为一个双重循环区块，break 命令后面加上了 top 标签（注意，top 不用加引号），满足条件时，直接跳出双层循环。如果 break 语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。</p>
+<p>标签也可以用于跳出代码块。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">foo: {
+  console.log(1);
+  break foo;
+  console.log(&#39;本行不会输出&#39;);
+}
+console.log(2);
+// 1
+// 2
+</code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>让我们荡起双桨</p>
+      
+      
+        ©
+        
+        2020
+         twoheart liu 
+      
+      
+         · 
+        技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>
