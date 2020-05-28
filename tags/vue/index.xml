@@ -17,7 +17,7 @@
       <pubDate>Fri, 22 May 2020 15:15:54 +0000</pubDate>
       
       <guid>https://twoheartliu.github.io/posts/2020-05-22-vue-%E6%A8%A1%E7%89%88-%E6%8C%87%E4%BB%A4%E4%B8%8E%E4%BF%AE%E9%A5%B0%E7%AC%A6/</guid>
-      <description>Vue 模版（template）的三种写法 1. 直接写在 HTML 里（完整版） 2. 写在 Vue 的 options 里（完整版） 3. Vue 文件中的 template 标签（非完整版） //cell.vue // 引入 注意： 在 template 标签里，是使用的 xml 语法，需要闭合标签。
+      <description>Vue 模版（template）的三种写法 1. 直接写在 HTML 里（完整版） 2. 写在 Vue 的 options 里（完整版） 3. Vue 文件中的 template 标签（非完整版） 注意： 在 template 标签里，是使用的 xml 语法，需要闭合标签。
 展示内容 表达式 object.a //变量 a + b //表达式 fn(n) //调用函数 fn(n) //调用函数 如果值为 undefined 或者 null 则不显示 另一写法是
 &amp;lt;span v-text=&amp;#34;msg&amp;#34;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;!-- 和下面的一样 --&amp;gt; &amp;lt;span&amp;gt;{{msg}}&amp;lt;/span&amp;gt; 显示富文本 html 内容 &amp;lt;div v-html=&amp;#34;&amp;#39;&amp;lt;h1&amp;gt;this is h1&amp;lt;/h1&amp;gt;&amp;#39;&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; v-pre 当需要不对模版进行编译时
 &amp;lt;div v-pre&amp;gt;{{n}}&amp;lt;/div&amp;gt; // 页面显示的内容就是： {{ n }} 本身 绑定属性：v-bind img 的 src // x = &amp;#39;xxx.</description>

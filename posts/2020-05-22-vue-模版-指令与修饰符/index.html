@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Language" content="zh-cn">
 
     <meta name="author" content="twoheart liu">
-    <meta name="description" content="Vue 模版（template）的三种写法 1. 直接写在 HTML 里（完整版） 2. 写在 Vue 的 options 里（完整版） 3. Vue 文件中的 template 标签（非完整版） //cell.vue // 引入 注意： 在 template 标签里，是使用的 xml 语法，需要闭合标签。
+    <meta name="description" content="Vue 模版（template）的三种写法 1. 直接写在 HTML 里（完整版） 2. 写在 Vue 的 options 里（完整版） 3. Vue 文件中的 template 标签（非完整版） 注意： 在 template 标签里，是使用的 xml 语法，需要闭合标签。
 展示内容 表达式 object.a //变量 a &#43; b //表达式 fn(n) //调用函数 fn(n) //调用函数 如果值为 undefined 或者 null 则不显示 另一写法是
 &lt;span v-text=&#34;msg&#34;&gt;&lt;/span&gt; &lt;!-- 和下面的一样 --&gt; &lt;span&gt;{{msg}}&lt;/span&gt; 显示富文本 html 内容 &lt;div v-html=&#34;&#39;&lt;h1&gt;this is h1&lt;/h1&gt;&#39;&#34;&gt;&lt;/div&gt; v-pre 当需要不对模版进行编译时
 &lt;div v-pre&gt;{{n}}&lt;/div&gt; // 页面显示的内容就是： {{ n }} 本身 绑定属性：v-bind img 的 src // x = &#39;xxx.">
@@ -15,13 +15,13 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vue 模版/指令与修饰符"/>
-<meta name="twitter:description" content="Vue 模版（template）的三种写法 1. 直接写在 HTML 里（完整版） 2. 写在 Vue 的 options 里（完整版） 3. Vue 文件中的 template 标签（非完整版） //cell.vue // 引入 注意： 在 template 标签里，是使用的 xml 语法，需要闭合标签。
+<meta name="twitter:description" content="Vue 模版（template）的三种写法 1. 直接写在 HTML 里（完整版） 2. 写在 Vue 的 options 里（完整版） 3. Vue 文件中的 template 标签（非完整版） 注意： 在 template 标签里，是使用的 xml 语法，需要闭合标签。
 展示内容 表达式 object.a //变量 a &#43; b //表达式 fn(n) //调用函数 fn(n) //调用函数 如果值为 undefined 或者 null 则不显示 另一写法是
 &lt;span v-text=&#34;msg&#34;&gt;&lt;/span&gt; &lt;!-- 和下面的一样 --&gt; &lt;span&gt;{{msg}}&lt;/span&gt; 显示富文本 html 内容 &lt;div v-html=&#34;&#39;&lt;h1&gt;this is h1&lt;/h1&gt;&#39;&#34;&gt;&lt;/div&gt; v-pre 当需要不对模版进行编译时
 &lt;div v-pre&gt;{{n}}&lt;/div&gt; // 页面显示的内容就是： {{ n }} 本身 绑定属性：v-bind img 的 src // x = &#39;xxx."/>
 
     <meta property="og:title" content="Vue 模版/指令与修饰符" />
-<meta property="og:description" content="Vue 模版（template）的三种写法 1. 直接写在 HTML 里（完整版） 2. 写在 Vue 的 options 里（完整版） 3. Vue 文件中的 template 标签（非完整版） //cell.vue // 引入 注意： 在 template 标签里，是使用的 xml 语法，需要闭合标签。
+<meta property="og:description" content="Vue 模版（template）的三种写法 1. 直接写在 HTML 里（完整版） 2. 写在 Vue 的 options 里（完整版） 3. Vue 文件中的 template 标签（非完整版） 注意： 在 template 标签里，是使用的 xml 语法，需要闭合标签。
 展示内容 表达式 object.a //变量 a &#43; b //表达式 fn(n) //调用函数 fn(n) //调用函数 如果值为 undefined 或者 null 则不显示 另一写法是
 &lt;span v-text=&#34;msg&#34;&gt;&lt;/span&gt; &lt;!-- 和下面的一样 --&gt; &lt;span&gt;{{msg}}&lt;/span&gt; 显示富文本 html 内容 &lt;div v-html=&#34;&#39;&lt;h1&gt;this is h1&lt;/h1&gt;&#39;&#34;&gt;&lt;/div&gt; v-pre 当需要不对模版进行编译时
 &lt;div v-pre&gt;{{n}}&lt;/div&gt; // 页面显示的内容就是： {{ n }} 本身 绑定属性：v-bind img 的 src // x = &#39;xxx." />
@@ -142,10 +142,8 @@
 <h3 id="2-写在-vue-的-options-里完整版">2. 写在 Vue 的 options 里（完整版）</h3>
 <p><img src="https://i.loli.net/2020/05/26/1LT52JwCuirZqlA.png" alt="2"></p>
 <h3 id="3-vue-文件中的-template-标签非完整版">3. Vue 文件中的 template 标签（非完整版）</h3>
-<p>//cell.vue
-<img src="https://i.loli.net/2020/05/26/uzLsHVymE2e3CMU.png" alt="3"></p>
-<p>// 引入
-<img src="https://i.loli.net/2020/05/26/83TVX7LQuodty2D.png" alt="4"></p>
+<p><img src="https://i.loli.net/2020/05/26/uzLsHVymE2e3CMU.png" alt="3"></p>
+<p><img src="https://i.loli.net/2020/05/26/83TVX7LQuodty2D.png" alt="4"></p>
 <p>注意： 在 template 标签里，是使用的 xml 语法，需要闭合标签。</p>
 <h3 id="展示内容">展示内容</h3>
 <h4 id="表达式">表达式</h4>
