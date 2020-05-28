@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Github on twoheart&#39;s blog</title>
-    <link>https://twoheartliu.github.io/tags/github/</link>
+    <link>https://twoheart.cn/tags/github/</link>
     <description>Recent content in Github on twoheart&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sun, 18 Aug 2019 10:54:45 +0000</lastBuildDate>
     
-	<atom:link href="https://twoheartliu.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://twoheart.cn/tags/github/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>如何使用 GitHub Pages 预览 HTML</title>
-      <link>https://twoheartliu.github.io/posts/2019-08-18-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-github-pages-%E9%A2%84%E8%A7%88-html/</link>
+      <link>https://twoheart.cn/posts/2019-08-18-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-github-pages-%E9%A2%84%E8%A7%88-html/</link>
       <pubDate>Sun, 18 Aug 2019 10:54:45 +0000</pubDate>
       
-      <guid>https://twoheartliu.github.io/posts/2019-08-18-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-github-pages-%E9%A2%84%E8%A7%88-html/</guid>
+      <guid>https://twoheart.cn/posts/2019-08-18-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-github-pages-%E9%A2%84%E8%A7%88-html/</guid>
       <description>当你想要将自己写好的网页分享给其他人看到展示效果的时候，使用 Github Pages 是个快速高效的选择。
  如果你还不懂 Github 的注册登录以及基本使用，推荐阅读 知乎：如何使用 Github？
 创建新 repo 如果你阅读了上面的链接应该不用我过多介绍了，填写了 repo 名和必要的描述信息之后，点击 Create repository，就创建好了一个新 repo。
@@ -32,10 +32,10 @@
     
     <item>
       <title>Github Page —— build warning 之坑</title>
-      <link>https://twoheartliu.github.io/posts/2019-05-17-github-page-error/</link>
+      <link>https://twoheart.cn/posts/2019-05-17-github-page-error/</link>
       <pubDate>Fri, 17 May 2019 00:57:08 +0000</pubDate>
       
-      <guid>https://twoheartliu.github.io/posts/2019-05-17-github-page-error/</guid>
+      <guid>https://twoheart.cn/posts/2019-05-17-github-page-error/</guid>
       <description>自从恢复使用博客以来，每次向 Github push 代码总会如期而至的收到一封发自 Github 的题为 Page build warning 的来信。
 今天下班早，我决定试着解决一下这个问题。
 道路是曲折的，通过 Google ，我发现似乎是由于顶级域名和 DNS 配置过期的量子纠缠而引发的问题。

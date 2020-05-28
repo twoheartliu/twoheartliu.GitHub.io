@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>react on twoheart&#39;s blog</title>
-    <link>https://twoheartliu.github.io/tags/react/</link>
+    <link>https://twoheart.cn/tags/react/</link>
     <description>Recent content in react on twoheart&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Wed, 17 Apr 2019 10:09:14 +0000</lastBuildDate>
     
-	<atom:link href="https://twoheartliu.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://twoheart.cn/tags/react/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>react 基础梳理(1)</title>
-      <link>https://twoheartliu.github.io/posts/2019-04-17-react-note-0/</link>
+      <link>https://twoheart.cn/posts/2019-04-17-react-note-0/</link>
       <pubDate>Wed, 17 Apr 2019 10:09:14 +0000</pubDate>
       
-      <guid>https://twoheartliu.github.io/posts/2019-04-17-react-note-0/</guid>
+      <guid>https://twoheart.cn/posts/2019-04-17-react-note-0/</guid>
       <description>首发于我的知乎专栏二心集，转载请保留链接：）
  架构与工作原理 广告语：React 是声明式、组件化、高效、灵活的前端框架
 React 的理念 归结为一个公式：

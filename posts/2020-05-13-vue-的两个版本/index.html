@@ -20,20 +20,20 @@
 <meta property="og:description" content="Vue 分为完整版本和 runtime-only 版本。
     Vue 完整版 Vue 非完整版 评价     视图 写在 HTML 里 或者写在 template 里 写在 render 函数里用 h 来创建标签 h 是尤雨溪写好传给 render 的   特点 有 compiler 没有 compiler compiler 占 40% 体积   webpack 引入 需要配置 alias 默认使用此版 尤雨溪配置的   cdn 引入 vue.js vue.runtime.js 文件名不同，生成环境后缀为 .min.js   @vue/cli 引入 需要额外配置 默认使用此版 尤雨溪、蒋豪群配置的    使用场景  Vue 完整版虽然有编译器，可以直接操作 HTML 节点，但是他相对于来说体积比 runtime 版本多 40%，所以完整版适用于部分开发环境 Vue runtime 版抛弃了编译器，使它的体积小了很多，适用于生产版本 @vue/cli 让 runtime 版本也提供了便利的开发体验，利用 vue-loader 让开发者不必使用 h 函数 所以最佳实践是总是使用非完整版，然后配合 vue-loader 和 vue 文件  template 与 render template 即 vue 文件格式下使用 template 创建 html 页面内容。 render 函数就是用 render 函数用类似 dom 树的方式对页面进行创建，即：" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://twoheartliu.github.io/posts/2020-05-13-vue-%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/" />
+<meta property="og:url" content="https://twoheart.cn/posts/2020-05-13-vue-%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/" />
 <meta property="article:published_time" content="2020-05-13T01:15:52+00:00" />
 <meta property="article:modified_time" content="2020-05-13T01:15:52+00:00" />
 
 
     
-      <base href="https://twoheartliu.github.io/posts/2020-05-13-vue-%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/">
+      <base href="https://twoheart.cn/posts/2020-05-13-vue-%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/">
     
     <title>
   Vue 的两个版本 · twoheart&#39;s blog
 </title>
 
     
-      <link rel="canonical" href="https://twoheartliu.github.io/posts/2020-05-13-vue-%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/">
+      <link rel="canonical" href="https://twoheart.cn/posts/2020-05-13-vue-%E7%9A%84%E4%B8%A4%E4%B8%AA%E7%89%88%E6%9C%AC/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
     
       
       
-      <link rel="stylesheet" href="https://twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://twoheart.cn/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -51,13 +51,13 @@
     
 
     
-      <link rel="stylesheet" href="https://twoheartliu.github.io/css/custom.css" />
+      <link rel="stylesheet" href="https://twoheart.cn/css/custom.css" />
     
 
     
 
-    <link rel="icon" type="image/png" href="https://twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://twoheart.cn/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://twoheart.cn/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.71.1" />
   </head>
@@ -68,7 +68,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="https://twoheartliu.github.io/">
+    <a class="navigation-title" href="https://twoheart.cn/">
       twoheart&#39;s blog
     </a>
     
@@ -78,11 +78,11 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://twoheartliu.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://twoheart.cn/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://twoheartliu.github.io/about/">About</a>
+            <a class="navigation-link" href="https://twoheart.cn/about/">About</a>
           </li>
         
       
@@ -117,9 +117,9 @@
           
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="https://twoheartliu.github.io/tags/vue/">Vue</a>
+    <a href="https://twoheart.cn/tags/vue/">Vue</a>
       <span class="separator">•</span>
-    <a href="https://twoheartliu.github.io/tags/%E5%89%8D%E7%AB%AF/">前端</a></div>
+    <a href="https://twoheart.cn/tags/%E5%89%8D%E7%AB%AF/">前端</a></div>
 
         </div>
       </header>

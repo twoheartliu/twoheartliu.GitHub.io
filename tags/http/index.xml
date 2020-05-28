@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HTTP on twoheart&#39;s blog</title>
-    <link>https://twoheartliu.github.io/tags/http/</link>
+    <link>https://twoheart.cn/tags/http/</link>
     <description>Recent content in HTTP on twoheart&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Sun, 01 Sep 2019 13:56:10 +0000</lastBuildDate>
     
-	<atom:link href="https://twoheartliu.github.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://twoheart.cn/tags/http/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>浅析 URL</title>
-      <link>https://twoheartliu.github.io/posts/2019-09-01-%E6%B5%85%E6%9E%90-url/</link>
+      <link>https://twoheart.cn/posts/2019-09-01-%E6%B5%85%E6%9E%90-url/</link>
       <pubDate>Sun, 01 Sep 2019 13:56:10 +0000</pubDate>
       
-      <guid>https://twoheartliu.github.io/posts/2019-09-01-%E6%B5%85%E6%9E%90-url/</guid>
+      <guid>https://twoheart.cn/posts/2019-09-01-%E6%B5%85%E6%9E%90-url/</guid>
       <description>URL 什么是 URL URL 指的是统一资源定位符（Uniform Resource Locator）。URL 无非就是一个给定的独特资源在 Web 上的地址。理论上说，每个有效的 URL 都指向一个独特的资源。这个资源可以是一个 HTML 页面，一个 CSS 文档，一幅图像，等等。而在实际中，有一些例外，最常见的情况就是 URL 指向了不存在的或是被移动过的资源。由于通过 URL 呈现的资源和 URL 本身由 Web 服务器处理，因此 web 服务器的拥有者需要认真地维护资源以及与它关联的 URL。
 URL 组成部分 一个 URL 由不同的部分组成，其中一些是必须的，而另一些是可选的。让我们以下面这个 URL 为例看看其中最重要的部分： http://www.example.com:80/path/to/myfile.html?key1=value1&amp;amp;key2=value2#SomewhereInTheDocument
  http:// 是协议。表明了浏览器必须使用何种协议 www.example.com 是域名。它表明正在请求哪个 Web 服务器。 :80 是端口。相当于房间号。 /path/to/myfile.html 是网络服务器上资源的路径。在 Web 的早期阶段，像这样的路径表示 Web 服务器上的物理文件位置。如今，它主要是由没有任何物理现实的 Web 服务器处理的抽象。 ?key1=value1&amp;amp;key2=value2 是提供给网络服务器的额外参数。这些参数是用 &amp;amp; 符号分隔的键/值对列表。服务器可以根据键值对的内容处理并返回响应。 #SomewhereInTheDocument 是资源本身的另一部分的锚点。锚点表示资源中的一种“书签”，给浏览器显示位于该“加书签”位置的内容的方向。注意：锚点信息不会发送给服务器  DNS 什么是 DNS DNS (Domain Name System) 域名系统，将方便用户记忆的域名地址 domain names 转换为 IP 数字串、IP addresses，从而在因特网 Internet 或者私有网络上找到特定的机器。</description>
@@ -24,10 +24,10 @@ URL 组成部分 一个 URL 由不同的部分组成，其中一些是必须的�
     
     <item>
       <title>HTTP 基础</title>
-      <link>https://twoheartliu.github.io/posts/2019-05-23-http-basic/</link>
+      <link>https://twoheart.cn/posts/2019-05-23-http-basic/</link>
       <pubDate>Thu, 23 May 2019 01:06:01 +0000</pubDate>
       
-      <guid>https://twoheartliu.github.io/posts/2019-05-23-http-basic/</guid>
+      <guid>https://twoheart.cn/posts/2019-05-23-http-basic/</guid>
       <description>WWW 的发明 Tim Berners-Lee（下文中称为李爵士）在 1989 年至 1992 年间，发明了 WWW（World Wide Web），一种适用于全世界的网络。主要包含三个概念
  URI，俗称网址 HTTP，两个电脑之间传输内容的协议 HTML，超级文本，主要用来做页面跳转 URL 的作用是能让你访问一个页面，HTTP 的作用是让你能下载这个页面，HTML 的作用是让你能看懂这个页面。 这是一个简单而完美的系统。李爵士除了发明了这些概念，还付诸了行动： 发明了第一个服务器 发明了第一个浏览器 写出了第一个网页  URI 是什么 Google URI 维基百科即可查看全称。 URI 分为 URL 和 URN，我们一般使用 URL 作为网址。
 URN Google URN 维基百科即可查看全称。 ISBN: 9787115275790 就是一个 URN，通过 URN 你可以确定一个「唯一的」资源，ISBN: 9787115275790 对应的资源的是《JavaScript 高级程序设计（第三版）》这本书。你去是介绍任何一个图书馆、书店，他们都知道是这本书。

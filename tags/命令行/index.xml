@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>命令行 on twoheart&#39;s blog</title>
-    <link>https://twoheartliu.github.io/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+    <link>https://twoheart.cn/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
     <description>Recent content in 命令行 on twoheart&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Wed, 15 May 2019 00:56:59 +0000</lastBuildDate>
     
-	<atom:link href="https://twoheartliu.github.io/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://twoheart.cn/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>前端（只）需要掌握这些命令行（就还行了）</title>
-      <link>https://twoheartliu.github.io/posts/2019-05-15-command-line/</link>
+      <link>https://twoheart.cn/posts/2019-05-15-command-line/</link>
       <pubDate>Wed, 15 May 2019 00:56:59 +0000</pubDate>
       
-      <guid>https://twoheartliu.github.io/posts/2019-05-15-command-line/</guid>
+      <guid>https://twoheart.cn/posts/2019-05-15-command-line/</guid>
       <description>命令 全拼 缩写     创建目录 make directory mkdir   删除 remove rm   移动/重命名 move mv   复制 copy cp   罗列 list ls   改变目录 change directory cd    练习  windows 用户在任意目录使用 shift + 右键 打开 cmd 或者 powershell；或通过其他方式打开命令行 cd ~/Desktop 回车 恭喜你在命令行里进入了桌面 输入命令 mkdir demo1 cd demo1 进入目录 cd .. 回退到桌面 rm -rf demo1 删除目录，其中 -r 表示递归地删除路径下的所有文件，如果删除的是文件夹必须加 -r；-f 表示强制删除，不加的话在 Linux / Unix 系统下每删除一个文件都会提示是否删除 touch 1.</description>
     </item>
     
