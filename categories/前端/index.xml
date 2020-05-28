@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>前端 on twoheart&#39;s blog</title>
-    <link>twoheartliu.github.io/categories/%E5%89%8D%E7%AB%AF/</link>
+    <link>https://twoheartliu.github.io/categories/%E5%89%8D%E7%AB%AF/</link>
     <description>Recent content in 前端 on twoheart&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Fri, 22 May 2020 15:15:54 +0000</lastBuildDate>
     
-	<atom:link href="twoheartliu.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://twoheartliu.github.io/categories/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Vue 模版/指令与修饰符</title>
-      <link>twoheartliu.github.io/posts/2020-05-22-vue-%E6%A8%A1%E7%89%88-%E6%8C%87%E4%BB%A4%E4%B8%8E%E4%BF%AE%E9%A5%B0%E7%AC%A6/</link>
+      <link>https://twoheartliu.github.io/posts/2020-05-22-vue-%E6%A8%A1%E7%89%88-%E6%8C%87%E4%BB%A4%E4%B8%8E%E4%BF%AE%E9%A5%B0%E7%AC%A6/</link>
       <pubDate>Fri, 22 May 2020 15:15:54 +0000</pubDate>
       
-      <guid>twoheartliu.github.io/posts/2020-05-22-vue-%E6%A8%A1%E7%89%88-%E6%8C%87%E4%BB%A4%E4%B8%8E%E4%BF%AE%E9%A5%B0%E7%AC%A6/</guid>
+      <guid>https://twoheartliu.github.io/posts/2020-05-22-vue-%E6%A8%A1%E7%89%88-%E6%8C%87%E4%BB%A4%E4%B8%8E%E4%BF%AE%E9%A5%B0%E7%AC%A6/</guid>
       <description>Vue 模版（template）的三种写法 1. 直接写在 HTML 里（完整版） 2. 写在 Vue 的 options 里（完整版） 3. Vue 文件中的 template 标签（非完整版） //cell.vue // 引入 注意： 在 template 标签里，是使用的 xml 语法，需要闭合标签。
 展示内容 表达式 object.a //变量 a + b //表达式 fn(n) //调用函数 fn(n) //调用函数 如果值为 undefined 或者 null 则不显示 另一写法是
 &amp;lt;span v-text=&amp;#34;msg&amp;#34;&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;!-- 和下面的一样 --&amp;gt; &amp;lt;span&amp;gt;{{msg}}&amp;lt;/span&amp;gt; 显示富文本 html 内容 &amp;lt;div v-html=&amp;#34;&amp;#39;&amp;lt;h1&amp;gt;this is h1&amp;lt;/h1&amp;gt;&amp;#39;&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; v-pre 当需要不对模版进行编译时
@@ -25,10 +25,10 @@
     
     <item>
       <title>Vue 进阶属性之 computed/watch</title>
-      <link>twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/</link>
+      <link>https://twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/</link>
       <pubDate>Thu, 21 May 2020 10:38:11 +0000</pubDate>
       
-      <guid>twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/</guid>
+      <guid>https://twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/</guid>
       <description>首先复习一下响应式原理：
  Vue 对传入的 data 进行监听 传入的 data 会被 Vue 代理 每次对 data 的读写都会通过代理处理 Vue 会在 data 变化时更新 UI  这里要讲 Vue 除了可以更新 UI 还可以做什么
 computed 计算属性 用途 示例代码 1
@@ -39,10 +39,10 @@ computed 计算属性 用途 示例代码 1
     
     <item>
       <title>Vue 实例与构造选项</title>
-      <link>twoheartliu.github.io/posts/2020-05-14-vue-%E5%AE%9E%E4%BE%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9/</link>
+      <link>https://twoheartliu.github.io/posts/2020-05-14-vue-%E5%AE%9E%E4%BE%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9/</link>
       <pubDate>Thu, 14 May 2020 10:47:56 +0000</pubDate>
       
-      <guid>twoheartliu.github.io/posts/2020-05-14-vue-%E5%AE%9E%E4%BE%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9/</guid>
+      <guid>https://twoheartliu.github.io/posts/2020-05-14-vue-%E5%AE%9E%E4%BE%8B%E4%B8%8E%E6%9E%84%E9%80%A0%E9%80%89%E9%A1%B9/</guid>
       <description>什么是 Vue 实例 每个 Vue 应用都是通过用 Vue 函数创建一个新的 Vue 实例开始
 const vm = new Vue(options); vm 对象封装了对视图的所有操作，包括数据读写、事件绑定、DOM 更新 vm 的构造函数是 Vue，按照 ES6 的说法，vm 所属的类是 Vue options 是 new Vue 的参数，一般称之为选项或构造选项
 options 在 Vue 的文档中将选项分为了这样几大类，分别是：数据、DOM、生命周期钩子、资源、组合和其他。 options 的五类属性  数据: data/props/propsData/computed/methods/watch DOM: el/tempalte/render/renderError 生命周期钩子： beforeCreate/created/beforeMount/mounted/beforeUpdate/updated/activated/deactivated/beforeDestroy/destroyed/errorCaptured 资源：directives/filters/component 组合：parent/mixins/provide/inject 其他  属性分类 入门属性 el-挂载点 Vue 实例所挂载的 DOM 元素，如果存在 el 则实例立即进行编译，如果不存在则需要使用 vm.$mount 手动开启编译

@@ -32,20 +32,20 @@ computed 计算属性 用途 示例代码 1
  使用 methods 属性 filter 筛选性别 使用 v-for 指令渲染数组  有没有更优雅的办法？使用 computed 属性 示例代码 3
  computed 消除相同逻辑代码，避免重复（DRY：Don&rsquo;t repeat yourself） 逻辑清晰，方便增加功能 computed 有缓存，当数据没有发生变化，便不会重新渲染页面  watch 简单举例 watch 即当数据发生变化时，执行一个函数。 示例代码 1 ：用 watch 实现撤消 示例代码 2 ：用 watch 模拟 computed ) 由此可见，watch 更偏向于监听记录，而非进行计算，该根据需要选择适用的属性" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/" />
+<meta property="og:url" content="https://twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/" />
 <meta property="article:published_time" content="2020-05-21T10:38:11+00:00" />
 <meta property="article:modified_time" content="2020-05-21T10:38:11+00:00" />
 
 
     
-      <base href="twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/">
+      <base href="https://twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/">
     
     <title>
   Vue 进阶属性之 computed/watch · twoheart&#39;s blog
 </title>
 
     
-      <link rel="canonical" href="twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/">
+      <link rel="canonical" href="https://twoheartliu.github.io/posts/2020-05-21-vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7%E4%B9%8B-computed-watch/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
@@ -55,7 +55,7 @@ computed 计算属性 用途 示例代码 1
     
       
       
-      <link rel="stylesheet" href="twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -63,13 +63,13 @@ computed 计算属性 用途 示例代码 1
     
 
     
-      <link rel="stylesheet" href="twoheartliu.github.io/css/custom.css" />
+      <link rel="stylesheet" href="https://twoheartliu.github.io/css/custom.css" />
     
 
     
 
-    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.71.1" />
   </head>
@@ -80,7 +80,7 @@ computed 计算属性 用途 示例代码 1
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="twoheartliu.github.io/">
+    <a class="navigation-title" href="https://twoheartliu.github.io/">
       twoheart&#39;s blog
     </a>
     
@@ -90,11 +90,11 @@ computed 计算属性 用途 示例代码 1
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="twoheartliu.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://twoheartliu.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="twoheartliu.github.io/about/">About</a>
+            <a class="navigation-link" href="https://twoheartliu.github.io/about/">About</a>
           </li>
         
       
@@ -128,13 +128,13 @@ computed 计算属性 用途 示例代码 1
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="twoheartliu.github.io/categories/%E5%89%8D%E7%AB%AF/">前端</a></div>
+    <a href="https://twoheartliu.github.io/categories/%E5%89%8D%E7%AB%AF/">前端</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="twoheartliu.github.io/tags/vue/">Vue</a>
+    <a href="https://twoheartliu.github.io/tags/vue/">Vue</a>
       <span class="separator">•</span>
-    <a href="twoheartliu.github.io/tags/javascript/">JavaScript</a></div>
+    <a href="https://twoheartliu.github.io/tags/javascript/">JavaScript</a></div>
 
         </div>
       </header>

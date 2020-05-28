@@ -32,20 +32,20 @@ eg：
 const model = { data: 原数据, create() {}, delete() {}, update(data) { // 将传入的 data 覆盖原有的数据 Object.assign(model.data, data) // 用 eventBus 进行对象间通信， 方便 view 收到更新的状态 eventBus.trigger(&#39;m:update&#39;) } }   视图 view 是它在屏幕上的表示，描绘的是 model 的当前状态。当模型的数据发生变化，视图相应地得到刷新自己的机会。 eg：
 const view = { el: 默认元素, html: 将要写入到页面的 DOM, init(element) { // 初始化绑定的元素 view.el = $(element) }, render(n) { 将 DOM 清空，并把新数据渲染到 DOM } }   控制器 controller 定义用户界面对用户输入的响应方式，起到不同层面间的组织作用，用于控制应用程序的流程，它处理用户的行为和数据 model 上的改变。 eg：" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="twoheartliu.github.io/posts/2020-05-07-%E6%B5%85%E6%9E%90-mvc/" />
+<meta property="og:url" content="https://twoheartliu.github.io/posts/2020-05-07-%E6%B5%85%E6%9E%90-mvc/" />
 <meta property="article:published_time" content="2020-05-07T00:42:32+00:00" />
 <meta property="article:modified_time" content="2020-05-07T00:42:32+00:00" />
 
 
     
-      <base href="twoheartliu.github.io/posts/2020-05-07-%E6%B5%85%E6%9E%90-mvc/">
+      <base href="https://twoheartliu.github.io/posts/2020-05-07-%E6%B5%85%E6%9E%90-mvc/">
     
     <title>
   浅析 MVC · twoheart&#39;s blog
 </title>
 
     
-      <link rel="canonical" href="twoheartliu.github.io/posts/2020-05-07-%E6%B5%85%E6%9E%90-mvc/">
+      <link rel="canonical" href="https://twoheartliu.github.io/posts/2020-05-07-%E6%B5%85%E6%9E%90-mvc/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
@@ -55,7 +55,7 @@ const view = { el: 默认元素, html: 将要写入到页面的 DOM, init(elemen
     
       
       
-      <link rel="stylesheet" href="twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://twoheartliu.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -63,13 +63,13 @@ const view = { el: 默认元素, html: 将要写入到页面的 DOM, init(elemen
     
 
     
-      <link rel="stylesheet" href="twoheartliu.github.io/css/custom.css" />
+      <link rel="stylesheet" href="https://twoheartliu.github.io/css/custom.css" />
     
 
     
 
-    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://twoheartliu.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://twoheartliu.github.io/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.71.1" />
   </head>
@@ -80,7 +80,7 @@ const view = { el: 默认元素, html: 将要写入到页面的 DOM, init(elemen
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="twoheartliu.github.io/">
+    <a class="navigation-title" href="https://twoheartliu.github.io/">
       twoheart&#39;s blog
     </a>
     
@@ -90,11 +90,11 @@ const view = { el: 默认元素, html: 将要写入到页面的 DOM, init(elemen
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="twoheartliu.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://twoheartliu.github.io/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="twoheartliu.github.io/about/">About</a>
+            <a class="navigation-link" href="https://twoheartliu.github.io/about/">About</a>
           </li>
         
       
@@ -129,9 +129,9 @@ const view = { el: 默认元素, html: 将要写入到页面的 DOM, init(elemen
           
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="twoheartliu.github.io/tags/mvc/">MVC</a>
+    <a href="https://twoheartliu.github.io/tags/mvc/">MVC</a>
       <span class="separator">•</span>
-    <a href="twoheartliu.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></div>
+    <a href="https://twoheartliu.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></div>
 
         </div>
       </header>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>对象 on twoheart&#39;s blog</title>
-    <link>twoheartliu.github.io/tags/%E5%AF%B9%E8%B1%A1/</link>
+    <link>https://twoheartliu.github.io/tags/%E5%AF%B9%E8%B1%A1/</link>
     <description>Recent content in 对象 on twoheart&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <lastBuildDate>Wed, 25 Sep 2019 00:26:02 +0000</lastBuildDate>
     
-	<atom:link href="twoheartliu.github.io/tags/%E5%AF%B9%E8%B1%A1/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://twoheartliu.github.io/tags/%E5%AF%B9%E8%B1%A1/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>JS 对象基本用法</title>
-      <link>twoheartliu.github.io/posts/2019-09-25-js-%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <link>https://twoheartliu.github.io/posts/2019-09-25-js-%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
       <pubDate>Wed, 25 Sep 2019 00:26:02 +0000</pubDate>
       
-      <guid>twoheartliu.github.io/posts/2019-09-25-js-%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      <guid>https://twoheartliu.github.io/posts/2019-09-25-js-%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
       <description>声明对象的两种语法  var obj = new Object({name: &#39;twoheart&#39;, gender: &#39;male&#39;}) var obj2 = {name: &#39;twoheart&#39;, gender: &#39;male&#39;}  注意：
  key 是字符串，不是标识符 如果省略括号，则必须写标识符 就算省略了括号，依然是字符串形式  如何删除对象的属性 delete var obj = { name: &amp;#39;twoheart&amp;#39;, gender: &amp;#39;male&amp;#39; } delete obj.gender delete obj[&amp;#39;gender&amp;#39;] var hello = &amp;#39;name&amp;#39; delete obj[hello] // delete 语法的三种使用方式 判断 key 是否存在于 obj 中 &#39;gender&#39; in obj
 undefined 使 obj.name = undefined 并不能使属性被删除，也不能以此为依据判断 key 是否存在于 obj 中
