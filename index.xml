@@ -404,5 +404,14 @@ Web 前端开发关于性能优化有一个原则：尽量减少 DOM 操作。�
  Vue 基本语法回顾 Vue 练手项目的完善 React Demo 回顾 大全的内容过一遍  所谓写字即是露怯，是指写出来的东西总会被指摘，被当做讨论的根据，即使是自己，多年后看到当时写的内容也多半难以接受， 但好处还是更多一些的，所以我选择写一点。</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://twoheart.cn/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://twoheart.cn/about/</guid>
+      <description>this is my about page</description>
+    </item>
+    
   </channel>
 </rss>
