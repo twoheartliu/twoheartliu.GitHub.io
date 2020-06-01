@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+
+    <meta name="author" content="twoheart liu">
+    <meta name="description" content="指令、minxins、extends……">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vue 进阶属性"/>
+<meta name="twitter:description" content="指令、minxins、extends……"/>
+
+    <meta property="og:title" content="Vue 进阶属性" />
+<meta property="og:description" content="指令、minxins、extends……" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://twoheart.cn/posts/vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7/" />
+<meta property="article:published_time" content="2020-05-28T16:18:41+08:00" />
+<meta property="article:modified_time" content="2020-05-28T16:18:41+08:00" />
+
+
+    
+      <base href="https://twoheart.cn/posts/vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7/">
+    
+    <title>
+  Vue 进阶属性 · twoheart&#39;s blog
+</title>
+
+    
+      <link rel="canonical" href="https://twoheart.cn/posts/vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://twoheart.cn/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://twoheart.cn/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://twoheart.cn/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://twoheart.cn/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.71.1" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://twoheart.cn/">
+      twoheart&#39;s blog
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://twoheart.cn/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://twoheart.cn/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Vue 进阶属性</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-05-28T16:18:41&#43;08:00'>
+                May 28, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              2 分钟阅读时间
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://twoheart.cn/categories/%E5%89%8D%E7%AB%AF/">前端</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://twoheart.cn/tags/vue/">Vue</a>
+      <span class="separator">•</span>
+    <a href="https://twoheart.cn/tags/javascript/">JavaScript</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="direvtives-指令">Direvtives 指令</h2>
+<h3 id="自定义指令">自定义指令</h3>
+<p>我们已经学习了一些内置指令，如：v-html/v-for/v-text
+我们也可以自定义指令，如 v-x</p>
+<h4 id="directiveoptions">directiveOptions</h4>
+<p>directiveOptions 可以包含以下钩子函数：</p>
+<ul>
+<li>bind: 只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。</li>
+<li>inserted：被绑定元素插入到父节点时调用</li>
+<li>update：所在组件的 Vnode 更新时调用</li>
+<li>componentUpdated: 指令所在组件的 VNode 及其子 VNode 全部更新后调用</li>
+<li>unbind：只调用一次，指令与元素解绑时调用</li>
+</ul>
+<h4 id="写法一">写法一</h4>
+<p>全局声明：</p>
+<p>Vue.directive(&lsquo;x&rsquo;, directiveOptions);</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Vue.directive(&#39;x&#39;, {
+  inserted: function (el) {
+    el.addEventListener(&#39;click&#39;, () =&gt; {
+      console.log(&#39;clicked&#39;)
+    })
+  }
+})
+</code></pre></div><h4 id="写法二">写法二</h4>
+<p>局部声明</p>
+<p>只在组件内部使用自定义指令</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">export default {
+  name: &#34;App&#34;,
+  components: {
+    HelloWorld
+  },
+  directives: {
+    y: {
+      inserted: function(el) {
+        el.addEventListener(&#34;click&#34;, () =&gt; {
+          console.log(&#34;yyy&#34;);
+        });
+      }
+    }
+  }
+};
+</code></pre></div><h4 id="自制-v-on2-指令">自制 v-on2 指令</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">import Vue from &#34;vue/dist/vue.js&#34;;
+
+Vue.config.productionTip = false;
+
+new Vue({
+  template: `&lt;button v-on2:click=&#34;add&#34;&gt;点我&lt;/button&gt;`,
+  methods: {
+    add() {
+      console.log(&#34;hi&#34;);
+    }
+  },
+  directives: {
+    on2: {
+      inserted(el, info) {
+        el.addEventListener(info.arg, info.value);
+      },
+      unbind(el, info) {
+        el.removeEventListener(info.arg, info.value);
+      }
+    }
+  }
+}).$mount(&#34;#app&#34;);
+</code></pre></div><h3 id="指令的作用">指令的作用</h3>
+<ul>
+<li>主要用于 DOM 操作
+<ul>
+<li>Vue 实例、组件用于数据绑定、事件监听、DOM 更新</li>
+<li>Vue 指令主要目的就是原生 DOM 操作</li>
+</ul>
+</li>
+<li>减少重复
+<ul>
+<li>如果某个 DOM 操作你经常使用，就可以封装为指令</li>
+<li>如果某个 DOM 操作比较复杂，也可以封装为指令</li>
+</ul>
+</li>
+</ul>
+<h2 id="mixins-混入">mixins 混入</h2>
+<p>directive 的作用是减少 DOM 操作重复
+而 mixins 的作用则是减少构造选项 data、methods、钩子的重复</p>
+<p><a href="https://codesandbox.io/s/recursing-pike-h1d0r?file=/src/App.vue">示例代码</a></p>
+<h3 id="mixin-技巧">mixin 技巧</h3>
+<ul>
+<li>选项智能合并
+当组件和混入对象含有同名选项时，这些选项将以恰当的方式进行“合并”</li>
+<li>Vue.mixin
+<strong>不推荐</strong> 使用，因为不需要使用 mixins 选项进行引入，全局都会默认使用 mixin 中的属性</li>
+</ul>
+<h2 id="extends">extends</h2>
+<p>与 mixins 需求一致，不想要每次都写一个 mixins，可以使用 Vue.extends 或者 options.extends</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">const myVue = Vue.extends({
+  data() {
+    return {
+      name: &#39;&#39;,
+      time: undefined
+    },
+    create() {
+      if (!this.name) {
+        console.log(&#39;no name&#39;)
+      }
+      this.name = new Date();
+    },
+    beforeDestroy() {
+      const duration = (new Date()) - this.time
+      console.log(`${this.name} 存活时间 ${duration}`)
+    }
+  }
+})
+</code></pre></div><p>然后就可以使用 new MyVue(options) 了</p>
+<p>extends 是比 mixins 更抽象一点的封装
+如果你嫌写五次 mixins 麻烦，可以考虑 extends 一次，不过实际工作中用的很少</p>
+<h2 id="provide-和-inject-提供和注入">provide 和 inject （提供和注入）</h2>
+<p><a href="https://codesandbox.io/s/clever-frost-28luh">示例代码</a>
+作用： 大范围的 data 和 method 公用
+注意： 不能只传 themeName 不传 changeTheme，因为 themeName 的值是被复制给 provide 的
+可以传引用，但是不推荐，会导致你任意组件都可以修改其中的值，容易导致数据错乱</p>
+<h2 id="总结">总结</h2>
+<ul>
+<li>directive 指令
+<ul>
+<li>全局用 Vue.directive(&lsquo;x&rsquo;, {&hellip;})</li>
+<li>局部用 options.directives</li>
+<li>作用是减少 DOM 操作相关代码重复</li>
+</ul>
+</li>
+<li>mixins 混入
+<ul>
+<li>全局用 Vue.mixin(&hellip;)，不推荐</li>
+<li>局部用 <code>options.mixins:[mixin1, mixin2]</code></li>
+<li>作用是减少 options 里的重复</li>
+</ul>
+</li>
+<li>extends 继承、扩展
+<ul>
+<li>全局用 Vue.extends({&hellip;})</li>
+<li>局部用 options.extends: {&hellip;}</li>
+<li>作用跟 mixins 差不多，只是形式不同</li>
+</ul>
+</li>
+<li>provide/inject 提供和注入
+<ul>
+<li>祖先提供东西，后代注入东西</li>
+<li>作用是大范围、隔 N 代共享信息</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "twoheart" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>让我们荡起双桨</p>
+      
+      
+        ©
+        
+        2020
+         twoheart liu 
+      
+      
+         · 
+        技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>

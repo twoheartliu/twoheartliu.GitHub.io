@@ -6,10 +6,25 @@
     <description>Recent content in Vue on twoheart&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 22 May 2020 15:15:54 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2020 16:18:41 +0800</lastBuildDate>
     
 	<atom:link href="https://twoheart.cn/tags/vue/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue 进阶属性</title>
+      <link>https://twoheart.cn/posts/vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7/</link>
+      <pubDate>Thu, 28 May 2020 16:18:41 +0800</pubDate>
+      
+      <guid>https://twoheart.cn/posts/vue-%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7/</guid>
+      <description>Direvtives 指令 自定义指令 我们已经学习了一些内置指令，如：v-html/v-for/v-text 我们也可以自定义指令，如 v-x
+directiveOptions directiveOptions 可以包含以下钩子函数：
+ bind: 只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。 inserted：被绑定元素插入到父节点时调用 update：所在组件的 Vnode 更新时调用 componentUpdated: 指令所在组件的 VNode 及其子 VNode 全部更新后调用 unbind：只调用一次，指令与元素解绑时调用  写法一 全局声明：
+Vue.directive(&amp;lsquo;x&amp;rsquo;, directiveOptions);
+Vue.directive(&amp;#39;x&amp;#39;, { inserted: function (el) { el.addEventListener(&amp;#39;click&amp;#39;, () =&amp;gt; { console.log(&amp;#39;clicked&amp;#39;) }) } }) 写法二 局部声明
+只在组件内部使用自定义指令
+export default { name: &amp;#34;App&amp;#34;, components: { HelloWorld }, directives: { y: { inserted: function(el) { el.addEventListener(&amp;#34;click&amp;#34;, () =&amp;gt; { console.log(&amp;#34;yyy&amp;#34;); }); } } } }; 自制 v-on2 指令 import Vue from &amp;#34;vue/dist/vue.</description>
+    </item>
     
     <item>
       <title>Vue 模版/指令与修饰符</title>
